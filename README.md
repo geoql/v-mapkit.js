@@ -1,6 +1,6 @@
 # V-Mapkit.js 🌎
 
-Power of Vue 3 with awesomeness of Mapkit.js!
+Power of [Vue 3](https://v3.vuejs.org) with awesomeness of [Mapkit](https://developer.apple.com/documentation/mapkitjs)!
 
 ## Features
 
