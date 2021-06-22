@@ -21,11 +21,10 @@
       "@/*": ["./*"]
     },
     "types": [
-      "@types/node",
-    ]
+      "@types/node"    ]
   },
   "include": [
-    "src"
+    "src",
   ],
   "exclude": [
     "node_modules",
