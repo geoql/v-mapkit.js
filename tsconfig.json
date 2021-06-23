@@ -21,7 +21,9 @@
       "@/*": ["./*"]
     },
     "types": [
-      "@types/node"    ]
+      "@types/node",
+      "@types/apple-mapkit-js-browse"
+    ]
   },
   "include": [
     "src",
