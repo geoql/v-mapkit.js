@@ -48,7 +48,7 @@ export default {
   output: [
     {
       file: 'dist/v-mapkit.cjs.js',
-      format: 'iife',
+      format: 'cjs',
       name: 'VMapkit',
       exports: 'named',
       strict: true,
