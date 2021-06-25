@@ -60,6 +60,8 @@ jobs:
           git_name: github-actions[bot]
           git_email: github-actions[bot]@users.noreply.github.com
           auto_fix: false
+          stylelint: true
+          stylelint_extensions: css,scss,vue
           eslint: true
           eslint_extensions: js,ts,vue
           prettier: true
