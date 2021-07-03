@@ -1,7 +1,9 @@
 /**
  * Loads the mapkit library
  * from CDN
- * @returns {Promise<typeof window.mapkit}
+ *
+ * @param {string} v – version of mapkit.js
+ * @returns {Promise} - Adds mapkit to window
  */
 const loadMapKit = async (v: string): Promise<typeof window.mapkit> => {
   return new Promise((resolve, reject) => {
