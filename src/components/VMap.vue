@@ -3,7 +3,14 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, onMounted, PropType, reactive } from 'vue';
+  import {
+    defineComponent,
+    onMounted,
+    PropType,
+    ref,
+    Ref,
+    reactive,
+  } from 'vue';
   import { loadMapKit } from '../utils/helpers';
 
   export default defineComponent({
@@ -44,23 +51,30 @@
       },
     },
     setup(props) {
-      let init = false;
+      let init: Ref<boolean> = ref(false);
       let mapkit: typeof window.mapkit = reactive({} as typeof window.mapkit);
       const state = reactive({
         map: {} as mapkit.Map,
         options: {} as mapkit.MapConstructorOptions,
       });
 
+      /**
+       * Mounted Lifecycle Hook ♻️
+       */
       onMounted(async () => {
-        mapkit = await loadMapKit(props.version);
-        if (!init) {
+        try {
+          mapkit = await loadMapKit(props.version);
+        } catch (error) {
+          throw new Error('Failed to load Mapkit');
+        }
+        if (!init.value) {
           const options: mapkit.MapKitInitOptions = {
             authorizationCallback: (done: (e: string) => void) => {
               done(props.accessToken);
             },
           };
           mapkit.init({ ...options, ...props.initOptions });
-          init = true;
+          init.value = true;
           state.map = new mapkit.Map('map', {
             ...props.mapOptions,
           });
