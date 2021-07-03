@@ -14,8 +14,9 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
     'plugin:vue/vue3-essential',
+    'plugin:jsdoc/recommended',
   ],
-  plugins: ['prettier', 'vue'],
+  plugins: ['prettier', 'vue', 'jsdoc'],
   // add your custom rules here
   rules: {},
 };
