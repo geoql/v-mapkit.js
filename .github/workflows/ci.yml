@@ -24,10 +24,10 @@ concurrency:
 
 jobs:
   ci:
-    fail-fast: false
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest]
         node: [16]
