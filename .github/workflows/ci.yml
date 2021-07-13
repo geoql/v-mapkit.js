@@ -9,9 +9,22 @@ on:
     branches:
       - main
       - next
+  pull_request_target:
+    branches:
+      - main
+      - next
+
+permissions:
+  checks: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   ci:
+    fail-fast: false
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -20,8 +33,13 @@ jobs:
         node: [16]
 
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
+      - name: Check out 🛎 (push)
+        if: ${{ github.event_name == 'push' }}
+        uses: actions/checkout@v2
+
+      - name: Check out 🛎 (pull_request_target)
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
@@ -32,22 +50,10 @@ jobs:
           check-latest: true
           registry-url: https://registry.npmjs.org
           scope: '@geoql'
+          cache: 'npm' 
 
       - name: Upgrade npm 🎉
         run: npm install -g npm@latest
-
-      - name: Get npm cache directory 🏗
-        id: npm-cache
-        run: echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Restore cached node_modules 🤷‍♂️
-        uses: actions/cache@v2.1.6
-        with:
-          path: |
-            ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: Install dependencies 🚀
         run: npm ci --prefer-offline --no-audit --no-optional
