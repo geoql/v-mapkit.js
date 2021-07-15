@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - next
+  pull_request:
+    branches:
+      - main
+      - next
   pull_request_target:
     branches:
       - main
@@ -30,11 +34,11 @@ jobs:
 
     steps:
       - name: Check out repository (push)
-        if: ${{ github.event_name == 'push' && github.actor != 'dependabot[bot]' }}
+        if: ${{ github.event_name == 'push' }}
         uses: actions/checkout@v2
 
       - name: Check out repository (pull_request_target)
-        if: ${{ github.event_name == 'pull_request_target' }}
+        if: ${{ github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]' }}
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
