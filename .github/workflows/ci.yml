@@ -33,11 +33,11 @@ jobs:
         node: [16]
 
     steps:
-      - name: Check out 🛎 (push)
-        if: ${{ github.event_name == 'push' }}
+      - name: Check out repository (push)
+        if: ${{ github.event_name == 'push' && github.actor != 'dependabot[bot]' }}
         uses: actions/checkout@v2
 
-      - name: Check out 🛎 (pull_request_target)
+      - name: Check out repository (pull_request_target)
         if: ${{ github.event_name == 'pull_request_target' }}
         uses: actions/checkout@v2
         with:
