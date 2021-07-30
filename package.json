@@ -28,7 +28,9 @@
     "lint:css": "stylelint \"{,!(node_modules|dist|docs|example)/**/}*.{css,scss,vue}\" --ignore-path .gitignore",
     "lint:css:fix": "stylelint --fix \"{,!(node_modules|dist|docs|example)/**/}*.{css,scss,vue}\" --ignore-path .gitignore",
     "lint-staged": "lint-staged",
-    "release": "shipjs prepare"
+    "release": "shipjs prepare",
+    "release:dry": "shipjs prepare --dry-run",
+    "release:auto": "shipjs prepare --yes"
   },
   "peerDependencies": {
     "vue": "^3.1.4"
