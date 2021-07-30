@@ -22,7 +22,7 @@ Power of [Vue 3](https://v3.vuejs.org) with awesomeness of [Mapkit](https://deve
 ### Installation
 
 ```sh
-npm install mapkit v-mapkit.js
+npm install v-mapkit.js
 ```
 ### Build Setup
 
@@ -39,7 +39,7 @@ $ npm run build
 
 ## Built with
 
-- [TypeScript](https://www.typescriptlang.org/).
+- [TypeScript](https://www.typescriptlang.org/)
 - [Vue 3](https://v3.vuejs.org)
 
 ## Contributing 

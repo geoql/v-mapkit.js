@@ -1,35 +1,38 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
-    "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
-    ],
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "allowJs": true,
-    "sourceMap": true,
     "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "allowJs": true,
     "noEmit": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
+    "outDir": "./dist",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
     "paths": {
       "~/*": ["./*"],
-      "@/*": ["./*"]
+      "@/*": ["src/*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-    ],
     "types": [
-      "node",
-      "apple-mapkit-js",
+      "@types/node",
+      "@types/apple-mapkit-js",
     ]
   },
   "include": [
     "src",
+    "shims",
   ],
   "exclude": [
     "node_modules",

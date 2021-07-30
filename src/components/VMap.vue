@@ -1,5 +1,6 @@
 <template>
   <div id="map"></div>
+  <slot />
 </template>
 
 <script lang="ts">
@@ -12,6 +13,7 @@
     reactive,
   } from 'vue';
   import { loadMapKit } from '../utils/helpers';
+  import { VMapProps } from '~/types';
 
   export default defineComponent({
     name: 'VMap',
@@ -50,7 +52,7 @@
         },
       },
     },
-    setup(props) {
+    setup(props: VMapProps) {
       let init: Ref<boolean> = ref(false);
       let mapkit: typeof window.mapkit = reactive({} as typeof window.mapkit);
       const state = reactive({
