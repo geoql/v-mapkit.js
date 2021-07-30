@@ -1,5 +1,6 @@
 <template>
   <div id="map"></div>
+  <slot />
 </template>
 
 <script lang="ts">
