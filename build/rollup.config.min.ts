@@ -63,9 +63,10 @@ export default {
       sourcemap: true,
       globals: {
         vue: 'vue',
+        '@vueuse/core': 'core',
       },
     },
   ],
   plugins,
-  external: ['vue'],
+  external: ['vue', '@vueuse/core'],
 };
