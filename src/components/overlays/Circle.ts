@@ -1,13 +1,8 @@
 import { Ref, ref, shallowRef } from 'vue';
+import { CircleOverlayProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
-type CircleProps = {
-  'circle-coordinates': number[];
-  'circle-radius': number;
-  'circle-style': mapkit.StyleConstructorOptions;
-};
-
-export const CircleOverlay = (props: CircleProps): void => {
+export const CircleOverlay = (props: CircleOverlayProps): void => {
   const state = useGlobalState();
   const mapkit: Ref<typeof window.mapkit> = shallowRef(state.mapkit.value);
   if (state.mapLoad && state.map.value) {

@@ -47,3 +47,11 @@ export type MarkerProps = {
 } & ComponentCustomProps &
   VNodeProps;
 export const MarkerAnnotation: DefineComponent<MarkerProps>;
+
+export type CircleOverlayProps = {
+  'circle-coordinates': number[];
+  'circle-radius': number;
+  'circle-style': mapkit.StyleConstructorOptions;
+} & ComponentCustomProps &
+  VNodeProps;
+export const CircleOverlay: DefineComponent<CircleOverlayProps>;
