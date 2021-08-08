@@ -1,12 +1,8 @@
 import { Ref, shallowRef } from 'vue';
+import { PolygonOverlayProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
-type PolygonProps = {
-  'polygon-coordinates': number[][]; // [lat, lng]
-  'polygon-style': mapkit.StyleConstructorOptions;
-};
-
-export const PolygonOverlay = (props: PolygonProps): void => {
+export const PolygonOverlay = (props: PolygonOverlayProps): void => {
   const state = useGlobalState();
   const mapkit: Ref<typeof window.mapkit> = shallowRef(state.mapkit.value);
 
