@@ -1,12 +1,8 @@
 import { Ref, ref, shallowRef } from 'vue';
+import { TileOverlayProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
-type TileProps = {
-  url: mapkit.URLTemplateCallback | string;
-  options?: mapkit.TileOverlayConstructorOptions;
-};
-
-export const TileOverlay = (props: TileProps): void => {
+export const TileOverlay = (props: TileOverlayProps): void => {
   const state = useGlobalState();
   const mapkit: Ref<typeof window.mapkit> = shallowRef(state.mapkit.value);
 

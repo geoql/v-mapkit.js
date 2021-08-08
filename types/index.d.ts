@@ -55,3 +55,25 @@ export type CircleOverlayProps = {
 } & ComponentCustomProps &
   VNodeProps;
 export const CircleOverlay: DefineComponent<CircleOverlayProps>;
+
+export type PolygonOverlayProps = {
+  'polygon-coordinates': number[][];
+  'polygon-style': mapkit.StyleConstructorOptions;
+} & ComponentCustomProps &
+  VNodeProps;
+export const PolygonOverlay: DefineComponent<PolygonOverlayProps>;
+
+export type PolylineOverlayProps = {
+  'polyline-coordinates': number[][];
+  'polyline-style': mapkit.StyleConstructorOptions;
+} & ComponentCustomProps &
+  VNodeProps;
+export const PolylineOverlay: DefineComponent<PolylineOverlayProps>;
+
+export type TileOverlayProps = {
+  url: mapkit.URLTemplateCallback | string;
+  options?: mapkit.TileOverlayConstructorOptions;
+} & ComponentCustomProps &
+  VNodeProps;
+
+export const TileOverlay: DefineComponent<TileOverlayProps>;
