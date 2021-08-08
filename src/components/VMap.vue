@@ -1,19 +1,15 @@
-<template>
-  <div id="map"></div>
-  <slot />
-</template>
-
 <script lang="ts">
-  import {
-    defineComponent,
-    onMounted,
-    PropType,
-    ref,
-    Ref,
-    reactive,
-  } from 'vue';
+  import { defineComponent, PropType, SetupContext, h, reactive } from 'vue';
+  import { tryOnMounted, tryOnUnmounted } from '@vueuse/core';
   import { loadMapKit } from '../utils/helpers';
-  import { VMapProps } from '~/types';
+  import {
+    mapDisplayEvents,
+    mapAnnotationOverlayEvents,
+    mapUserLocationEvents,
+    mapInteractionEvents,
+  } from '../utils/events';
+  import { useGlobalState } from '../utils/store';
+  import { GeocoderOptions, SearchOptions, VMapProps } from '../../types';
 
   export default defineComponent({
     name: 'VMap',
@@ -22,13 +18,13 @@
         type: String as PropType<string>,
         required: false,
         default: '5.x.x',
-        description: 'The version of mapkit.js to be loaded',
+        description: 'The version of mapkit.js to be map-loaded',
       },
       language: {
         type: String as PropType<string>,
         required: false,
         default: 'en',
-        description: 'The language maps to be loaded in',
+        description: 'The language maps to be map-loaded in',
       },
       accessToken: {
         type: String as PropType<string>,
@@ -51,48 +47,256 @@
           return {};
         },
       },
+      geocoderOptions: {
+        type: Object as PropType<GeocoderOptions>,
+        required: false,
+        default: () => {
+          return {
+            enabled: false,
+          };
+        },
+      },
+      searchOptions: {
+        type: Object as PropType<SearchOptions>,
+        required: false,
+        default: () => {
+          return {
+            enabled: false,
+          };
+        },
+      },
     },
-    setup(props: VMapProps) {
-      let init: Ref<boolean> = ref(false);
+    emits: [
+      'map',
+      'map-initialized',
+      'map-loaded',
+      'map-destroyed',
+      'geocoder-loaded',
+      'search-loaded',
+    ],
+    setup(props: VMapProps, { slots, emit }: SetupContext) {
+      // Use global state
+      const state = useGlobalState();
+      // MapKit related stuff
       let mapkit: typeof window.mapkit = reactive({} as typeof window.mapkit);
-      const state = reactive({
-        map: {} as mapkit.Map,
-        options: {} as mapkit.MapConstructorOptions,
-      });
+      // Emit init values
+      emit('map-initialized', state.mapInit);
+      emit('map-loaded', state.mapLoad);
+      emit('geocoder-loaded', state.geocoderLoad);
+      emit('search-loaded', state.searchLoad);
 
       /**
        * Mounted Lifecycle Hook ♻️
        */
-      onMounted(async () => {
+      tryOnMounted(async () => {
         try {
           mapkit = await loadMapKit(props.version);
+          state.mapkit.value = mapkit;
         } catch (error) {
-          throw new Error('Failed to load Mapkit');
+          throw new Error(error);
         }
-        if (!init.value) {
+        if (!state.mapInit) {
+          try {
+            await initMap();
+          } catch (error) {
+            throw new Error(error);
+          }
+          if (state.mapInit && !state.mapLoad) {
+            try {
+              await loadMap();
+              // Listen to events on Map
+              listenMapEvents();
+            } catch (error) {
+              throw new Error(error);
+            }
+            if (props.geocoderOptions.enabled) {
+              try {
+                await loadGeocoder();
+              } catch (error) {
+                throw new Error(error);
+              }
+            }
+            if (props.searchOptions.enabled) {
+              try {
+                await loadSearch();
+              } catch (error) {
+                throw new Error(error);
+              }
+            }
+          }
+        }
+      });
+      /**
+       * Destroy the map
+       */
+      tryOnUnmounted(() => {
+        if (state.map.value instanceof mapkit.Map) {
+          state.map.value.destroy();
+          emit('map-destroyed', true);
+        }
+      });
+
+      /**
+       * Initialize the mapkit library
+       *
+       * @returns {Promise<void>}
+       */
+      async function initMap(): Promise<string> {
+        return new Promise((resolve, reject) => {
           const options: mapkit.MapKitInitOptions = {
             authorizationCallback: (done: (e: string) => void) => {
               done(props.accessToken);
             },
           };
           mapkit.init({ ...options, ...props.initOptions });
-          init.value = true;
-          state.map = new mapkit.Map('map', {
+          // Else, resolve:
+          state.mapInit = true;
+          resolve('Map Initialized');
+          emit('map-initialized', state.mapInit);
+          // Listen in case of error:
+          mapkit.addEventListener('error', (e) => {
+            state.mapInit = false;
+            reject(`Failed to initialize Map: ${e}`);
+          });
+        });
+      }
+
+      /**
+       * Loads the Mapkit Map
+       *
+       * @returns {Promise<void>}
+       */
+      async function loadMap(): Promise<string> {
+        return new Promise((resolve, reject) => {
+          state.map.value = new mapkit.Map('map', {
             ...props.mapOptions,
           });
-        }
-      });
+          if (state.map.value instanceof mapkit.Map) {
+            state.mapLoad = true;
+            resolve('Map Loaded');
+          } else {
+            state.mapLoad = false;
+            reject('Failed to load Map');
+          }
+          emit('map-loaded', state.mapLoad);
+          emit('map', state.map.value);
+        });
+      }
 
-      return {
-        mapkit,
-      };
+      /**
+       * Loads the Geocoder
+       *
+       * @returns {Promise<void>}
+       */
+      async function loadGeocoder(): Promise<string> {
+        return new Promise((resolve, reject) => {
+          state.geocoder.value = new mapkit.Geocoder(
+            props.geocoderOptions.options,
+          );
+          if (state.geocoder.value instanceof mapkit.Geocoder) {
+            state.geocoderLoad = true;
+            resolve('Geocoder Loaded');
+          } else {
+            state.geocoderLoad = false;
+            reject('Failed to load Geocoder');
+          }
+          emit('geocoder-loaded', state.geocoderLoad);
+        });
+      }
+
+      /**
+       * Load search
+       *
+       * @returns {Promise<void>}
+       */
+      async function loadSearch(): Promise<string> {
+        return new Promise((resolve, reject) => {
+          state.search.value = new mapkit.Search(props.searchOptions.options);
+          if (state.search.value instanceof mapkit.Search) {
+            state.searchLoad = true;
+            resolve('Search Loaded');
+          } else {
+            state.searchLoad = false;
+            reject('Failed to load Search');
+          }
+          emit('search-loaded', state.searchLoad);
+        });
+      }
+
+      /**
+       * Listens for different map events
+       *
+       * @returns {void}
+       */
+      function listenMapEvents(): void {
+        // Map Display Events
+        displayEvents();
+        // Annotation and Overlay Events
+        annotationOverlayEvents();
+        // User Location Events
+        userLocationEvents();
+        // Map Interaction Events
+        interactionEvents();
+      }
+
+      /**
+       * Listen to map display events
+       *
+       * @returns {void}
+       */
+      function displayEvents(): void {
+        mapDisplayEvents.forEach((e) => {
+          state.map.value.addEventListener(e, (event) => {
+            console.log(`Map Display Event ${e}`, event);
+          });
+        });
+      }
+      /**
+       * Listens to interaction events
+       *
+       * @returns {void}
+       */
+      function interactionEvents(): void {
+        mapInteractionEvents.forEach((e) => {
+          state.map.value.addEventListener(e, (event) => {
+            console.log(`Map Interaction Event ${e}`, event);
+          });
+        });
+      }
+      /**
+       * Listens to annotation and overlay events
+       *
+       * @returns {void}
+       */
+      function annotationOverlayEvents(): void {
+        mapAnnotationOverlayEvents.forEach((e) => {
+          state.map.value.addEventListener(e, (event) => {
+            console.log(`Map Annotation & Overlay Event ${e}`, event);
+          });
+        });
+      }
+      /**
+       * Listens to user location events
+       *
+       * @returns {void}
+       */
+      function userLocationEvents(): void {
+        mapUserLocationEvents.forEach((e) => {
+          state.map.value.addEventListener(e, (event) => {
+            console.log(`Map User Location Event ${e}`, event);
+          });
+        });
+      }
+
+      return () =>
+        h('div', { id: 'map' }, slots && slots.default ? slots.default() : {});
     },
   });
 </script>
 
 <style>
   #map {
-    width: 100% !important;
     height: 100% !important;
+    width: 100% !important;
   }
 </style>

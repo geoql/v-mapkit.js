@@ -27,7 +27,8 @@
     },
     "types": [
       "@types/node",
-      "@types/apple-mapkit-js",
+      "@vueuse/core",
+      "@types/apple-mapkit-js-browser",
     ]
   },
   "include": [
