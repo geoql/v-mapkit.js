@@ -1,4 +1,3 @@
-import '@types/apple-mapkit-js';
 import {
   AllowedComponentProps,
   ComponentCustomProps,
@@ -9,17 +8,28 @@ import {
 type MapInitOptions = mapkit.MapKitInitOptions;
 type MapOptions = mapkit.MapConstructorOptions;
 
+export type GeocoderOptions = {
+  enabled: boolean;
+  options?: mapkit.GeocoderConstructorOptions;
+};
+export type SearchOptions = {
+  enabled: boolean;
+  options?: mapkit.SearchConstructorOptions;
+};
+
 export interface VMapProps {
   version: string;
   language: string;
   accessToken: string;
   initOptions: MapInitOptions;
   mapOptions: MapOptions;
+  geocoderOptions: GeocoderOptions;
+  searchOptions: SearchOptions;
 }
 
-export type VMapComponentProps = AllowedComponentProps &
+type VMapComponentProps = AllowedComponentProps &
   ComponentCustomProps &
   VNodeProps &
   VMapProps;
 
-export const VMap: DefineComponent<VMapComponentProps, {}, any>;
+export const VMap: DefineComponent<VMapComponentProps>;
