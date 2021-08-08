@@ -40,3 +40,10 @@ export type ImageProps = {
 } & ComponentCustomProps &
   VNodeProps;
 export const ImageAnnotation: DefineComponent<ImageProps>;
+
+export type MarkerProps = {
+  coordinates: [number, number]; // [lat, lng]
+  annotation?: mapkit.MarkerAnnotationConstructorOptions;
+} & ComponentCustomProps &
+  VNodeProps;
+export const MarkerAnnotation: DefineComponent<MarkerProps>;
