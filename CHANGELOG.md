@@ -1,3 +1,16 @@
+# [0.2.0](https://github.com/geoql/v-mapkit.js/compare/v0.1.1...v0.2.0) (2021-08-08)
+
+
+### Features
+
+* **ts:** migrate `CircleOverlay` props to `index.d.ts` ([debcb37](https://github.com/geoql/v-mapkit.js/commit/debcb37b5c31c299ae5e2d6dea10740588d61cb8))
+* **ts:** migrate `MarkerAnnoation` props to `index.d.ts` ([f3da5ca](https://github.com/geoql/v-mapkit.js/commit/f3da5cac034382199ed32857cbbf166560bb34da))
+* **ts:** migrate `PolygonOverlayProps` to `index.d.ts` ([fcc7cbb](https://github.com/geoql/v-mapkit.js/commit/fcc7cbbbde5022ebfb5a47087570c387cbce4080))
+* **ts:** migrate Image Annotation props to `index.d.ts` ([b4d0dcf](https://github.com/geoql/v-mapkit.js/commit/b4d0dcf4046eb3ab34f4eaa43a9434afaf562445))
+* **ts:** migrate remaining overlays to `index.d.ts` ([65a4f84](https://github.com/geoql/v-mapkit.js/commit/65a4f845295763f47b9a0e1311c61349516775ca))
+
+
+
 ## [0.1.1](https://github.com/geoql/v-mapkit.js/compare/v0.1.0...v0.1.1) (2021-08-08)
 
 
