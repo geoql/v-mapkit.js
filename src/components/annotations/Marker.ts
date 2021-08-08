@@ -1,10 +1,6 @@
 import { Ref, ref, shallowRef } from 'vue';
+import { MarkerProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
-
-type MarkerProps = {
-  coordinates: [number, number]; // [lat, lng]
-  annotation?: mapkit.MarkerAnnotationConstructorOptions;
-};
 
 export const MarkerAnnotation = (props: MarkerProps): void => {
   const state = useGlobalState();

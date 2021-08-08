@@ -1,12 +1,8 @@
 import { Ref, shallowRef } from 'vue';
+import { PolylineOverlayProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
-type PolylineProps = {
-  'polyline-coordinates': number[][];
-  'polyline-style': mapkit.StyleConstructorOptions;
-};
-
-export const PolylineOverlay = (props: PolylineProps): void => {
+export const PolylineOverlay = (props: PolylineOverlayProps): void => {
   const state = useGlobalState();
   const mapkit: Ref<typeof window.mapkit> = shallowRef(state.mapkit.value);
 
