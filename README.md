@@ -7,7 +7,7 @@
 [![npm](https://img.shields.io/npm/dm/@geoql/v-mapkit.js?logo=npm)](http://npm-stat.com/charts.html?package=@geoql/v-mapkit.js)
 [![npm bundle size (version)](https://img.shields.io/bundlephobia/min/@geoql/v-mapkit.js/latest)](https://bundlephobia.com/package/@geoql/v-mapkit.js@latest)
 [![npm type definitions](https://img.shields.io/npm/types/@geoql/v-mapkit.js)](https://github.com/geoql/v-mapkit.js/blob/master/package.json)
-[![DeepScan grade](https://deepscan.io/api/teams/9055/projects/16121/branches/339368/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=9055&pid=16121&bid=339368)
+[![DeepScan grade](https://deepscan.io/api/teams/15032/projects/18161/branches/438551/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=15032&pid=18161&bid=438551)
 [![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/geoql/v-mapkit.js)](https://snyk.io/test/github/geoql/v-mapkit.js)
 [![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/geoql/v-mapkit.js?logo=lgtm)](https://lgtm.com/projects/g/geoql/v-mapkit.js/alerts/)
 [![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/geoql/v-mapkit.js?logo=lgtm)](https://lgtm.com/projects/g/geoql/v-mapkit.js/context:javascript)
