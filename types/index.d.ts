@@ -33,3 +33,10 @@ type VMapComponentProps = AllowedComponentProps &
   VMapProps;
 
 export const VMap: DefineComponent<VMapComponentProps>;
+
+export type ImageProps = {
+  coordinates: [number, number]; // [lat, lng]
+  annotation: mapkit.ImageAnnotationConstructorOptions;
+} & ComponentCustomProps &
+  VNodeProps;
+export const ImageAnnotation: DefineComponent<ImageProps>;

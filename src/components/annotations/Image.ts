@@ -1,10 +1,6 @@
 import { Ref, ref, shallowRef } from 'vue';
+import { ImageProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
-
-type ImageProps = {
-  coordinates: [number, number]; // [lat, lng]
-  annotation: mapkit.ImageAnnotationConstructorOptions;
-};
 
 export const ImageAnnotation = (props: ImageProps): void => {
   const state = useGlobalState();
