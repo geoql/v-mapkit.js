@@ -1,3 +1,17 @@
+# [0.1.0](https://github.com/geoql/v-mapkit.js/compare/v0.0.3...v0.1.0) (2021-08-08)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/setup-node from 2.3.0 to 2.3.1 ([637070b](https://github.com/geoql/v-mapkit.js/commit/637070bd7f05b93f9203f4e1a8e8bab6503a536b))
+
+
+### Features
+
+* add components ([996c61c](https://github.com/geoql/v-mapkit.js/commit/996c61c2720be8fe71bdf35ffb26d4735a405b00))
+
+
+
 ## [0.0.3](https://github.com/geoql/v-mapkit.js/compare/v0.0.2...v0.0.3) (2021-07-30)
 
 
