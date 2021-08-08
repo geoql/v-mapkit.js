@@ -1,3 +1,13 @@
+## [0.1.1](https://github.com/geoql/v-mapkit.js/compare/v0.1.0...v0.1.1) (2021-08-08)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/setup-node from 2.3.1 to 2.4.0 ([c0d4020](https://github.com/geoql/v-mapkit.js/commit/c0d402006b92f02d2e4e0178bbe25d5f13c11e27))
+* remove `NODE_AUTH_TOKEN` from `shipjs trigger` ([f17a891](https://github.com/geoql/v-mapkit.js/commit/f17a8912992a65b809678799f9d3e76bec32e098))
+
+
+
 # [0.1.0](https://github.com/geoql/v-mapkit.js/compare/v0.0.3...v0.1.0) (2021-08-08)
 
 
