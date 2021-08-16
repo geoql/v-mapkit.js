@@ -6,7 +6,7 @@ export const PolylineOverlay = (props: PolylineOverlayProps): void => {
   const state = useGlobalState();
   const mapkit: Ref<typeof window.mapkit> = shallowRef(state.mapkit.value);
 
-  if (state.mapLoad && state.map.value) {
+  if (state.ui.init && state.ui.load && state.map.value) {
     const coords = props['polyline-coordinates'].map((point) => {
       return new mapkit.value.Coordinate(point[0], point[1]);
     });

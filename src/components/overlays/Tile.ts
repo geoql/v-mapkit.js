@@ -6,7 +6,7 @@ export const TileOverlay = (props: TileOverlayProps): void => {
   const state = useGlobalState();
   const mapkit: Ref<typeof window.mapkit> = shallowRef(state.mapkit.value);
 
-  if (state.mapLoad && state.map.value) {
+  if (state.ui.init && state.ui.load && state.map.value) {
     const options: Ref<mapkit.TileOverlayConstructorOptions> = ref(
       props.options || {},
     );

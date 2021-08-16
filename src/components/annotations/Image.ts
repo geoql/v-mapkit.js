@@ -6,7 +6,7 @@ export const ImageAnnotation = (props: ImageProps): void => {
   const state = useGlobalState();
   const mapkit: Ref<typeof window.mapkit> = shallowRef(state.mapkit.value);
 
-  if (state.mapLoad && state.map.value) {
+  if (state.ui.init && state.ui.load && state.map.value) {
     const coords = new mapkit.value.Coordinate(
       props.coordinates[0],
       props.coordinates[1],
