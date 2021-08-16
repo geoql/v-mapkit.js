@@ -80,10 +80,10 @@
       // MapKit related stuff
       let mapkit: typeof window.mapkit = reactive({} as typeof window.mapkit);
       // Emit init values
-      emit('map-initialized', state.mapInit);
-      emit('map-loaded', state.mapLoad);
-      emit('geocoder-loaded', state.geocoderLoad);
-      emit('search-loaded', state.searchLoad);
+      emit('map-initialized', state.ui.init);
+      emit('map-loaded', state.ui.load);
+      emit('geocoder-loaded', state.ui.geocoderLoad);
+      emit('search-loaded', state.ui.searchLoad);
 
       /**
        * Mounted Lifecycle Hook ♻️
@@ -95,13 +95,13 @@
         } catch (error) {
           throw new Error(error);
         }
-        if (!state.mapInit) {
+        if (!state.ui.init) {
           try {
             await initMap();
           } catch (error) {
             throw new Error(error);
           }
-          if (state.mapInit && !state.mapLoad) {
+          if (state.ui.init && !state.ui.load) {
             try {
               await loadMap();
               // Listen to events on Map
@@ -137,9 +137,9 @@
       });
 
       /**
-       * Initialize the mapkit library
+       * Initialize the map
        *
-       * @returns {Promise<void>}
+       * @returns {Promise<string>} - Returns a string promise
        */
       async function initMap(): Promise<string> {
         return new Promise((resolve, reject) => {
@@ -150,21 +150,21 @@
           };
           mapkit.init({ ...options, ...props.initOptions });
           // Else, resolve:
-          state.mapInit = true;
+          state.ui.init = true;
           resolve('Map Initialized');
-          emit('map-initialized', state.mapInit);
+          emit('map-initialized', state.ui.init);
           // Listen in case of error:
           mapkit.addEventListener('error', (e) => {
-            state.mapInit = false;
+            state.ui.init = false;
             reject(`Failed to initialize Map: ${e}`);
           });
         });
       }
 
       /**
-       * Loads the Mapkit Map
+       * Load the map
        *
-       * @returns {Promise<void>}
+       * @returns {Promise<string>} - Returns a string promise
        */
       async function loadMap(): Promise<string> {
         return new Promise((resolve, reject) => {
@@ -172,21 +172,21 @@
             ...props.mapOptions,
           });
           if (state.map.value instanceof mapkit.Map) {
-            state.mapLoad = true;
+            state.ui.load = true;
             resolve('Map Loaded');
           } else {
-            state.mapLoad = false;
+            state.ui.load = false;
             reject('Failed to load Map');
           }
-          emit('map-loaded', state.mapLoad);
+          emit('map-loaded', state.ui.load);
           emit('map', state.map.value);
         });
       }
 
       /**
-       * Loads the Geocoder
+       * Loads the GeoCoder
        *
-       * @returns {Promise<void>}
+       * @returns {Promise<string>} - Returns a string promise
        */
       async function loadGeocoder(): Promise<string> {
         return new Promise((resolve, reject) => {
@@ -194,42 +194,42 @@
             props.geocoderOptions.options,
           );
           if (state.geocoder.value instanceof mapkit.Geocoder) {
-            state.geocoderLoad = true;
+            state.ui.geocoderLoad = true;
             resolve('Geocoder Loaded');
           } else {
-            state.geocoderLoad = false;
+            state.ui.geocoderLoad = false;
             reject('Failed to load Geocoder');
           }
-          emit('geocoder-loaded', state.geocoderLoad);
+          emit('geocoder-loaded', state.ui.geocoderLoad);
         });
       }
 
       /**
-       * Load search
+       * Loads the Search
        *
-       * @returns {Promise<void>}
+       * @returns {Promise<string>} - Returns a string promise
        */
       async function loadSearch(): Promise<string> {
         return new Promise((resolve, reject) => {
           state.search.value = new mapkit.Search(props.searchOptions.options);
           if (state.search.value instanceof mapkit.Search) {
-            state.searchLoad = true;
+            state.ui.searchLoad = true;
             resolve('Search Loaded');
           } else {
-            state.searchLoad = false;
+            state.ui.searchLoad = false;
             reject('Failed to load Search');
           }
-          emit('search-loaded', state.searchLoad);
+          emit('search-loaded', state.ui.searchLoad);
         });
       }
 
       /**
-       * Listens for different map events
+       * Listen to Map events
        *
        * @returns {void}
        */
       function listenMapEvents(): void {
-        // Map Display Events
+        // // Map Display Events
         displayEvents();
         // Annotation and Overlay Events
         annotationOverlayEvents();
@@ -240,7 +240,7 @@
       }
 
       /**
-       * Listen to map display events
+       * Listen to Display events
        *
        * @returns {void}
        */
@@ -252,7 +252,7 @@
         });
       }
       /**
-       * Listens to interaction events
+       * Listen to map interaction events
        *
        * @returns {void}
        */
@@ -264,7 +264,7 @@
         });
       }
       /**
-       * Listens to annotation and overlay events
+       * Listen to map annotation events
        *
        * @returns {void}
        */
@@ -276,7 +276,7 @@
         });
       }
       /**
-       * Listens to user location events
+       * Listen to map user location events
        *
        * @returns {void}
        */
