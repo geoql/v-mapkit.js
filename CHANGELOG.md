@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/geoql/v-mapkit.js/compare/v0.2.1...v0.2.2) (2021-08-16)
+
+
+### Bug Fixes
+
+* bump dependencies ([c3eb734](https://github.com/geoql/v-mapkit.js/commit/c3eb734ef990218a2c52f157ed6a2f7df8909e1e))
+
+
+
 ## [0.2.1](https://github.com/geoql/v-mapkit.js/compare/v0.2.0...v0.2.1) (2021-08-16)
 
 
