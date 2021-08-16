@@ -1,3 +1,15 @@
+## [0.2.1](https://github.com/geoql/v-mapkit.js/compare/v0.2.0...v0.2.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* correct `ui` scope ([70d08b5](https://github.com/geoql/v-mapkit.js/commit/70d08b5ed46a7ecb3440404cb6a874e0f9fc4d8a))
+* update CI workflow to ensure ([ed514ff](https://github.com/geoql/v-mapkit.js/commit/ed514ff8d269752a7375c3cf2db40131e999319b))
+* update correct events ([9c2ae3e](https://github.com/geoql/v-mapkit.js/commit/9c2ae3ee1c657b5cbe39a7363a614af45834ad92))
+* update store ([799f625](https://github.com/geoql/v-mapkit.js/commit/799f625e7f748dff600d5a0bbbc4e1c873e1e554))
+
+
+
 # [0.2.0](https://github.com/geoql/v-mapkit.js/compare/v0.1.1...v0.2.0) (2021-08-08)
 
 
