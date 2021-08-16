@@ -5,7 +5,7 @@ import { useGlobalState } from '../../utils/store';
 export const CircleOverlay = (props: CircleOverlayProps): void => {
   const state = useGlobalState();
   const mapkit: Ref<typeof window.mapkit> = shallowRef(state.mapkit.value);
-  if (state.mapLoad && state.map.value) {
+  if (state.ui.init && state.ui.load && state.map.value) {
     const radius: Ref<number> = ref(props['circle-radius'] || 1);
     const coords = new mapkit.value.Coordinate(
       props['circle-coordinates'][0],
