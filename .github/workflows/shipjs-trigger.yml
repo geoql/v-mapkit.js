@@ -23,6 +23,9 @@ jobs:
           registry-url: https://registry.npmjs.org
           scope: '@geoql'
 
+      - name: Upgrade npm ✨
+        run: npm i -g npm@latest
+
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit --no-optional
         env:
