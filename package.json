@@ -54,7 +54,7 @@
     "@vueuse/core": "^6.7.3",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jsdoc": "^36.1.1",
+    "eslint-plugin-jsdoc": "^37.0.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.20.0",
     "husky": "^7.0.4",
