@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { defineComponent, PropType, SetupContext, h, reactive } from 'vue';
   import { tryOnMounted, tryOnUnmounted } from '@vueuse/core';
-  import { loadMapKit } from '../utils/helpers';
-  import {
-    mapDisplayEvents,
-    mapAnnotationOverlayEvents,
-    mapUserLocationEvents,
-    mapInteractionEvents,
-  } from '../utils/events';
-  import { useGlobalState } from '../utils/store';
+  import { defineComponent, h, PropType, reactive, SetupContext } from 'vue';
   import { GeocoderOptions, SearchOptions, VMapProps } from '../../types';
+  import {
+    mapAnnotationOverlayEvents,
+    mapDisplayEvents,
+    mapInteractionEvents,
+    mapUserLocationEvents,
+  } from '../utils/events';
+  import { loadMapKit } from '../utils/helpers';
+  import { useGlobalState } from '../utils/store';
 
   export default defineComponent({
     name: 'VMap',
@@ -92,35 +92,35 @@
         try {
           mapkit = await loadMapKit(props.version);
           state.mapkit.value = mapkit;
-        } catch (error) {
-          throw new Error(error);
+        } catch (error: unknown) {
+          throw new Error(error as string);
         }
         if (!state.ui.init) {
           try {
             await initMap();
-          } catch (error) {
-            throw new Error(error);
+          } catch (error: unknown) {
+            throw new Error(error as string);
           }
           if (state.ui.init && !state.ui.load) {
             try {
               await loadMap();
               // Listen to events on Map
               listenMapEvents();
-            } catch (error) {
-              throw new Error(error);
+            } catch (error: unknown) {
+              throw new Error(error as string);
             }
             if (props.geocoderOptions.enabled) {
               try {
                 await loadGeocoder();
-              } catch (error) {
-                throw new Error(error);
+              } catch (error: unknown) {
+                throw new Error(error as string);
               }
             }
             if (props.searchOptions.enabled) {
               try {
                 await loadSearch();
-              } catch (error) {
-                throw new Error(error);
+              } catch (error: unknown) {
+                throw new Error(error as string);
               }
             }
           }
