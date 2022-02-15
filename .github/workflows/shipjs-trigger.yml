@@ -18,18 +18,17 @@ jobs:
       - name: Setup node env 📦
         uses: actions/setup-node@v2.5.1
         with:
-          node-version: 16
-          check-latest: true
+          node-version: 17
           registry-url: https://registry.npmjs.org
           scope: '@geoql'
+          check-latest: true
+          cache: 'npm'
 
       - name: Upgrade npm ✨
         run: npm i -g npm@latest
 
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit --no-optional
-        env:
-          CI: true
 
       - name: Perform a new release 🚨
         run: npx shipjs trigger
