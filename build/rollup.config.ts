@@ -47,7 +47,7 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      file: 'dist/v-mapkit.cjs.js',
+      file: pkg.main,
       format: 'cjs',
       name: 'VMapkit',
       exports: 'named',
@@ -56,7 +56,7 @@ export default {
       banner,
     },
     {
-      file: 'dist/v-mapkit.esm.js',
+      file: pkg.module,
       format: 'es',
       name: 'VMapkit',
       exports: 'named',
@@ -64,7 +64,7 @@ export default {
       banner,
     },
     {
-      file: 'dist/v-mapkit.js',
+      file: pkg.unpkg,
       format: 'umd',
       name: 'VMapkit',
       exports: 'named',

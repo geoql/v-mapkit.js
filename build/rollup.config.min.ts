@@ -55,7 +55,7 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      file: 'dist/v-mapkit.min.js',
+      file: pkg.cdn,
       format: 'umd',
       name: 'VMapkit',
       exports: 'named',
