@@ -1,17 +1,16 @@
 # V-Mapkit.js 🌎
 
-[![CI](https://img.shields.io/github/workflow/status/geoql/v-mapkit.js/ci?logo=github-actions)](https://github.com/geoql/v-mapkit.js/actions/workflows/ci.yml)
-[![CodeQL](https://img.shields.io/github/workflow/status/geoql/v-mapkit.js/codeql?logo=github-actions)](https://github.com/geoql/v-mapkit.js/actions/workflows/codeql.yml)
-[![Ship.js Trigger](https://img.shields.io/github/workflow/status/geoql/v-mapkit.js/Ship%20js%20trigger?label=⛴%20Ship.js%20trigger)](https://github.com/geoql/v-mapkit.js/actions/workflows/shipjs-trigger.yml)
+[![Continuous Integration](https://github.com/geoql/v-mapkit.js/actions/workflows/ci.yml/badge.svg)](https://github.com/geoql/v-mapkit.js/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/geoql/v-mapkit.js/actions/workflows/codeql.yml/badge.svg)](https://github.com/geoql/v-mapkit.js/actions/workflows/codeql.yml)
+[![Ship js trigger](https://github.com/geoql/v-mapkit.js/actions/workflows/shipjs-trigger.yml/badge.svg)](https://github.com/geoql/v-mapkit.js/actions/workflows/shipjs-trigger.yml)
 [![npm](https://img.shields.io/npm/dm/@geoql/v-mapkit.js?logo=npm)](http://npm-stat.com/charts.html?package=@geoql/v-mapkit.js)
 [![npm](https://img.shields.io/npm/v/@geoql/v-mapkit.js/latest?logo=npm)](https://www.npmjs.com/package/@geoql/v-mapkit.js)
 [![npm bundle size (version)](https://img.shields.io/bundlephobia/min/@geoql/v-mapkit.js/latest?label=@latest%20size&logo=vue.js)](https://bundlephobia.com/package/@geoql/v-mapkit.js@latest)
-[![npm](https://img.shields.io/npm/v/@geoql/v-mapkit.js/legacy?logo=npm)](https://www.npmjs.com/package/@geoql/v-mapkit.js)
 [![npm type definitions](https://img.shields.io/npm/types/@geoql/v-mapkit.js)](https://github.com/geoql/v-mapkit.js/blob/master/package.json)
 [![DeepScan grade](https://deepscan.io/api/teams/15032/projects/18161/branches/438551/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=15032&pid=18161&bid=438551)
 [![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/geoql/v-mapkit.js)](https://snyk.io/test/github/geoql/v-mapkit.js)
 [![GitHub contributors](https://img.shields.io/github/contributors/geoql/v-mapkit.js?logo=github)](https://github.com/geoql/v-mapkit.js/graphs/contributors)
-[![FOSSA](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvinayakkulkarni%2F@geoql/v-mapkit.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvinayakkulkarni%2F@geoql/v-mapkit.js?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fgeoql%2Fv-mapkit.js.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fgeoql%2Fv-mapkit.js?ref=badge_shield)
 
 [![eslint](https://img.shields.io/npm/dependency-version/@geoql/v-mapkit.js/dev/eslint?logo=eslint)](https://eslint.org/)
 [![prettier](https://img.shields.io/npm/dependency-version/@geoql/v-mapkit.js/dev/prettier?logo=prettier)](https://prettier.io/)
