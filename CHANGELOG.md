@@ -1,3 +1,27 @@
+# [0.3.0](https://github.com/geoql/v-mapkit.js/compare/v0.2.3...v0.3.0) (2022-11-27)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/checkout from 2 to 3 ([a9f7da2](https://github.com/geoql/v-mapkit.js/commit/a9f7da29851e3bdec4347099575de10bb4205a09))
+* **deps:** bump actions/setup-node from 2.4.1 to 2.5.0 ([be273a2](https://github.com/geoql/v-mapkit.js/commit/be273a2acff41eaeff59b95c28315e82fc0c262e))
+* **deps:** bump actions/setup-node from 2.5.0 to 2.5.1 ([29af56d](https://github.com/geoql/v-mapkit.js/commit/29af56d62d359b3721da9bdf8a5ece57bc28cc7c))
+* **deps:** bump actions/setup-node from 2.5.1 to 3 ([c6ce791](https://github.com/geoql/v-mapkit.js/commit/c6ce7917e867da2a98f7c16fb73585736227dd01))
+* **deps:** bump ejs from 3.1.6 to 3.1.7 ([99c4296](https://github.com/geoql/v-mapkit.js/commit/99c429682c5727ca5c3d60822566176862ee43b0))
+* **deps:** bump follow-redirects from 1.14.4 to 1.14.8 ([772528f](https://github.com/geoql/v-mapkit.js/commit/772528f7c5d9a7d912bbefd52510f365559fb694))
+* **deps:** bump minimist from 1.2.5 to 1.2.6 ([8a8e13c](https://github.com/geoql/v-mapkit.js/commit/8a8e13cfa2aa00cb9a33a786496bace022a2a54a))
+* **deps:** bump wearerequired/lint-action from 1 to 2 ([0510602](https://github.com/geoql/v-mapkit.js/commit/0510602e7ff52872273c1d55bd5164f033da1618))
+* set default registry as `npm` ([3a600a7](https://github.com/geoql/v-mapkit.js/commit/3a600a73fb1c81b3a5c4d2d269d772d2e3a6f332))
+* use output files from `package.json` ([a276f7a](https://github.com/geoql/v-mapkit.js/commit/a276f7a94232df1b216d86d1e494fef9c0012f68))
+
+
+### Features
+
+* add support for `nvm` ([55dfe11](https://github.com/geoql/v-mapkit.js/commit/55dfe1142f02ae684b0cc70f1f0f6113268abb89))
+* update `.vscode` setting(s) ([d318b05](https://github.com/geoql/v-mapkit.js/commit/d318b0582e3bcd020d8025e58aa48f6eebf1bbee))
+
+
+
 ## [0.2.3](https://github.com/geoql/v-mapkit.js/compare/v0.2.2...v0.2.3) (2021-10-22)
 
 
