@@ -1,5 +1,5 @@
-import { Ref, ref, shallowRef } from 'vue';
-import { ImageProps } from '~/types';
+import { type Ref, ref, shallowRef } from 'vue';
+import { type ImageProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
 export const ImageAnnotation = (props: ImageProps): void => {

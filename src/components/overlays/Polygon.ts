@@ -1,5 +1,5 @@
-import { Ref, shallowRef } from 'vue';
-import { PolygonOverlayProps } from '~/types';
+import { type Ref, shallowRef } from 'vue';
+import { type PolygonOverlayProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
 export const PolygonOverlay = (props: PolygonOverlayProps): void => {

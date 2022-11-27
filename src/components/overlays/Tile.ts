@@ -1,5 +1,5 @@
-import { Ref, ref, shallowRef } from 'vue';
-import { TileOverlayProps } from '~/types';
+import { type Ref, ref, shallowRef } from 'vue';
+import { type TileOverlayProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
 export const TileOverlay = (props: TileOverlayProps): void => {

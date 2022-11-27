@@ -1,5 +1,5 @@
-import { Ref, ref, shallowRef } from 'vue';
-import { CircleOverlayProps } from '~/types';
+import { type Ref, ref, shallowRef } from 'vue';
+import { type CircleOverlayProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
 export const CircleOverlay = (props: CircleOverlayProps): void => {

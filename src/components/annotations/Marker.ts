@@ -1,5 +1,5 @@
-import { Ref, ref, shallowRef } from 'vue';
-import { MarkerProps } from '~/types';
+import { type Ref, ref, shallowRef } from 'vue';
+import { type MarkerProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
 export const MarkerAnnotation = (props: MarkerProps): void => {

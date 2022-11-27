@@ -3,7 +3,6 @@
     "target": "esnext",
     "module": "esnext",
     "strict": true,
-    "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
@@ -11,33 +10,24 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "allowJs": true,
-    "noEmit": true,
+    "noEmit": false,
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "outDir": "./dist",
+    "jsx": "preserve",
     "lib": [
       "esnext",
       "dom",
       "dom.iterable",
-      "scripthost"
+      "scripthost",
+      "esnext.asynciterable"
     ],
     "paths": {
       "~/*": ["./*"],
       "@/*": ["src/*"]
-    },
-    "types": [
-      "@types/node",
-      "@vueuse/core",
-      "@types/apple-mapkit-js-browser",
-    ]
+    }
   },
-  "include": [
-    "src",
-    "shims",
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "docs"
-  ]
+  "include": ["src", "shims"],
+  "exclude": ["node_modules", "dist"]
 }

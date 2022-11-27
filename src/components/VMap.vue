@@ -1,7 +1,13 @@
 <script lang="ts">
   import { tryOnMounted, tryOnUnmounted } from '@vueuse/core';
-  import { defineComponent, h, PropType, reactive, SetupContext } from 'vue';
-  import { GeocoderOptions, SearchOptions, VMapProps } from '../../types';
+  import {
+    h,
+    reactive,
+    defineComponent,
+    type PropType,
+    type SetupContext,
+  } from 'vue';
+  import type { GeocoderOptions, SearchOptions, VMapProps } from '~/types';
   import {
     mapAnnotationOverlayEvents,
     mapDisplayEvents,

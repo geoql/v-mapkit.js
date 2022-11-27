@@ -1,5 +1,5 @@
-import { Ref, shallowRef } from 'vue';
-import { PolylineOverlayProps } from '~/types';
+import { type Ref, shallowRef } from 'vue';
+import { type PolylineOverlayProps } from '~/types';
 import { useGlobalState } from '../../utils/store';
 
 export const PolylineOverlay = (props: PolylineOverlayProps): void => {
