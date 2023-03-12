@@ -36,7 +36,7 @@
     "release:auto": "shipjs prepare --yes"
   },
   "peerDependencies": {
-    "@vueuse/core": "^9.12.0",
+    "@vueuse/core": "^9.13.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
@@ -49,7 +49,7 @@
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/compiler-sfc": "^3.2.47",
     "@vue/runtime-dom": "^3.2.47",
-    "@vueuse/core": "^9.12.0",
+    "@vueuse/core": "^9.13.0",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-jsdoc": "^40.0.0",
