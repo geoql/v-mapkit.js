@@ -50,7 +50,7 @@
     "@vue/compiler-sfc": "^3.2.47",
     "@vue/runtime-dom": "^3.2.47",
     "@vueuse/core": "^10.1.2",
-    "eslint": "^8.39.0",
+    "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-jsdoc": "^40.0.1",
     "eslint-plugin-prettier": "^4.2.1",
