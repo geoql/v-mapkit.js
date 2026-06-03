@@ -1,28 +1,56 @@
 {
   "name": "@geoql/v-mapkit.js",
   "version": "0.3.0",
-  "type": "module",
+  "private": false,
   "description": "MapKit with the power of Vue 3",
+  "keywords": [
+    "Apple MapKit",
+    "Map Library",
+    "MapKit",
+    "Maps",
+    "Vue MapKit",
+    "v-mapkit.js",
+    "vue-mapkit.js"
+  ],
+  "homepage": "https://github.com/geoql/v-mapkit.js#readme",
+  "bugs": {
+    "url": "https://github.com/geoql/v-mapkit.js/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Vinayak Kulkarni",
+    "email": "inbox.vinayak@gmail.com",
+    "url": "https://vinayakkulkarni.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geoql/v-mapkit.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
   "main": "./dist/v-mapkit.js",
   "module": "./dist/v-mapkit.js",
-  "umd": "./dist/v-mapkit.umd.js",
+  "types": "./dist/index.d.ts",
   "unpkg": "./dist/v-mapkit.mjs",
   "jsdelivr": "./dist/v-mapkit.mjs",
-  "cdn": "./dist/v-mapkit.min.js",
+  "umd": "./dist/v-mapkit.umd.js",
   "exports": {
     ".": {
       "import": "./dist/v-mapkit.js",
       "require": "./dist/v-mapkit.umd.js"
     }
   },
-  "files": [
-    "dist"
-  ],
-  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly && prettier --write dist/*{mjs,js,ts}",
     "test": "echo 'test!'",
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "oxlint && oxfmt --check",
     "lintfix": "oxlint --fix && oxfmt",
     "lint:oxlint": "oxlint",
@@ -35,64 +63,35 @@
     "release:dry": "shipjs prepare --dry-run",
     "release:auto": "shipjs prepare --yes"
   },
-  "peerDependencies": {
-    "@vueuse/core": "^14.0.0",
-    "vue": "^3.5.0"
-  },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@types/apple-mapkit-js-browser": "^5.78.0",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vue/compiler-sfc": "^3.5.0",
     "@vue/runtime-dom": "^3.5.0",
     "@vue/tsconfig": "^0.7.0",
     "@vueuse/core": "^14.0.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
     "oxfmt": "^0.53.0",
     "oxlint": "^1.68.0",
-    "postcss-html": "^1.5.0",
+    "postcss-html": "^1.8.1",
     "sass": "^1.83.0",
-    "shipjs": "0.26.3",
-    "stylelint": "^15.7.0",
-    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint": "^16.26.1",
+    "stylelint-config-recommended-vue": "^1.6.1",
     "typescript": "^5.7.0",
     "vite": "^7.0.0",
     "vue": "^3.5.0",
     "vue-tsc": "^3.0.0"
   },
-  "keywords": [
-    "MapKit",
-    "Apple MapKit",
-    "Vue MapKit",
-    "Maps",
-    "Map Library",
-    "v-mapkit.js",
-    "vue-mapkit.js"
-  ],
-  "author": {
-    "name": "Vinayak Kulkarni",
-    "email": "inbox.vinayak@gmail.com",
-    "url": "https://vinayakkulkarni.dev"
+  "peerDependencies": {
+    "@vueuse/core": "^14.0.0",
+    "vue": "^3.5.0"
   },
-  "license": "MIT",
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=10.0.0"
   },
-  "repository": {
-    "url": "git+https://github.com/geoql/v-mapkit.js",
-    "type": "git"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "private": false,
-  "sideEffects": false,
-  "bugs": {
-    "url": "https://github.com/geoql/v-mapkit.js/issues"
-  },
-  "homepage": "https://github.com/geoql/v-mapkit.js#readme"
+  "cdn": "./dist/v-mapkit.min.js"
 }
