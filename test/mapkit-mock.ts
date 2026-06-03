@@ -63,11 +63,15 @@ class FakeMap {
   addEventListener = vi.fn((e: string, cb: (ev: unknown) => void) => {
     (this.listeners[e] ??= []).push(cb);
   });
+  removeEventListener = vi.fn((e: string, cb: (ev: unknown) => void) => {
+    this.listeners[e] = (this.listeners[e] ?? []).filter((h) => h !== cb);
+  });
   fireEvent(e: string, payload: unknown) {
     (this.listeners[e] ?? []).forEach((cb) => cb(payload));
   }
   destroy = vi.fn(() => {
     this.destroyed = true;
+    this.listeners = {};
   });
 }
 
