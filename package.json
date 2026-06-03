@@ -63,11 +63,12 @@
     "fmt:check": "oxfmt --check",
     "lint:css": "stylelint \"src/**/*.{css,scss,vue}\"",
     "lint:css:fix": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
-    "release": "shipjs prepare",
-    "release:dry": "shipjs prepare --dry-run",
-    "release:auto": "shipjs prepare --yes"
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "npm run build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@types/apple-mapkit-js-browser": "^5.78.0",
