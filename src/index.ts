@@ -1,9 +1,10 @@
-export { ImageAnnotation, MarkerAnnotation } from './components/annotations';
-export {
-  CircleOverlay,
-  PolygonOverlay,
-  PolylineOverlay,
-  TileOverlay,
-} from './components/overlays';
 export { default as VMap } from './components/VMap.vue';
-export { default } from './install';
+export { default as VMarkerAnnotation } from './components/annotations/VMarkerAnnotation.vue';
+export { default as VImageAnnotation } from './components/annotations/VImageAnnotation.vue';
+export { default as VCircleOverlay } from './components/overlays/VCircleOverlay.vue';
+export { default as VPolygonOverlay } from './components/overlays/VPolygonOverlay.vue';
+export { default as VPolylineOverlay } from './components/overlays/VPolylineOverlay.vue';
+export { default as VTileOverlay } from './components/overlays/VTileOverlay.vue';
+export { MapKitGlobalKey, MapKitInstanceKey, MapKitReadyKey } from './symbols';
+export { loadMapKit, initMapKit } from './composables/useMapKit';
+export { useMapChild } from './composables/useMapChild';

@@ -1,30 +1,21 @@
-import { App as Application, Plugin } from 'vue';
-import { ImageAnnotation, MarkerAnnotation } from './components/annotations';
-import {
-  CircleOverlay,
-  PolygonOverlay,
-  PolylineOverlay,
-  TileOverlay,
-} from './components/overlays';
+import type { App, Plugin } from 'vue';
+
+import VImageAnnotation from './components/annotations/VImageAnnotation.vue';
+import VMarkerAnnotation from './components/annotations/VMarkerAnnotation.vue';
+import VCircleOverlay from './components/overlays/VCircleOverlay.vue';
+import VPolygonOverlay from './components/overlays/VPolygonOverlay.vue';
+import VPolylineOverlay from './components/overlays/VPolylineOverlay.vue';
+import VTileOverlay from './components/overlays/VTileOverlay.vue';
 import VMap from './components/VMap.vue';
-import { setVueInstance } from './utils/config/index';
 
-let installed: boolean = false;
-
-const install: Exclude<Plugin['install'], undefined> = (
-  instance: Application,
-) => {
-  if (!installed) {
-    setVueInstance(instance);
-    instance.component('VMap', VMap);
-    instance.component('ImageAnnotation', ImageAnnotation);
-    instance.component('MarkerAnnotation', MarkerAnnotation);
-    instance.component('CircleOverlay', CircleOverlay);
-    instance.component('PolygonOverlay', PolygonOverlay);
-    instance.component('PolylineOverlay', PolylineOverlay);
-    instance.component('TileOverlay', TileOverlay);
-    installed = true;
-  }
+const install: Plugin['install'] = (app: App) => {
+  app.component('VMap', VMap);
+  app.component('VMarkerAnnotation', VMarkerAnnotation);
+  app.component('VImageAnnotation', VImageAnnotation);
+  app.component('VCircleOverlay', VCircleOverlay);
+  app.component('VPolygonOverlay', VPolygonOverlay);
+  app.component('VPolylineOverlay', VPolylineOverlay);
+  app.component('VTileOverlay', VTileOverlay);
 };
 
 export default install;
