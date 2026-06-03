@@ -34,7 +34,8 @@ Power of [Vue 3](https://v3.vuejs.org) with awesomeness of [Mapkit](https://deve
   - [Features](#features)
   - [Table of Contents](#table-of-contents)
     - [Installation](#installation)
-    - [Available components](#available-components)
+    - [Usage](#usage)
+    - [API](#api)
     - [Build Setup](#build-setup)
   - [Built with](#built-with)
   - [Contributing](#contributing)
@@ -43,21 +44,57 @@ Power of [Vue 3](https://v3.vuejs.org) with awesomeness of [Mapkit](https://deve
 ### Installation
 
 ```sh
-npm install @geoql/v-mapkit.js
-npm install @vueuse/core
+npm install @geoql/v-mapkit.js @vueuse/core vue
 ```
 
-### Available components
+### Usage
 
-> Annotations
+Drop a `<VMap>` into your template and nest annotations or overlays as child
+components. You need an Apple MapKit JS JWT token; see Apple's
+[MapKit JS docs](https://developer.apple.com/documentation/mapkitjs) for
+generating one.
 
-- [x] [Marker](https://developer.apple.com/documentation/mapkitjs/mapkit/markerannotation)
-  - [ ] [Clustering](https://developer.apple.com/documentation/mapkitjs/mapkit/annotations/about_annotation_clustering)
-- [x] [Image](https://developer.apple.com/documentation/mapkitjs/mapkit/imageannotation)
-  > Overlays
-- [x] [Circle](https://developer.apple.com/documentation/mapkitjs/mapkit/circleoverlay)
-- [x] [Polygon](https://developer.apple.com/documentation/mapkitjs/mapkit/polygonoverlay)
-- [x] [Polyline](https://developer.apple.com/documentation/mapkitjs/mapkit/polylineoverlay)
+```vue
+<script setup lang="ts">
+import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+</script>
+
+<template>
+  <VMap :access-token="token">
+    <VMarkerAnnotation
+      :coordinates="[37.3349, -122.009]"
+      :annotation="{ title: 'Apple Park' }"
+    />
+  </VMap>
+</template>
+```
+
+Prefer global registration? Install the default plugin:
+
+```ts
+import { createApp } from 'vue';
+import VMapkit from '@geoql/v-mapkit.js';
+
+createApp(App).use(VMapkit).mount('#app');
+```
+
+### API
+
+**Components**
+
+- `VMap` — the map container. Props: `access-token` (required), `version`,
+  `language`, `init-options`, `map-options`. Emits: `map`, `map-loaded`,
+  `map-initialized`, `map-destroyed`, plus MapKit map events
+  (region, rotation, scroll, zoom, select, drag, user-location, tap, etc.).
+- `VMarkerAnnotation`, `VImageAnnotation` — annotations. Take `coordinates`
+  plus their MapKit options.
+- `VCircleOverlay`, `VPolygonOverlay`, `VPolylineOverlay`, `VTileOverlay` —
+  overlays. Take `coordinates` plus their MapKit options.
+
+**Composables**
+
+- `loadMapKit` / `initMapKit` — load and initialize the MapKit JS runtime.
+- `useMapChild` — register an annotation or overlay with its parent `VMap`.
 
 ### Build Setup
 
@@ -65,11 +102,14 @@ npm install @vueuse/core
 # install dependencies
 $ npm install
 
-# start dev
+# start the Vite playground (local dev sandbox)
 $ npm run dev
 
-# package lib
+# package the library
 $ npm run build
+
+# run the docs site locally
+$ npm run docs:dev
 ```
 
 ## Built with
