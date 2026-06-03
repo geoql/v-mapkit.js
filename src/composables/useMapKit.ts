@@ -33,7 +33,7 @@ export function initMapKit(
   initOptions: mapkit.MapKitInitOptions = {} as mapkit.MapKitInitOptions,
 ): void {
   mk.init({
-    authorizationCallback: (done) => done(token),
     ...initOptions,
+    authorizationCallback: (done) => done(token),
   });
 }
