@@ -105,3 +105,6 @@ dist
 .DS_Store
 
 sw.*
+
+# OpenCode / OMO session metadata
+.omo/
