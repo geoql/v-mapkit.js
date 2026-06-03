@@ -1,33 +1,21 @@
 {
+  "extends": ["@vue/tsconfig/tsconfig.dom.json"],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
+    "moduleResolution": "bundler",
     "strict": true,
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "allowJs": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
     "noEmit": false,
+    "sourceMap": true,
     "resolveJsonModule": true,
-    "experimentalDecorators": true,
+    "skipLibCheck": true,
     "baseUrl": ".",
-    "outDir": "./dist",
-    "jsx": "preserve",
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost",
-      "esnext.asynciterable"
-    ],
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["src/*"]
-    }
+    "paths": { "~/*": ["./*"], "@/*": ["src/*"] },
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo"
   },
-  "include": ["src", "shims"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*", "src/**/*.vue", "types/**/*"],
+  "exclude": ["node_modules", "dist", "playground", "docs", "test"]
 }

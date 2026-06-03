@@ -31,24 +31,27 @@
   ],
   "type": "module",
   "sideEffects": false,
-  "main": "./dist/v-mapkit.js",
-  "module": "./dist/v-mapkit.js",
+  "main": "./dist/v-mapkit.umd.cjs",
+  "module": "./dist/v-mapkit.mjs",
   "types": "./dist/index.d.ts",
-  "unpkg": "./dist/v-mapkit.mjs",
-  "jsdelivr": "./dist/v-mapkit.mjs",
-  "umd": "./dist/v-mapkit.umd.js",
   "exports": {
     ".": {
-      "import": "./dist/v-mapkit.js",
-      "require": "./dist/v-mapkit.umd.js"
-    }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/v-mapkit.mjs",
+      "require": "./dist/v-mapkit.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly && prettier --write dist/*{mjs,js,ts}",
+    "dev": "vite --config vite.playground.config.ts",
+    "build": "npm run build:lib && npm run build:types",
+    "build:lib": "vite build",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir dist",
+    "type-check": "vue-tsc --noEmit",
     "test": "echo 'test!'",
     "prepare": "husky",
     "lint": "oxlint && oxfmt --check",
@@ -92,6 +95,5 @@
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=10.0.0"
-  },
-  "cdn": "./dist/v-mapkit.min.js"
+  }
 }
