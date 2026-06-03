@@ -8,3 +8,5 @@ export { default as VTileOverlay } from './components/overlays/VTileOverlay.vue'
 export { MapKitGlobalKey, MapKitInstanceKey, MapKitReadyKey } from './symbols';
 export { loadMapKit, initMapKit } from './composables/useMapKit';
 export { useMapChild } from './composables/useMapChild';
+export { default } from './install';
+export type * from './types';
