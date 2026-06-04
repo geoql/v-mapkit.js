@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import type { Mock } from 'vitest';
 import { nextTick } from 'vue';
 
-import VMap from '@/components/VMap.vue';
+import VMap from '@/components/VMap';
 
 type TestMap = {
   destroy: Mock;

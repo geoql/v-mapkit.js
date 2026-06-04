@@ -1,18 +1,19 @@
 <script setup lang="ts">
   import { onBeforeUnmount, onMounted, provide, ref, shallowRef } from 'vue';
 
-  import { initMapKit, loadMapKit } from '../composables/useMapKit';
+  import { initMapKit, loadMapKit } from '../../composables/useMapKit';
   import {
     MapKitGlobalKey,
     MapKitInstanceKey,
     MapKitReadyKey,
-  } from '../symbols';
+  } from '../../symbols';
   import {
-    mapAnnotationOverlayEvents,
+    annotationEvents,
     mapDisplayEvents,
     mapInteractionEvents,
     mapUserLocationEvents,
-  } from '../utils/events';
+    overlayEvents,
+  } from '../../constants/events';
 
   const props = withDefaults(
     defineProps<{
@@ -67,9 +68,10 @@
 
   const allEvents = [
     ...mapDisplayEvents,
-    ...mapAnnotationOverlayEvents,
     ...mapUserLocationEvents,
     ...mapInteractionEvents,
+    ...annotationEvents,
+    ...overlayEvents,
   ];
 
   // Vue types `emit` as an intersection of per-event call signatures, so calling

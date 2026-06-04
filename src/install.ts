@@ -1,12 +1,12 @@
 import type { App, Plugin } from 'vue';
 
-import VImageAnnotation from './components/annotations/VImageAnnotation.vue';
-import VMarkerAnnotation from './components/annotations/VMarkerAnnotation.vue';
-import VCircleOverlay from './components/overlays/VCircleOverlay.vue';
-import VPolygonOverlay from './components/overlays/VPolygonOverlay.vue';
-import VPolylineOverlay from './components/overlays/VPolylineOverlay.vue';
-import VTileOverlay from './components/overlays/VTileOverlay.vue';
-import VMap from './components/VMap.vue';
+import VImageAnnotation from './components/VImageAnnotation';
+import VMarkerAnnotation from './components/VMarkerAnnotation';
+import VCircleOverlay from './components/VCircleOverlay';
+import VPolygonOverlay from './components/VPolygonOverlay';
+import VPolylineOverlay from './components/VPolylineOverlay';
+import VTileOverlay from './components/VTileOverlay';
+import VMap from './components/VMap';
 
 const install: Plugin['install'] = (app: App) => {
   app.component('VMap', VMap);

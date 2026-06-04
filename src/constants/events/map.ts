@@ -1,5 +1,6 @@
 type MapEvents = keyof mapkit.MapEvents<string>;
 
+/** MapKit map display events (region, rotation, scroll, zoom, type changes). */
 export const mapDisplayEvents: MapEvents[] = [
   'region-change-start',
   'region-change-end',
@@ -12,19 +13,13 @@ export const mapDisplayEvents: MapEvents[] = [
   'map-type-change',
 ];
 
-export const mapAnnotationOverlayEvents: MapEvents[] = [
-  'select',
-  'deselect',
-  'drag-start',
-  'dragging',
-  'drag-end',
-];
-
+/** MapKit user location events. */
 export const mapUserLocationEvents: MapEvents[] = [
   'user-location-change',
   'user-location-error',
 ];
 
+/** MapKit user interaction events (gestures). */
 export const mapInteractionEvents: MapEvents[] = [
   'single-tap',
   'double-tap',
