@@ -30,9 +30,9 @@
     "dist"
   ],
   "type": "module",
-  "sideEffects": false,
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "sideEffects": [
+    "*.css"
+  ],
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
@@ -47,16 +47,15 @@
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "dev": "vite --config vite.playground.config.ts",
     "build": "vp pack",
     "type-check": "vue-tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepare": "husky",
+    "prepare": "is-ci || husky",
     "lint": "vp lint",
-    "lintfix": "vp lint --fix",
-    "fmt": "vp fmt",
-    "fmt:check": "vp fmt --check",
+    "lint:fix": "vp lint --fix",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check",
     "lint:css": "stylelint \"src/**/*.{css,scss,vue}\"",
     "lint:css:fix": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
     "docs:dev": "vitepress dev docs",
@@ -64,36 +63,45 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
     "@tsdown/css": "^0.22.2",
     "@types/apple-mapkit-js-browser": "^5.78.0",
+    "@types/node": "^25.9.0",
     "@vue/compiler-sfc": "^3.5.0",
     "@vue/runtime-dom": "^3.5.0",
     "@vue/test-utils": "^2.4.10",
     "@vue/tsconfig": "^0.7.0",
-    "@vueuse/core": "^14.0.0",
     "happy-dom": "^17.6.3",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
+    "is-ci": "^4.1.0",
+    "lint-staged": "^17.0.5",
     "postcss-html": "^1.8.1",
-    "sass": "^1.83.0",
+    "sass": "^1.99.0",
     "stylelint": "^16.26.1",
     "stylelint-config-recommended-vue": "^1.6.1",
-    "typescript": "^5.7.0",
+    "typescript": "^6.0.3",
     "unplugin-vue": "^7.2.0",
     "vite-plus": "^0.1.24",
     "vitepress": "^1.6.4",
     "vitest": "^3.2.6",
-    "vue": "^3.5.0",
-    "vue-tsc": "^3.0.0"
+    "vue": "^3.5.34",
+    "vue-tsc": "^3.3.0"
   },
   "peerDependencies": {
     "@vueuse/core": "^14.0.0",
     "vue": "^3.5.0"
   },
-  "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
-  }
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.1.3",
+      "onFail": "warn"
+    },
+    "runtime": {
+      "name": "node",
+      "version": ">=24"
+    }
+  },
+  "packageManager": "pnpm@11.1.3+sha512.c85357fe17ca12dd23dd7071822666dfd7e3cb76fe214e3370b5ea2fb34f2a231185509b63e717f3cd0acb38dd3f8d82bcd5e8172400ae678b70ea4fbed0896d"
 }

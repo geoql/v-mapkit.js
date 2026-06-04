@@ -1,0 +1,8 @@
+packages: []
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@tsdown/css@0.22.2'
+  - rolldown@1.1.0
+  - tsdown@0.22.2
