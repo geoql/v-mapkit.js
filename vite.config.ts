@@ -1,50 +1,60 @@
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-import vue from '@vitejs/plugin-vue';
-import { defineConfig } from 'vite';
-
-import pkg from './package.json' with { type: 'json' };
-
-const dirname = fileURLToPath(new URL('.', import.meta.url));
-
-const banner = `/*!
- * ${pkg.name} v${pkg.version}
- * (c) ${new Date().getFullYear()} ${pkg.author.name}
- * @license ${pkg.license}
- */`;
+import Vue from 'unplugin-vue/rolldown';
+import { defineConfig } from 'vite-plus';
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      '@': resolve(dirname, 'src'),
-      '~': resolve(dirname, '.'),
+  lint: {
+    plugins: ['typescript', 'vue', 'import'],
+    ignorePatterns: [
+      '.nuxt',
+      '.output',
+      'dist',
+      'node_modules',
+      '.wrangler',
+      'coverage',
+      '*.min.js',
+      '*.min.css',
+      'docs/.vitepress/cache',
+      'docs/.vitepress/dist',
+    ],
+  },
+  pack: {
+    entry: ['src/index.ts'],
+    format: ['esm', 'cjs'],
+    platform: 'neutral',
+    sourcemap: true,
+    dts: { vue: true },
+    plugins: [Vue({ isProduction: true })],
+    deps: {
+      neverBundle: ['vue', '@vueuse/core'],
+    },
+    css: {
+      fileName: 'style.css',
     },
   },
-  plugins: [vue()],
-  build: {
-    target: 'esnext',
-    minify: 'esbuild',
-    sourcemap: true,
-    lib: {
-      entry: resolve(dirname, 'src/index.ts'),
-      name: 'VMapkit',
-      formats: ['es', 'umd', 'cjs'],
-      fileName: (format) =>
-        format === 'es'
-          ? 'v-mapkit.mjs'
-          : format === 'cjs'
-            ? 'v-mapkit.cjs'
-            : 'v-mapkit.umd.cjs',
-      cssFileName: 'style',
-    },
-    rollupOptions: {
-      external: ['vue', '@vueuse/core'],
-      output: {
-        exports: 'named',
-        banner,
-        globals: { vue: 'Vue', '@vueuse/core': 'VueUse' },
-      },
-    },
+  fmt: {
+    printWidth: 80,
+    semi: true,
+    singleQuote: true,
+    tabWidth: 2,
+    trailingComma: 'all',
+    bracketSpacing: true,
+    arrowParens: 'always',
+    endOfLine: 'lf',
+    vueIndentScriptAndStyle: true,
+    ignorePatterns: [
+      '.nuxt',
+      '.output',
+      'dist',
+      'node_modules',
+      '.wrangler',
+      'coverage',
+      '*.min.js',
+      '*.min.css',
+      'pnpm-lock.yaml',
+      '**/CHANGELOG.md',
+      '**/jsr.json',
+      'docs/.vitepress/cache',
+      'docs/.vitepress/dist',
+    ],
   },
 });

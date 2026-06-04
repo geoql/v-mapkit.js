@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+  import { ref } from 'vue';
 
-import { VMap, VMarkerAnnotation, VCircleOverlay } from '../src';
+  import { VMap, VMarkerAnnotation, VCircleOverlay } from '../src';
 
-const token = import.meta.env.VITE_MAPKIT_TOKEN ?? '';
-const center = ref<[number, number]>([37.3349, -122.009]);
+  const token = import.meta.env.VITE_MAPKIT_TOKEN ?? '';
+  const center = ref<[number, number]>([37.3349, -122.009]);
 </script>
 
 <template>

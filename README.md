@@ -56,7 +56,7 @@ generating one.
 
 ```vue
 <script setup lang="ts">
-import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
 </script>
 
 <template>

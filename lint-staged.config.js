@@ -1,5 +1,5 @@
 export default {
-  '*.{js,mjs,cjs,ts,tsx,jsx,vue}': ['oxlint --fix', 'oxfmt'],
+  '*.{js,mjs,cjs,ts,tsx,jsx,vue}': ['vp lint --fix'],
   '*.{css,scss}': ['stylelint --fix'],
-  '*.{json,md,yml,yaml}': ['oxfmt --no-error-on-unmatched-pattern'],
+  '*.{json,md,yml,yaml}': ['vp fmt'],
 };
