@@ -1,0 +1,11 @@
+{
+  "name": "@geoql/v-mapkit.js",
+  "version": "0.3.0",
+  "exports": "./dist/index.js",
+  "publish": {
+    "exclude": [
+      "!dist"
+    ]
+  },
+  "description": "MapKit with the power of Vue 3 — Vue 3 components and composables for Apple MapKit JS."
+}

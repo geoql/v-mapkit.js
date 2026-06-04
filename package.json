@@ -60,7 +60,8 @@
     "lint:css:fix": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "bump-version": "node scripts/bump-jsr-version.mjs"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.1",
