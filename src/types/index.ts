@@ -33,3 +33,19 @@ export interface TileOverlayProps {
   url: mapkit.URLTemplateCallback | string;
   options?: mapkit.TileOverlayConstructorOptions;
 }
+
+export interface PlaceAnnotationProps {
+  place: mapkit.Place;
+  annotation?: mapkit.AnnotationConstructorOptions;
+}
+
+export interface MapFeatureAnnotationProps {
+  feature: mapkit.MapFeature;
+  annotation?: mapkit.AnnotationConstructorOptions;
+}
+
+export interface CustomAnnotationProps {
+  coordinates: [number, number];
+  element: () => HTMLElement;
+  annotation?: mapkit.AnnotationConstructorOptions;
+}

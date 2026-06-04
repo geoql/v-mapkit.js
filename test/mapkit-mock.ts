@@ -19,6 +19,40 @@ class FakeMarkerAnnotation {
   }
 }
 class FakeImageAnnotation extends FakeMarkerAnnotation {}
+class FakePlaceAnnotation {
+  constructor(
+    public place: unknown,
+    public options: Record<string, unknown> = {},
+  ) {}
+}
+class FakeMapFeatureAnnotation {
+  constructor(
+    public feature: unknown,
+    public options: Record<string, unknown> = {},
+  ) {}
+}
+class FakeAnnotation {
+  coordinate: FakeCoordinate;
+  element: Element;
+  options: Record<string, unknown>;
+  factory: (
+    coordinate: FakeCoordinate,
+    options: Record<string, unknown>,
+  ) => Element;
+  constructor(
+    coordinate: FakeCoordinate,
+    factory: (
+      coordinate: FakeCoordinate,
+      options: Record<string, unknown>,
+    ) => Element,
+    options: Record<string, unknown> = {},
+  ) {
+    this.coordinate = coordinate;
+    this.factory = factory;
+    this.options = options;
+    this.element = factory(coordinate, options);
+  }
+}
 class FakeCircleOverlay {
   constructor(
     public coordinate: FakeCoordinate,
@@ -83,6 +117,9 @@ export function installMapKitMock() {
     Coordinate: FakeCoordinate,
     MarkerAnnotation: FakeMarkerAnnotation,
     ImageAnnotation: FakeImageAnnotation,
+    PlaceAnnotation: FakePlaceAnnotation,
+    MapFeatureAnnotation: FakeMapFeatureAnnotation,
+    Annotation: FakeAnnotation,
     CircleOverlay: FakeCircleOverlay,
     PolygonOverlay: FakePolygonOverlay,
     PolylineOverlay: FakePolylineOverlay,
