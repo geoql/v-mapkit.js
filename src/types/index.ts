@@ -5,6 +5,16 @@ export interface VMapProps {
   initOptions?: mapkit.MapKitInitOptions;
   mapOptions?: mapkit.MapConstructorOptions;
   clusterAnnotation?: (cluster: mapkit.Annotation) => mapkit.Annotation;
+  colorScheme?: 'light' | 'dark';
+  distances?: 'automatic' | 'metric' | 'imperial';
+  padding?: mapkit.Padding;
+  tintColor?: string;
+  pointOfInterestFilter?: mapkit.PointOfInterestFilter;
+  showsPointsOfInterest?: boolean;
+  cameraBoundary?: mapkit.CameraBoundary;
+  cameraDistance?: number;
+  cameraZoomRange?: mapkit.CameraZoomRange;
+  selectableMapFeatures?: mapkit.SelectableMapFeature[];
 }
 
 export interface MarkerAnnotationProps {

@@ -228,6 +228,16 @@ class FakeMap {
   overlays: unknown[] = [];
   destroyed = false;
   annotationForCluster?: (cluster: unknown) => unknown;
+  colorScheme?: string;
+  distances?: string;
+  padding?: unknown;
+  tintColor?: string;
+  pointOfInterestFilter?: unknown;
+  showsPointsOfInterest?: boolean;
+  cameraBoundary?: unknown;
+  cameraDistance?: number;
+  cameraZoomRange?: unknown;
+  selectableMapFeatures?: unknown[];
   private listeners: Record<string, Array<(e: unknown) => void>> = {};
   constructor(
     public element: unknown,

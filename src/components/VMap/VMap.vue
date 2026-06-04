@@ -1,5 +1,12 @@
 <script setup lang="ts">
-  import { onBeforeUnmount, onMounted, provide, ref, shallowRef } from 'vue';
+  import {
+    onBeforeUnmount,
+    onMounted,
+    provide,
+    ref,
+    shallowRef,
+    watch,
+  } from 'vue';
 
   import { initMapKit, loadMapKit } from '../../composables/useMapKit';
   import {
@@ -23,6 +30,16 @@
       initOptions?: mapkit.MapKitInitOptions;
       mapOptions?: mapkit.MapConstructorOptions;
       clusterAnnotation?: (cluster: mapkit.Annotation) => mapkit.Annotation;
+      colorScheme?: 'light' | 'dark';
+      distances?: 'automatic' | 'metric' | 'imperial';
+      padding?: mapkit.Padding;
+      tintColor?: string;
+      pointOfInterestFilter?: mapkit.PointOfInterestFilter;
+      showsPointsOfInterest?: boolean;
+      cameraBoundary?: mapkit.CameraBoundary;
+      cameraDistance?: number;
+      cameraZoomRange?: mapkit.CameraZoomRange;
+      selectableMapFeatures?: mapkit.SelectableMapFeature[];
     }>(),
     {
       version: '5.x.x',
@@ -124,6 +141,21 @@
       if (props.clusterAnnotation) {
         created.annotationForCluster = props.clusterAnnotation;
       }
+      if (props.colorScheme) created.colorScheme = props.colorScheme;
+      if (props.distances) created.distances = props.distances;
+      if (props.padding) created.padding = props.padding;
+      if (props.tintColor) created.tintColor = props.tintColor;
+      if (props.pointOfInterestFilter)
+        created.pointOfInterestFilter = props.pointOfInterestFilter;
+      if (props.showsPointsOfInterest !== undefined)
+        created.showsPointsOfInterest = props.showsPointsOfInterest;
+      if (props.cameraBoundary) created.cameraBoundary = props.cameraBoundary;
+      if (props.cameraDistance !== undefined)
+        created.cameraDistance = props.cameraDistance;
+      if (props.cameraZoomRange)
+        created.cameraZoomRange = props.cameraZoomRange;
+      if (props.selectableMapFeatures)
+        created.selectableMapFeatures = props.selectableMapFeatures;
       map.value = created;
       ready.value = true;
       emit('map-loaded', true);
@@ -138,6 +170,67 @@
       if (!isUnmounted) emit('map-loaded', false);
     }
   });
+
+  watch(
+    () => props.colorScheme,
+    (val) => {
+      if (val && map.value) map.value.colorScheme = val;
+    },
+  );
+  watch(
+    () => props.distances,
+    (val) => {
+      if (val && map.value) map.value.distances = val;
+    },
+  );
+  watch(
+    () => props.padding,
+    (val) => {
+      if (val && map.value) map.value.padding = val;
+    },
+  );
+  watch(
+    () => props.tintColor,
+    (val) => {
+      if (val && map.value) map.value.tintColor = val;
+    },
+  );
+  watch(
+    () => props.pointOfInterestFilter,
+    (val) => {
+      if (val && map.value) map.value.pointOfInterestFilter = val;
+    },
+  );
+  watch(
+    () => props.showsPointsOfInterest,
+    (val) => {
+      if (val !== undefined && map.value) map.value.showsPointsOfInterest = val;
+    },
+  );
+  watch(
+    () => props.cameraBoundary,
+    (val) => {
+      if (val && map.value) map.value.cameraBoundary = val;
+    },
+  );
+  watch(
+    () => props.cameraDistance,
+    (val) => {
+      if (val !== undefined && map.value) map.value.cameraDistance = val;
+    },
+  );
+  watch(
+    () => props.cameraZoomRange,
+    (val) => {
+      if (val && map.value) map.value.cameraZoomRange = val;
+    },
+  );
+  watch(
+    () => props.selectableMapFeatures,
+    (val) => {
+      if (val && map.value) map.value.selectableMapFeatures = val;
+    },
+  );
 
   defineExpose({ map, ready, mapkit: mapkitGlobal });
 </script>
