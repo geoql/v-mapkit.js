@@ -1,5 +1,8 @@
 <script setup lang="ts">
+  import { provide, type Ref } from 'vue';
+
   import { useMapChild } from '../../composables/useMapChild';
+  import { MapKitAnnotationKey } from '../../symbols';
 
   const props = defineProps<{
     feature: mapkit.MapFeature;
@@ -18,6 +21,8 @@
     remove: (map, a) => map.removeAnnotation(a),
     watchSources: () => [props.feature, props.annotation],
   });
+
+  provide(MapKitAnnotationKey, instance as Ref<mapkit.Annotation | undefined>);
 
   defineExpose({ annotation: instance });
 </script>

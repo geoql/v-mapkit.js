@@ -6,3 +6,6 @@ export const MapKitInstanceKey: InjectionKey<Ref<mapkit.Map | undefined>> =
   Symbol('mapkit:map');
 export const MapKitReadyKey: InjectionKey<Ref<boolean>> =
   Symbol('mapkit:ready');
+export const MapKitAnnotationKey: InjectionKey<
+  Ref<mapkit.Annotation | undefined>
+> = Symbol('mapkit:annotation');

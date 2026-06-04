@@ -5,6 +5,7 @@ import VMarkerAnnotation from './components/VMarkerAnnotation';
 import VPlaceAnnotation from './components/VPlaceAnnotation';
 import VCustomAnnotation from './components/VCustomAnnotation';
 import VMapFeatureAnnotation from './components/VMapFeatureAnnotation';
+import VAnnotationCallout from './components/VAnnotationCallout';
 import VCircleOverlay from './components/VCircleOverlay';
 import VPolygonOverlay from './components/VPolygonOverlay';
 import VPolylineOverlay from './components/VPolylineOverlay';
@@ -20,6 +21,7 @@ const install: Plugin['install'] = (app: App) => {
   app.component('VPlaceAnnotation', VPlaceAnnotation);
   app.component('VCustomAnnotation', VCustomAnnotation);
   app.component('VMapFeatureAnnotation', VMapFeatureAnnotation);
+  app.component('VAnnotationCallout', VAnnotationCallout);
   app.component('VCircleOverlay', VCircleOverlay);
   app.component('VPolygonOverlay', VPolygonOverlay);
   app.component('VPolylineOverlay', VPolylineOverlay);

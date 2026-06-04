@@ -4,6 +4,7 @@ export { default as VImageAnnotation } from './components/VImageAnnotation';
 export { default as VPlaceAnnotation } from './components/VPlaceAnnotation';
 export { default as VCustomAnnotation } from './components/VCustomAnnotation';
 export { default as VMapFeatureAnnotation } from './components/VMapFeatureAnnotation';
+export { default as VAnnotationCallout } from './components/VAnnotationCallout';
 export { default as VCircleOverlay } from './components/VCircleOverlay';
 export { default as VPolygonOverlay } from './components/VPolygonOverlay';
 export { default as VPolylineOverlay } from './components/VPolylineOverlay';

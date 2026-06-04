@@ -1,5 +1,8 @@
 <script setup lang="ts">
+  import { provide } from 'vue';
+
   import { useMapChild } from '../../composables/useMapChild';
+  import { MapKitAnnotationKey } from '../../symbols';
 
   const props = defineProps<{
     coordinates: [number, number];
@@ -24,6 +27,8 @@
     remove: (map, a) => map.removeAnnotation(a),
     watchSources: () => [props.coordinates, props.element, props.annotation],
   });
+
+  provide(MapKitAnnotationKey, instance);
 
   defineExpose({ annotation: instance });
 </script>

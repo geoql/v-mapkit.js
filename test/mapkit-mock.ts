@@ -10,6 +10,8 @@ class FakeCoordinate {
 class FakeMarkerAnnotation {
   coordinate: FakeCoordinate;
   options: Record<string, unknown>;
+  callout?: unknown;
+  calloutEnabled?: boolean;
   constructor(
     coordinate: FakeCoordinate,
     options: Record<string, unknown> = {},
@@ -20,12 +22,16 @@ class FakeMarkerAnnotation {
 }
 class FakeImageAnnotation extends FakeMarkerAnnotation {}
 class FakePlaceAnnotation {
+  callout?: unknown;
+  calloutEnabled?: boolean;
   constructor(
     public place: unknown,
     public options: Record<string, unknown> = {},
   ) {}
 }
 class FakeMapFeatureAnnotation {
+  callout?: unknown;
+  calloutEnabled?: boolean;
   constructor(
     public feature: unknown,
     public options: Record<string, unknown> = {},
@@ -35,6 +41,8 @@ class FakeAnnotation {
   coordinate: FakeCoordinate;
   element: Element;
   options: Record<string, unknown>;
+  callout?: unknown;
+  calloutEnabled?: boolean;
   factory: (
     coordinate: FakeCoordinate,
     options: Record<string, unknown>,
