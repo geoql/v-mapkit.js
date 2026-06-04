@@ -13,6 +13,10 @@ import VPolylineOverlay from './components/VPolylineOverlay';
 import VTileOverlay from './components/VTileOverlay';
 import VLookAround from './components/VLookAround';
 import VLookAroundPreview from './components/VLookAroundPreview';
+import VControlFullscreen from './components/VControlFullscreen';
+import VControlGeolocate from './components/VControlGeolocate';
+import VControlLayerSwitcher from './components/VControlLayerSwitcher';
+import VControlLegend from './components/VControlLegend';
 import VMap from './components/VMap';
 
 const install: Plugin['install'] = (app: App) => {
@@ -30,6 +34,10 @@ const install: Plugin['install'] = (app: App) => {
   app.component('VTileOverlay', VTileOverlay);
   app.component('VLookAround', VLookAround);
   app.component('VLookAroundPreview', VLookAroundPreview);
+  app.component('VControlFullscreen', VControlFullscreen);
+  app.component('VControlGeolocate', VControlGeolocate);
+  app.component('VControlLayerSwitcher', VControlLayerSwitcher);
+  app.component('VControlLegend', VControlLegend);
 };
 
 export default install;

@@ -15,6 +15,37 @@ export interface VMapProps {
   cameraDistance?: number;
   cameraZoomRange?: mapkit.CameraZoomRange;
   selectableMapFeatures?: mapkit.SelectableMapFeature[];
+  showsCompass?: 'adaptive' | 'hidden';
+  showsZoomControl?: boolean;
+  showsScale?: 'adaptive' | 'hidden';
+  showsMapTypeControl?: boolean;
+  showsUserLocationControl?: boolean;
+  showsUserLocation?: boolean;
+  tracksUserLocation?: boolean;
+}
+
+export type ControlPosition =
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right';
+
+export interface ControlFullscreenProps {
+  position?: ControlPosition;
+}
+
+export interface ControlGeolocateProps {
+  position?: ControlPosition;
+  trackUserLocation?: boolean;
+}
+
+export interface ControlLayerSwitcherProps {
+  position?: ControlPosition;
+  mapTypes?: Array<{ type: mapkit.MapType; label: string }>;
+}
+
+export interface ControlLegendProps {
+  position?: ControlPosition;
 }
 
 export interface MarkerAnnotationProps {

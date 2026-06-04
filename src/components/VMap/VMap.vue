@@ -40,12 +40,24 @@
       cameraDistance?: number;
       cameraZoomRange?: mapkit.CameraZoomRange;
       selectableMapFeatures?: mapkit.SelectableMapFeature[];
+      showsCompass?: 'adaptive' | 'hidden';
+      showsZoomControl?: boolean;
+      showsScale?: 'adaptive' | 'hidden';
+      showsMapTypeControl?: boolean;
+      showsUserLocationControl?: boolean;
+      showsUserLocation?: boolean;
+      tracksUserLocation?: boolean;
     }>(),
     {
       version: '5.x.x',
       language: 'en',
       initOptions: () => ({}) as mapkit.MapKitInitOptions,
       mapOptions: () => ({}) as mapkit.MapConstructorOptions,
+      showsZoomControl: undefined,
+      showsMapTypeControl: undefined,
+      showsUserLocationControl: undefined,
+      showsUserLocation: undefined,
+      tracksUserLocation: undefined,
     },
   );
 
@@ -105,6 +117,14 @@
     fn: (e: unknown) => void;
   }> = [];
 
+  const resolveVisibility = (
+    mk: typeof mapkit,
+    value: 'adaptive' | 'hidden',
+  ): string =>
+    value === 'hidden'
+      ? mk.FeatureVisibility.Hidden
+      : mk.FeatureVisibility.Adaptive;
+
   let isUnmounted = false;
   let inflight: mapkit.Map | undefined;
 
@@ -156,6 +176,20 @@
         created.cameraZoomRange = props.cameraZoomRange;
       if (props.selectableMapFeatures)
         created.selectableMapFeatures = props.selectableMapFeatures;
+      if (props.showsCompass)
+        created.showsCompass = resolveVisibility(mk, props.showsCompass);
+      if (props.showsZoomControl !== undefined)
+        created.showsZoomControl = props.showsZoomControl;
+      if (props.showsScale)
+        created.showsScale = resolveVisibility(mk, props.showsScale);
+      if (props.showsMapTypeControl !== undefined)
+        created.showsMapTypeControl = props.showsMapTypeControl;
+      if (props.showsUserLocationControl !== undefined)
+        created.showsUserLocationControl = props.showsUserLocationControl;
+      if (props.showsUserLocation !== undefined)
+        created.showsUserLocation = props.showsUserLocation;
+      if (props.tracksUserLocation !== undefined)
+        created.tracksUserLocation = props.tracksUserLocation;
       map.value = created;
       ready.value = true;
       emit('map-loaded', true);
@@ -229,6 +263,51 @@
     () => props.selectableMapFeatures,
     (val) => {
       if (val && map.value) map.value.selectableMapFeatures = val;
+    },
+  );
+  watch(
+    () => props.showsCompass,
+    (val) => {
+      if (val && map.value && mapkitGlobal.value)
+        map.value.showsCompass = resolveVisibility(mapkitGlobal.value, val);
+    },
+  );
+  watch(
+    () => props.showsZoomControl,
+    (val) => {
+      if (val !== undefined && map.value) map.value.showsZoomControl = val;
+    },
+  );
+  watch(
+    () => props.showsScale,
+    (val) => {
+      if (val && map.value && mapkitGlobal.value)
+        map.value.showsScale = resolveVisibility(mapkitGlobal.value, val);
+    },
+  );
+  watch(
+    () => props.showsMapTypeControl,
+    (val) => {
+      if (val !== undefined && map.value) map.value.showsMapTypeControl = val;
+    },
+  );
+  watch(
+    () => props.showsUserLocationControl,
+    (val) => {
+      if (val !== undefined && map.value)
+        map.value.showsUserLocationControl = val;
+    },
+  );
+  watch(
+    () => props.showsUserLocation,
+    (val) => {
+      if (val !== undefined && map.value) map.value.showsUserLocation = val;
+    },
+  );
+  watch(
+    () => props.tracksUserLocation,
+    (val) => {
+      if (val !== undefined && map.value) map.value.tracksUserLocation = val;
     },
   );
 

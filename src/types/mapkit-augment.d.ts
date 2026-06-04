@@ -90,6 +90,17 @@ declare global {
      * See: https://developer.apple.com/documentation/mapkitjs/selectablemapfeature
      */
     type SelectableMapFeature = 'pointOfInterest' | 'building' | 'terrain';
+
+    /**
+     * The type of data displayed by a map view (`map.mapType`).
+     *
+     * The upstream type definitions model `mapType` as a bare `string` and do
+     * not export a named union for the values of `mapkit.Map.MapTypes`. Declare
+     * it here so consumers can refer to it as a type.
+     *
+     * See: https://developer.apple.com/documentation/mapkitjs/map/maptypes
+     */
+    type MapType = 'standard' | 'hybrid' | 'satellite' | 'mutedStandard';
   }
 }
 

@@ -238,11 +238,24 @@ class FakeMap {
   cameraDistance?: number;
   cameraZoomRange?: unknown;
   selectableMapFeatures?: unknown[];
+  mapType?: string;
+  showsCompass?: string;
+  showsZoomControl?: boolean;
+  showsScale?: string;
+  showsMapTypeControl?: boolean;
+  showsUserLocationControl?: boolean;
+  showsUserLocation?: boolean;
+  tracksUserLocation?: boolean;
+  center?: unknown;
   private listeners: Record<string, Array<(e: unknown) => void>> = {};
   constructor(
     public element: unknown,
     public options: Record<string, unknown> = {},
   ) {}
+  setCenterAnimated = vi.fn((coordinate: unknown, _animate?: boolean) => {
+    this.center = coordinate;
+    return this;
+  });
   addAnnotation = vi.fn((a: unknown) => this.annotations.push(a));
   removeAnnotation = vi.fn((a: unknown) => {
     this.annotations = this.annotations.filter((x) => x !== a);
@@ -266,11 +279,25 @@ class FakeMap {
   });
 }
 
+const FakeMapWithStatics = Object.assign(FakeMap, {
+  MapTypes: {
+    Standard: 'standard',
+    MutedStandard: 'mutedStandard',
+    Hybrid: 'hybrid',
+    Satellite: 'satellite',
+  },
+});
+
 export function installMapKitMock() {
   const mapkit = {
     init: vi.fn(),
     addEventListener: vi.fn(),
-    Map: FakeMap,
+    Map: FakeMapWithStatics,
+    FeatureVisibility: {
+      Adaptive: 'adaptive',
+      Hidden: 'hidden',
+      Visible: 'visible',
+    },
     Coordinate: FakeCoordinate,
     MarkerAnnotation: FakeMarkerAnnotation,
     ImageAnnotation: FakeImageAnnotation,
