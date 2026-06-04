@@ -8,6 +8,8 @@ export { default as VCircleOverlay } from './components/VCircleOverlay';
 export { default as VPolygonOverlay } from './components/VPolygonOverlay';
 export { default as VPolylineOverlay } from './components/VPolylineOverlay';
 export { default as VTileOverlay } from './components/VTileOverlay';
+export { default as VLookAround } from './components/VLookAround';
+export { default as VLookAroundPreview } from './components/VLookAroundPreview';
 export { MapKitGlobalKey, MapKitInstanceKey, MapKitReadyKey } from './symbols';
 export { loadMapKit, initMapKit } from './composables/useMapKit';
 export { useMapChild } from './composables/useMapChild';

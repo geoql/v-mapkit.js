@@ -9,6 +9,8 @@ import VCircleOverlay from './components/VCircleOverlay';
 import VPolygonOverlay from './components/VPolygonOverlay';
 import VPolylineOverlay from './components/VPolylineOverlay';
 import VTileOverlay from './components/VTileOverlay';
+import VLookAround from './components/VLookAround';
+import VLookAroundPreview from './components/VLookAroundPreview';
 import VMap from './components/VMap';
 
 const install: Plugin['install'] = (app: App) => {
@@ -22,6 +24,8 @@ const install: Plugin['install'] = (app: App) => {
   app.component('VPolygonOverlay', VPolygonOverlay);
   app.component('VPolylineOverlay', VPolylineOverlay);
   app.component('VTileOverlay', VTileOverlay);
+  app.component('VLookAround', VLookAround);
+  app.component('VLookAroundPreview', VLookAroundPreview);
 };
 
 export default install;

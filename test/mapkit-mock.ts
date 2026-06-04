@@ -77,6 +77,38 @@ class FakeStyle {
   constructor(public options: Record<string, unknown> = {}) {}
 }
 
+class FakeLookAround {
+  shown: unknown[] = [];
+  destroyed = false;
+  private listeners: Record<string, Array<(e: unknown) => void>> = {};
+  constructor(
+    public parent: Element,
+    public options: Record<string, unknown> = {},
+  ) {}
+  show = vi.fn((place: unknown) => {
+    this.shown.push(place);
+    if ((place as { __error__?: boolean })?.__error__) {
+      this.fireEvent('error', new Error('look around unavailable'));
+    } else {
+      this.fireEvent('load', { place });
+    }
+  });
+  addEventListener = vi.fn((e: string, cb: (ev: unknown) => void) => {
+    (this.listeners[e] ??= []).push(cb);
+  });
+  removeEventListener = vi.fn((e: string, cb: (ev: unknown) => void) => {
+    this.listeners[e] = (this.listeners[e] ?? []).filter((h) => h !== cb);
+  });
+  fireEvent(e: string, payload: unknown) {
+    (this.listeners[e] ?? []).forEach((cb) => cb(payload));
+  }
+  destroy = vi.fn(() => {
+    this.destroyed = true;
+    this.listeners = {};
+  });
+}
+class FakeLookAroundPreview extends FakeLookAround {}
+
 type Cb = (error: Error | null, data: unknown) => void;
 
 class FakeSearch {
@@ -223,6 +255,8 @@ export function installMapKitMock() {
     PolylineOverlay: FakePolylineOverlay,
     TileOverlay: FakeTileOverlay,
     Style: FakeStyle,
+    LookAround: FakeLookAround,
+    LookAroundPreview: FakeLookAroundPreview,
     Search: FakeSearch,
     Geocoder: FakeGeocoder,
     Directions: FakeDirections,

@@ -9,6 +9,8 @@
  *
  * See: https://developer.apple.com/documentation/mapkitjs/placeannotation
  * See: https://developer.apple.com/documentation/mapkitjs/mapfeatureannotation
+ * See: https://developer.apple.com/documentation/mapkitjs/lookaround
+ * See: https://developer.apple.com/documentation/mapkitjs/lookaroundpreview
  */
 declare global {
   namespace mapkit {
@@ -25,6 +27,44 @@ declare global {
     interface MapFeature {
       pointOfInterestCategory?: string;
       readonly mapFeatureType: string;
+    }
+
+    /** Configuration options for an interactive Look Around view. */
+    interface LookAroundOptions {
+      showsDialogControls?: boolean;
+      showsRoadLabels?: boolean;
+    }
+
+    /** Configuration options for a static Look Around preview. */
+    interface LookAroundPreviewOptions {
+      showsDialogControls?: boolean;
+    }
+
+    /**
+     * An interactive 360° street-level view rendered into a DOM element.
+     * Cross-browser where WebGL is available.
+     */
+    class LookAround {
+      constructor(parent: Element, options?: LookAroundOptions);
+      show(place: Place): void;
+      addEventListener(type: string, listener: (event: unknown) => void): void;
+      removeEventListener(
+        type: string,
+        listener: (event: unknown) => void,
+      ): void;
+      destroy?(): void;
+    }
+
+    /** A static, non-interactive Look Around preview rendered into a DOM element. */
+    class LookAroundPreview {
+      constructor(parent: Element, options?: LookAroundPreviewOptions);
+      show(place: Place): void;
+      addEventListener(type: string, listener: (event: unknown) => void): void;
+      removeEventListener(
+        type: string,
+        listener: (event: unknown) => void,
+      ): void;
+      destroy?(): void;
     }
   }
 }
