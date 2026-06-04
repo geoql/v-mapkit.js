@@ -22,6 +22,7 @@
       language?: string;
       initOptions?: mapkit.MapKitInitOptions;
       mapOptions?: mapkit.MapConstructorOptions;
+      clusterAnnotation?: (cluster: mapkit.Annotation) => mapkit.Annotation;
     }>(),
     {
       version: '5.x.x',
@@ -95,6 +96,9 @@
     const m = map.value ?? inflight;
     if (m) {
       for (const { name, fn } of handlers) m.removeEventListener?.(name, fn);
+      if (props.clusterAnnotation)
+        (m as { annotationForCluster?: unknown }).annotationForCluster =
+          undefined;
       m.destroy();
       emit('map-destroyed', true);
     }
@@ -116,6 +120,9 @@
       if (isUnmounted) {
         created.destroy();
         return;
+      }
+      if (props.clusterAnnotation) {
+        created.annotationForCluster = props.clusterAnnotation;
       }
       map.value = created;
       ready.value = true;

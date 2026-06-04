@@ -12,6 +12,8 @@ class FakeMarkerAnnotation {
   options: Record<string, unknown>;
   callout?: unknown;
   calloutEnabled?: boolean;
+  clusteringIdentifier: string | null = null;
+  memberAnnotations: unknown[] = [];
   constructor(
     coordinate: FakeCoordinate,
     options: Record<string, unknown> = {},
@@ -24,6 +26,8 @@ class FakeImageAnnotation extends FakeMarkerAnnotation {}
 class FakePlaceAnnotation {
   callout?: unknown;
   calloutEnabled?: boolean;
+  clusteringIdentifier: string | null = null;
+  memberAnnotations: unknown[] = [];
   constructor(
     public place: unknown,
     public options: Record<string, unknown> = {},
@@ -32,6 +36,8 @@ class FakePlaceAnnotation {
 class FakeMapFeatureAnnotation {
   callout?: unknown;
   calloutEnabled?: boolean;
+  clusteringIdentifier: string | null = null;
+  memberAnnotations: unknown[] = [];
   constructor(
     public feature: unknown,
     public options: Record<string, unknown> = {},
@@ -43,6 +49,8 @@ class FakeAnnotation {
   options: Record<string, unknown>;
   callout?: unknown;
   calloutEnabled?: boolean;
+  clusteringIdentifier: string | null = null;
+  memberAnnotations: unknown[] = [];
   factory: (
     coordinate: FakeCoordinate,
     options: Record<string, unknown>,
@@ -219,6 +227,7 @@ class FakeMap {
   annotations: unknown[] = [];
   overlays: unknown[] = [];
   destroyed = false;
+  annotationForCluster?: (cluster: unknown) => unknown;
   private listeners: Record<string, Array<(e: unknown) => void>> = {};
   constructor(
     public element: unknown,

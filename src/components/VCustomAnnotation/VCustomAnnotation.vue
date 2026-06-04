@@ -8,6 +8,7 @@
     coordinates: [number, number];
     element: () => HTMLElement;
     annotation?: mapkit.AnnotationConstructorOptions;
+    clusteringIdentifier?: string;
   }>();
 
   const instance = useMapChild<mapkit.Annotation>({
@@ -21,11 +22,19 @@
         () => props.element(),
         props.annotation ?? {},
       );
+      if (props.clusteringIdentifier != null) {
+        a.clusteringIdentifier = props.clusteringIdentifier;
+      }
       map.addAnnotation(a);
       return a;
     },
     remove: (map, a) => map.removeAnnotation(a),
-    watchSources: () => [props.coordinates, props.element, props.annotation],
+    watchSources: () => [
+      props.coordinates,
+      props.element,
+      props.annotation,
+      props.clusteringIdentifier,
+    ],
   });
 
   provide(MapKitAnnotationKey, instance);

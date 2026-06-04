@@ -7,6 +7,7 @@
   const props = defineProps<{
     coordinates: [number, number];
     annotation?: mapkit.MarkerAnnotationConstructorOptions;
+    clusteringIdentifier?: string;
   }>();
 
   const instance = useMapChild<mapkit.MarkerAnnotation>({
@@ -16,11 +17,18 @@
         props.coordinates[1],
       );
       const a = new mk.MarkerAnnotation(coord, props.annotation ?? {});
+      if (props.clusteringIdentifier != null) {
+        a.clusteringIdentifier = props.clusteringIdentifier;
+      }
       map.addAnnotation(a);
       return a;
     },
     remove: (map, a) => map.removeAnnotation(a),
-    watchSources: () => [props.coordinates, props.annotation],
+    watchSources: () => [
+      props.coordinates,
+      props.annotation,
+      props.clusteringIdentifier,
+    ],
   });
 
   provide(MapKitAnnotationKey, instance as Ref<mapkit.Annotation | undefined>);

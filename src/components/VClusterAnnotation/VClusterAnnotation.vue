@@ -5,29 +5,25 @@
   import { MapKitAnnotationKey } from '../../symbols';
 
   const props = defineProps<{
-    feature: mapkit.MapFeature;
-    annotation?: mapkit.AnnotationConstructorOptions;
-    clusteringIdentifier?: string;
+    cluster: mapkit.Annotation;
+    annotation?: mapkit.MarkerAnnotationConstructorOptions;
   }>();
 
-  const instance = useMapChild<mapkit.MapFeatureAnnotation>({
+  const instance = useMapChild<mapkit.MarkerAnnotation>({
     create: (mk, map) => {
-      const a = new mk.MapFeatureAnnotation(
-        props.feature,
+      const a = new mk.MarkerAnnotation(
+        props.cluster.coordinate,
         props.annotation ?? {},
       );
-      if (props.clusteringIdentifier != null) {
-        a.clusteringIdentifier = props.clusteringIdentifier;
+      a.memberAnnotations = props.cluster.memberAnnotations;
+      if (props.cluster.clusteringIdentifier != null) {
+        a.clusteringIdentifier = props.cluster.clusteringIdentifier;
       }
       map.addAnnotation(a);
       return a;
     },
     remove: (map, a) => map.removeAnnotation(a),
-    watchSources: () => [
-      props.feature,
-      props.annotation,
-      props.clusteringIdentifier,
-    ],
+    watchSources: () => [props.cluster, props.annotation],
   });
 
   provide(MapKitAnnotationKey, instance as Ref<mapkit.Annotation | undefined>);
