@@ -77,6 +77,104 @@ class FakeStyle {
   constructor(public options: Record<string, unknown> = {}) {}
 }
 
+type Cb = (error: Error | null, data: unknown) => void;
+
+class FakeSearch {
+  constructor(public options: Record<string, unknown> = {}) {}
+  search = vi.fn(
+    (query: unknown, callback: Cb, _options?: Record<string, unknown>) => {
+      queueMicrotask(() => {
+        if (query === '__error__') {
+          callback(new Error('search failed'), null);
+        } else {
+          callback(null, { query, boundingRegion: {}, places: [] });
+        }
+      });
+      return 1;
+    },
+  );
+  autocomplete = vi.fn(
+    (query: unknown, callback: Cb, _options?: Record<string, unknown>) => {
+      queueMicrotask(() => {
+        if (query === '__error__') {
+          callback(new Error('autocomplete failed'), null);
+        } else {
+          callback(null, { query, results: [] });
+        }
+      });
+    },
+  );
+  cancel = vi.fn(() => true);
+}
+
+class FakeGeocoder {
+  constructor(public options: Record<string, unknown> = {}) {}
+  lookup = vi.fn(
+    (place: unknown, callback: Cb, _options?: Record<string, unknown>) => {
+      queueMicrotask(() => {
+        if (place === '__error__') {
+          callback(new Error('geocode failed'), null);
+        } else {
+          callback(null, { results: [] });
+        }
+      });
+      return 1;
+    },
+  );
+  reverseLookup = vi.fn(
+    (
+      coordinate: { latitude?: number } | unknown,
+      callback: Cb,
+      _options?: Record<string, unknown>,
+    ) => {
+      queueMicrotask(() => {
+        if ((coordinate as { latitude?: number })?.latitude === 999) {
+          callback(new Error('reverse geocode failed'), null);
+        } else {
+          callback(null, { results: [] });
+        }
+      });
+      return 1;
+    },
+  );
+  cancel = vi.fn(() => true);
+}
+
+class FakeDirections {
+  constructor(public options: Record<string, unknown> = {}) {}
+  route = vi.fn((request: { origin?: unknown }, callback: Cb) => {
+    queueMicrotask(() => {
+      if (request?.origin === '__error__') {
+        callback(new Error('route failed'), null);
+      } else {
+        callback(null, { request, routes: [] });
+      }
+    });
+    return 1;
+  });
+  eta = vi.fn((request: unknown, callback: Cb) => {
+    queueMicrotask(() => callback(null, { request, etas: [] }));
+    return 1;
+  });
+  cancel = vi.fn(() => true);
+}
+
+class FakePointsOfInterestSearch {
+  constructor(public options: Record<string, unknown> = {}) {}
+  search = vi.fn((callback: Cb, options?: Record<string, unknown>) => {
+    const merged = { ...this.options, ...options };
+    queueMicrotask(() => {
+      if (merged.__error__) {
+        callback(new Error('poi search failed'), null);
+      } else {
+        callback(null, { places: [] });
+      }
+    });
+    return 1;
+  });
+  cancel = vi.fn(() => true);
+}
+
 class FakeMap {
   annotations: unknown[] = [];
   overlays: unknown[] = [];
@@ -125,6 +223,10 @@ export function installMapKitMock() {
     PolylineOverlay: FakePolylineOverlay,
     TileOverlay: FakeTileOverlay,
     Style: FakeStyle,
+    Search: FakeSearch,
+    Geocoder: FakeGeocoder,
+    Directions: FakeDirections,
+    PointsOfInterestSearch: FakePointsOfInterestSearch,
   };
   (globalThis as unknown as { mapkit: unknown }).mapkit = mapkit;
   (window as unknown as { mapkit: unknown }).mapkit = mapkit;
