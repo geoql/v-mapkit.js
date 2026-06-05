@@ -109,3 +109,4 @@ sw.*
 
 # OpenCode / OMO session metadata
 .omo/
+tmp/
