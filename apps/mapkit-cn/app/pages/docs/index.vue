@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  useHead({
-    title: 'Getting Started - mapkit-cn',
-  });
+useHead({
+  title: "Getting Started - mapkit-cn",
+});
 </script>
 
 <template>
@@ -25,8 +25,8 @@
 
       <h2>Quick Start</h2>
       <p>Add a map to your Vue component:</p>
-      <pre><code>&lt;script setup&gt;
-import {{ VMap, VMarkerAnnotation }} from '@geoql/v-mapkit.js'
+      <pre v-pre><code>&lt;script setup&gt;
+import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js'
 import '@geoql/v-mapkit.js/style.css'
 &lt;/script&gt;
 
@@ -53,9 +53,7 @@ import '@geoql/v-mapkit.js/style.css'
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/examples" class="text-primary hover:underline">
-            Browse Examples
-          </NuxtLink>
+          <NuxtLink to="/examples" class="text-primary hover:underline"> Browse Examples </NuxtLink>
         </li>
       </ul>
     </div>
