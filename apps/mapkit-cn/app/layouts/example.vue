@@ -36,15 +36,15 @@
 
     <LayoutHeader />
 
-    <div class="container flex-1">
-      <div class="lg:grid lg:grid-cols-[15rem_1fr] lg:gap-10">
+    <div class="flex-1">
+      <div class="h-full lg:grid lg:grid-cols-[15rem_1fr] lg:gap-10">
         <!-- Sidebar -->
         <aside
           class="hidden lg:block"
           aria-label="Examples navigation"
         >
           <div
-            class="sticky top-12 max-h-[calc(100dvh-3rem)] overflow-y-auto py-8 pr-2"
+            class="sticky top-12 max-h-[calc(100dvh-3rem)] overflow-y-auto py-8 pl-6 pr-2"
           >
             <NuxtLink
               to="/examples"
@@ -85,10 +85,10 @@
         </aside>
 
         <!-- Main -->
-        <main id="example-content" class="min-w-0 py-8 lg:py-10">
+        <main id="example-content" class="flex min-w-0 flex-col">
           <!-- Mobile bar -->
           <div
-            class="mb-6 flex items-center justify-between gap-3 lg:justify-end"
+            class="flex items-center justify-between gap-3 px-6 py-4 lg:justify-end lg:py-6 lg:pr-6"
           >
             <button
               type="button"

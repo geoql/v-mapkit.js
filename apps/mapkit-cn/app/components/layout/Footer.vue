@@ -7,9 +7,7 @@
     {
       title: 'Library',
       links: [
-        { label: 'Components', to: '/registry' },
         { label: 'Examples', to: '/examples' },
-        { label: 'Documentation', to: '/docs' },
       ],
     },
     {
