@@ -175,7 +175,9 @@
       if (props.cameraZoomRange)
         created.cameraZoomRange = props.cameraZoomRange;
       if (props.selectableMapFeatures)
-        created.selectableMapFeatures = props.selectableMapFeatures;
+        (
+          created as unknown as { selectableMapFeatures: unknown[] }
+        ).selectableMapFeatures = props.selectableMapFeatures;
       if (props.showsCompass)
         created.showsCompass = resolveVisibility(mk, props.showsCompass);
       if (props.showsZoomControl !== undefined)
@@ -262,7 +264,10 @@
   watch(
     () => props.selectableMapFeatures,
     (val) => {
-      if (val && map.value) map.value.selectableMapFeatures = val;
+      if (val && map.value)
+        (
+          map.value as unknown as { selectableMapFeatures: unknown[] }
+        ).selectableMapFeatures = val;
     },
   );
   watch(

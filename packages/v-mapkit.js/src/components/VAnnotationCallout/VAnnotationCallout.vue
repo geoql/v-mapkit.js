@@ -40,7 +40,8 @@
 
   const detach = () => {
     if (!attached) return;
-    attached.callout = undefined;
+    (attached as { callout?: mapkit.AnnotationCalloutDelegate }).callout =
+      undefined;
     attached.calloutEnabled = false;
     attached = undefined;
   };
