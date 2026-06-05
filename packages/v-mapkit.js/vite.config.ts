@@ -19,7 +19,7 @@ export default defineConfig({
   },
   pack: {
     entry: ['src/index.ts'],
-    format: ['esm', 'cjs'],
+    format: ['esm'],
     platform: 'neutral',
     sourcemap: true,
     dts: { vue: true },
