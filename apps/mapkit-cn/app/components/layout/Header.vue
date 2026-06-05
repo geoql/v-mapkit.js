@@ -2,11 +2,6 @@
   import { Button } from '@/components/ui/button';
 
   const colorMode = useColorMode();
-
-  const navLinks = [
-    { label: 'Examples', to: '/examples' },
-  ];
-
   function toggleTheme(): void {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
   }
@@ -27,18 +22,6 @@
           mapkit<span class="text-muted-foreground">-cn</span>
         </span>
       </NuxtLink>
-
-      <nav class="hidden items-center gap-8 md:flex">
-        <NuxtLink
-          v-for="link in navLinks"
-          :key="link.to"
-          :to="link.to"
-          class="text-[0.8125rem] font-normal text-muted-foreground transition-colors duration-200 hover:text-foreground"
-        >
-          {{ link.label }}
-        </NuxtLink>
-      </nav>
-
       <div class="flex items-center gap-1">
         <Button
           as="a"
