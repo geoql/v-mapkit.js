@@ -4,7 +4,7 @@
   const colorMode = useColorMode();
 
   const navLinks = [
-    { label: 'Components', to: '/components' },
+    { label: 'Components', to: '/registry' },
     { label: 'Examples', to: '/examples' },
     { label: 'Docs', to: '/docs' },
   ];

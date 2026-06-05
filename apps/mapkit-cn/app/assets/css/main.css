@@ -2,6 +2,7 @@
 @import 'tw-animate-css';
 
 @plugin 'tailwindcss-animate';
+@plugin '@tailwindcss/typography';
 
 @utility container {
   margin-inline: auto;

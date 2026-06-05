@@ -152,7 +152,8 @@
       });
       emit('map-initialized', true);
 
-      const created = new mk.Map(root.value!, props.mapOptions);
+      if (!root.value) return;
+      const created = new mk.Map(root.value, props.mapOptions);
       inflight = created;
       if (isUnmounted) {
         created.destroy();

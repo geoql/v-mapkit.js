@@ -1,1 +1,0 @@
-export { injectStrict } from './injects';

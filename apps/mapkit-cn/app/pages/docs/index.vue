@@ -11,7 +11,7 @@ useHead({
       Build beautiful maps with Apple MapKit JS and Vue 3.
     </p>
 
-    <div class="prose prose-neutral mt-12 max-w-none dark:prose-invert">
+    <div class="prose mt-12 max-w-none dark:prose-invert">
       <h2>Prerequisites</h2>
       <ul>
         <li>Node.js 20 or later</li>

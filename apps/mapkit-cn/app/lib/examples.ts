@@ -203,26 +203,7 @@ export function findExample(slug: string): ExampleMeta | undefined {
   return allExamples.find((example) => example.slug === slug);
 }
 
-export function findExampleGroup(slug: string): ExampleGroup | undefined {
-  return exampleGroups.find((group) =>
-    group.examples.some((example) => example.slug === slug),
-  );
-}
 
-/** Prev/next neighbours in the flat ordering, for in-page navigation. */
-export function exampleNeighbours(slug: string): {
-  prev: ExampleMeta | undefined;
-  next: ExampleMeta | undefined;
-} {
-  const index = allExamples.findIndex((example) => example.slug === slug);
-  return {
-    prev: index > 0 ? allExamples[index - 1] : undefined,
-    next:
-      index >= 0 && index < allExamples.length - 1
-        ? allExamples[index + 1]
-        : undefined,
-  };
-}
 
 export const GITHUB_EXAMPLES_BASE =
   'https://github.com/geoql/v-mapkit.js/blob/main/playground/mapkit-cn/app/pages/examples';
