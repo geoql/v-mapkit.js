@@ -9,13 +9,13 @@
   const { token } = useMapkitToken();
 
   const mapTypes = [
-    { value: 'standard', label: 'Standard' },
-    { value: 'mutedStandard', label: 'Muted' },
-    { value: 'hybrid', label: 'Hybrid' },
-    { value: 'satellite', label: 'Satellite' },
+    { id: 'standard', label: 'Standard' },
+    { id: 'mutedStandard', label: 'Muted' },
+    { id: 'hybrid', label: 'Hybrid' },
+    { id: 'satellite', label: 'Satellite' },
   ] as const;
 
-  const active = ref<(typeof mapTypes)[number]['value']>('standard');
+  const active = ref<(typeof mapTypes)[number]['id']>('standard');
   const mapRef = ref<{ map?: { mapType: string } } | undefined>();
 
   function applyType(): void {
@@ -66,10 +66,10 @@
       <div class="flex flex-wrap gap-2">
         <Button
           v-for="type in mapTypes"
-          :key="type.value"
-          :variant="active === type.value ? 'default' : 'outline'"
+          :key="type.id"
+          :variant="active === type.id ? 'default' : 'outline'"
           size="sm"
-          @click="active = type.value"
+          @click="active = type.id"
         >
           {{ type.label }}
         </Button>
