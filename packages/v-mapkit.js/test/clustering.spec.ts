@@ -9,7 +9,7 @@ import VPlaceAnnotation from '@/components/VPlaceAnnotation';
 import VCustomAnnotation from '@/components/VCustomAnnotation';
 import VMapFeatureAnnotation from '@/components/VMapFeatureAnnotation';
 import VClusterAnnotation from '@/components/VClusterAnnotation';
-import { useCluster } from '@/composables/useCluster';
+import { useCluster } from '@/composables/use-cluster';
 
 type TestMap = {
   annotations: Array<{ clusteringIdentifier: string | null }>;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { provide, type Ref } from 'vue';
 
-  import { useMapChild } from '../../composables/useMapChild';
+  import { useMapChild } from '../../composables/use-map-child';
   import { MapKitAnnotationKey } from '../../symbols';
 
   const props = defineProps<{

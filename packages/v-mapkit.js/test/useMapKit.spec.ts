@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { loadMapKit } from '@/composables/useMapKit';
+import { loadMapKit } from '@/composables/use-map-kit';
 
 describe('loadMapKit', () => {
   it('resolves the existing window.mapkit if already present', async () => {

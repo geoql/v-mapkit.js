@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { defineComponent, h, nextTick } from 'vue';
 
 import VMap from '@/components/VMap';
-import { useMapChild } from '@/composables/useMapChild';
+import { useMapChild } from '@/composables/use-map-child';
 
 const Marker = defineComponent({
   name: 'TestMarker',

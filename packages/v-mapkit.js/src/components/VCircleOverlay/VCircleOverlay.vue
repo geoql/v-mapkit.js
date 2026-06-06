@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useMapChild } from '../../composables/useMapChild';
+  import { useMapChild } from '../../composables/use-map-child';
 
   const props = defineProps<{
     coordinates: [number, number];

@@ -8,7 +8,7 @@
     watch,
   } from 'vue';
 
-  import { initMapKit, loadMapKit } from '../../composables/useMapKit';
+  import { initMapKit, loadMapKit } from '../../composables/use-map-kit';
   import {
     MapKitGlobalKey,
     MapKitInstanceKey,

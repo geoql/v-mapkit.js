@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import { defineComponent, h } from 'vue';
 
-import { useGeocoder } from '@/composables/useGeocoder';
+import { useGeocoder } from '@/composables/use-geocoder';
 
 function withComposable<T>(composable: () => T): T {
   let result!: T;

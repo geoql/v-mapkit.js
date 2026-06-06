@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import { defineComponent, h } from 'vue';
 
-import { useDirections } from '@/composables/useDirections';
+import { useDirections } from '@/composables/use-directions';
 
 function withComposable<T>(composable: () => T): T {
   let result!: T;
