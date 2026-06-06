@@ -1,17 +1,7 @@
-import { inject, ref, type Ref } from 'vue';
+import { inject, ref } from 'vue';
 
 import { MapKitGlobalKey } from '../symbols';
-
-export interface UsePointsOfInterestSearchReturn {
-  /** Fetch points of interest constrained by the given options. */
-  search: (
-    options: mapkit.PointsOfInterestSearchOptions,
-  ) => Promise<mapkit.PointsOfInterestSearchResponse>;
-  /** Whether a search request is in flight. */
-  isSearching: Ref<boolean>;
-  /** The last error thrown by a request, or `null`. */
-  error: Ref<Error | null>;
-}
+import type { UsePointsOfInterestSearchReturn } from '../types';
 
 /**
  * Wraps `mapkit.PointsOfInterestSearch` to provide promise-based POI search.

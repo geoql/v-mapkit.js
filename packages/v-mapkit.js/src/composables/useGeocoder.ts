@@ -1,23 +1,7 @@
-import { inject, ref, type Ref } from 'vue';
+import { inject, ref } from 'vue';
 
 import { MapKitGlobalKey } from '../symbols';
-
-export interface UseGeocoderReturn {
-  /** Convert an address string to geographic coordinates. */
-  geocode: (
-    query: string,
-    options?: mapkit.GeocoderLookupOptions,
-  ) => Promise<mapkit.GeocoderResponse>;
-  /** Convert a geographic coordinate to a human-readable address. */
-  reverseGeocode: (
-    coordinate: mapkit.Coordinate,
-    options?: Pick<mapkit.GeocoderConstructorOptions, 'language'>,
-  ) => Promise<mapkit.GeocoderResponse>;
-  /** Whether a geocode or reverse-geocode request is in flight. */
-  isGeocoding: Ref<boolean>;
-  /** The last error thrown by a request, or `null`. */
-  error: Ref<Error | null>;
-}
+import type { UseGeocoderReturn } from '../types';
 
 /**
  * Wraps `mapkit.Geocoder` to provide promise-based forward and reverse

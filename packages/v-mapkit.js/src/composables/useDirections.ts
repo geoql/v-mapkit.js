@@ -1,26 +1,11 @@
-import { inject, ref, type Ref } from 'vue';
+import { inject, ref } from 'vue';
 
 import { MapKitGlobalKey } from '../symbols';
-
-export type DirectionsPoint = string | mapkit.Coordinate | mapkit.Place;
-
-export type RouteOptions = Omit<
-  mapkit.DirectionsRequest,
-  'origin' | 'destination'
->;
-
-export interface UseDirectionsReturn {
-  /** Retrieve routes and travel time between an origin and destination. */
-  route: (
-    origin: DirectionsPoint,
-    destination: DirectionsPoint,
-    options?: RouteOptions,
-  ) => Promise<mapkit.DirectionsResponse>;
-  /** Whether a routing request is in flight. */
-  isRouting: Ref<boolean>;
-  /** The last error thrown by a request, or `null`. */
-  error: Ref<Error | null>;
-}
+import type {
+  DirectionsPoint,
+  RouteOptions,
+  UseDirectionsReturn,
+} from '../types';
 
 /**
  * Wraps `mapkit.Directions` to provide promise-based routing.

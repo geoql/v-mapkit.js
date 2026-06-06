@@ -1,23 +1,7 @@
-import { inject, ref, type Ref } from 'vue';
+import { inject, ref } from 'vue';
 
 import { MapKitGlobalKey } from '../symbols';
-
-export interface UseSearchReturn {
-  /** Perform a place search for the given query. */
-  search: (
-    query: string,
-    options?: mapkit.SearchOptions,
-  ) => Promise<mapkit.SearchResponse>;
-  /** Retrieve autocomplete suggestions for the given query. */
-  autocomplete: (
-    query: string,
-    options?: mapkit.SearchAutocompleteOptions,
-  ) => Promise<mapkit.SearchAutocompleteResponse>;
-  /** Whether a search or autocomplete request is in flight. */
-  isSearching: Ref<boolean>;
-  /** The last error thrown by a request, or `null`. */
-  error: Ref<Error | null>;
-}
+import type { UseSearchReturn } from '../types';
 
 /**
  * Wraps `mapkit.Search` to provide promise-based place search and autocomplete.

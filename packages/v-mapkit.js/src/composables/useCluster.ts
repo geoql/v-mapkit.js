@@ -1,21 +1,7 @@
 import { inject, watch } from 'vue';
 
 import { MapKitInstanceKey } from '../symbols';
-
-export interface UseClusterOptions {
-  /**
-   * Build the annotation used to represent a cluster. Receives the cluster
-   * annotation MapKit creates (carrying `memberAnnotations` and the shared
-   * `clusteringIdentifier`) and must return the annotation to render in its
-   * place.
-   */
-  createClusterAnnotation: (cluster: mapkit.Annotation) => mapkit.Annotation;
-}
-
-export interface UseClusterReturn {
-  /** Remove the `annotationForCluster` delegate from the map. */
-  cleanup: () => void;
-}
+import type { UseClusterOptions, UseClusterReturn } from '../types';
 
 /**
  * Wires the parent `<VMap>`'s `annotationForCluster` delegate so clustered

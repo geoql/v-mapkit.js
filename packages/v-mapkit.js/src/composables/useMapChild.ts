@@ -1,17 +1,7 @@
 import { inject, onBeforeUnmount, ref, watch, type Ref } from 'vue';
 
 import { MapKitGlobalKey, MapKitInstanceKey, MapKitReadyKey } from '../symbols';
-
-export interface UseMapChildOptions<T> {
-  /** Create the underlying MapKit instance and attach it to the map. */
-  create: (mk: typeof mapkit, map: mapkit.Map) => T;
-  /** Detach the instance from the map. */
-  remove: (map: mapkit.Map, instance: T) => void;
-  /** Reactive sources whose change triggers a recreate. */
-  watchSources: () => unknown[];
-  /** Optional in-place update; if omitted, the instance is recreated on change. */
-  update?: (mk: typeof mapkit, map: mapkit.Map, instance: T) => void;
-}
+import type { UseMapChildOptions } from '../types';
 
 /**
  * Shared lifecycle for declarative map child components (annotations, overlays).
