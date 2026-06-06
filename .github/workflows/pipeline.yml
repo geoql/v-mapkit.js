@@ -12,12 +12,15 @@ permissions:
   contents: read
   checks: write
   pull-requests: write
+  deployments: write
 
 concurrency:
   group: pipeline-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  # --- Lint gates (PR only) ---
+
   lint-branch:
     name: "Lint branch"
     if: github.event_name == 'pull_request' && github.event.action != 'edited'
@@ -28,6 +31,8 @@ jobs:
     if: github.event_name == 'pull_request'
     uses: ./.github/workflows/lint-pr.yml
     secrets: inherit
+
+  # --- CI: lint, test, build, upload artifacts ---
 
   ci:
     name: "CI"
@@ -49,4 +54,38 @@ jobs:
       (needs.lint-branch.result == 'success' || needs.lint-branch.result == 'skipped') &&
       (needs.lint-pr.result == 'success' || needs.lint-pr.result == 'skipped')
     uses: ./.github/workflows/doctor.yml
+    secrets: inherit
+
+  # --- CD: deploy only on push to main (after CI passes) ---
+
+  deploy-mapcn:
+    name: 'Deploy mapkit-cn'
+    needs: [ci]
+    if: |
+      always() &&
+      needs.ci.result == 'success' &&
+      needs.ci.outputs.mapcn-changed == 'true' &&
+      (
+        (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+        github.event_name == 'workflow_dispatch'
+      )
+    uses: ./.github/workflows/deploy-mapcn.yml
+    with:
+      skip-build: true
+    secrets: inherit
+
+  deploy-docs:
+    name: 'Deploy Docs'
+    needs: [ci]
+    if: |
+      always() &&
+      needs.ci.result == 'success' &&
+      needs.ci.outputs.docs-changed == 'true' &&
+      (
+        (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+        github.event_name == 'workflow_dispatch'
+      )
+    uses: ./.github/workflows/deploy-docs.yml
+    with:
+      skip-build: true
     secrets: inherit

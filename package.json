@@ -14,9 +14,11 @@
   },
   "type": "module",
   "scripts": {
-    "build": "pnpm --filter v-mapkit.js run build && pnpm --filter mapkit-cn-app run build",
+    "build": "pnpm --filter v-mapkit.js run build && pnpm --filter mapkit-cn-app run build && pnpm --filter v-mapkit.js-docs run build",
     "build:app": "pnpm --filter mapkit-cn-app run build",
+    "build:docs": "pnpm --filter v-mapkit.js-docs run build",
     "dev:app": "pnpm --filter mapkit-cn-app run dev",
+    "dev:docs": "pnpm --filter v-mapkit.js-docs run dev",
     "dev:lib": "pnpm --filter v-mapkit.js run dev",
     "lint": "pnpm -r run lint",
     "format": "pnpm -r run format",

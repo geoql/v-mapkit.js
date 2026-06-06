@@ -2,12 +2,42 @@ name: 'Continuous Integration'
 
 on:
   workflow_call:
+    outputs:
+      mapcn-changed:
+        description: 'Whether mapkit-cn app files changed'
+        value: ${{ jobs.changes.outputs.mapcn }}
+      docs-changed:
+        description: 'Whether docs app files changed'
+        value: ${{ jobs.changes.outputs.docs }}
 
 permissions:
   checks: write
   contents: read
+  pull-requests: read
 
 jobs:
+  changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    outputs:
+      mapcn: ${{ steps.filter.outputs.mapcn }}
+      docs: ${{ steps.filter.outputs.docs }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: dorny/paths-filter@v4
+        id: filter
+        with:
+          filters: |
+            mapcn:
+              - 'apps/mapkit-cn/**'
+              - 'packages/v-mapkit.js/**'
+              - 'pnpm-lock.yaml'
+              - 'pnpm-workspace.yaml'
+            docs:
+              - 'apps/docs/**'
+
   quality:
     name: 'Lint & Format'
     runs-on: ubuntu-latest
@@ -34,8 +64,8 @@ jobs:
       - name: Check formatting
         run: pnpm run format:check
 
-  build:
-    name: 'Build'
+  test:
+    name: 'Test'
     needs: [quality]
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -55,5 +85,121 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build the package
-        run: pnpm run build
+      - name: Run tests
+        run: pnpm run test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v6
+        with:
+          files: ./packages/v-mapkit.js/coverage/lcov.info
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  build-lib:
+    name: 'Build Library'
+    needs: [quality]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build library
+        run: pnpm --filter v-mapkit.js run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: lib-dist
+          path: packages/v-mapkit.js/dist/
+          retention-days: 1
+
+  build-mapcn:
+    name: 'Build mapkit-cn'
+    needs: [changes, build-lib]
+    if: needs.changes.outputs.mapcn == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Download library artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: lib-dist
+          path: packages/v-mapkit.js/dist/
+
+      - name: Build mapkit-cn
+        run: pnpm --filter mapkit-cn-app run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+          NITRO_PRESET: cloudflare-pages
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: mapcn-dist
+          path: apps/mapkit-cn/dist/
+          retention-days: 1
+
+  build-docs:
+    name: 'Build Docs'
+    needs: [changes, quality]
+    if: needs.changes.outputs.docs == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build documentation
+        run: pnpm --filter v-mapkit.js-docs run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+          NITRO_PRESET: cloudflare-pages
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: docs-dist
+          path: apps/docs/dist/
+          retention-days: 1

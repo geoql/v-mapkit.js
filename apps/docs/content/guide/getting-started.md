@@ -1,0 +1,65 @@
+---
+title: Getting Started
+description: Get started with v-mapkit.js in your Vue 3 or Nuxt project
+---
+
+# Getting Started
+
+v-mapkit.js provides Vue 3 components for Apple MapKit JS, enabling declarative map rendering with reactive annotations, overlays, and services.
+
+## Installation
+
+::code-group
+```bash [pnpm]
+pnpm add v-mapkit.js
+```
+
+```bash [npm]
+npm install v-mapkit.js
+```
+
+```bash [yarn]
+yarn add v-mapkit.js
+```
+::
+
+## Usage
+
+Import the components and styles in your Vue application:
+
+```vue
+<script setup>
+import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
+import 'v-mapkit.js/style.css';
+</script>
+
+<template>
+  <VMap
+    :options="{ token: 'YOUR_MAPKIT_TOKEN' }"
+    :center="[37.7749, -122.4194]"
+    :zoom="12"
+  >
+    <VMarkerAnnotation :coordinates="[37.7749, -122.4194]" />
+  </VMap>
+</template>
+```
+
+## MapKit Token
+
+You need a MapKit JS token from Apple. Get one from the [Apple Developer Portal](https://developer.apple.com/maps/mapkitjs/).
+
+## Nuxt Integration
+
+For Nuxt projects, you can auto-import the components:
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['v-mapkit.js/nuxt'],
+});
+```
+
+## Next Steps
+
+- Explore the [component documentation](/components/map)
+- Check out the [live examples](https://mapkit-cn.geoql.in)
