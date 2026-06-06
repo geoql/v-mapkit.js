@@ -46,6 +46,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Restore font cache
+        if: inputs.skip-build != true
+        uses: actions/cache@v4
+        with:
+          path: apps/mapkit-cn/node_modules/.cache/nuxt/fonts
+          key: nuxt-fonts-${{ hashFiles('apps/mapkit-cn/nuxt.config.ts') }}
+          restore-keys: |
+            nuxt-fonts-
+
+      - name: Clear Nuxt build cache (preserve fonts)
+        if: inputs.skip-build != true
+        run: |
+          rm -rf apps/mapkit-cn/.nuxt apps/mapkit-cn/dist
+          find apps/mapkit-cn/node_modules/.cache/nuxt -mindepth 1 -maxdepth 1 ! -name fonts -exec rm -rf {} + 2>/dev/null || true
+
       - name: Build library
         if: inputs.skip-build != true
         run: pnpm --filter v-mapkit.js run build
@@ -54,10 +69,26 @@ jobs:
 
       - name: Build mapkit-cn
         if: inputs.skip-build != true
-        run: pnpm --filter mapkit-cn-app run build
+        run: |
+          max_attempts=3
+          for attempt in $(seq 1 $max_attempts); do
+            echo "Build attempt $attempt/$max_attempts..."
+            if pnpm --filter mapkit-cn-app run build; then
+              echo "Build succeeded on attempt $attempt"
+              exit 0
+            fi
+            if [ $attempt -lt $max_attempts ]; then
+              echo "Build failed, retrying in 15s..."
+              sleep 15
+            fi
+          done
+          echo "Build failed after $max_attempts attempts"
+          exit 1
         env:
           NODE_OPTIONS: --max-old-space-size=8192
           NITRO_PRESET: cloudflare-pages
+          NUXT_TELEMETRY_DISABLED: 1
+          NUXT_APP_ENV: production
 
       - name: Deploy to Cloudflare Pages
         working-directory: apps/mapkit-cn

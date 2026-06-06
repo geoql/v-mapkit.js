@@ -46,12 +46,34 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Clear Nuxt build cache
+        if: inputs.skip-build != true
+        run: |
+          rm -rf apps/docs/.nuxt apps/docs/dist
+          find apps/docs/node_modules/.cache/nuxt -mindepth 1 -maxdepth 1 -exec rm -rf {} + 2>/dev/null || true
+
       - name: Build docs
         if: inputs.skip-build != true
-        run: pnpm --filter v-mapkit.js-docs run build
+        run: |
+          max_attempts=3
+          for attempt in $(seq 1 $max_attempts); do
+            echo "Build attempt $attempt/$max_attempts..."
+            if pnpm --filter v-mapkit.js-docs run build; then
+              echo "Build succeeded on attempt $attempt"
+              exit 0
+            fi
+            if [ $attempt -lt $max_attempts ]; then
+              echo "Build failed, retrying in 15s..."
+              sleep 15
+            fi
+          done
+          echo "Build failed after $max_attempts attempts"
+          exit 1
         env:
           NODE_OPTIONS: --max-old-space-size=8192
           NITRO_PRESET: cloudflare-pages
+          NUXT_TELEMETRY_DISABLED: 1
+          NUXT_APP_ENV: production
 
       - name: Deploy to Cloudflare Pages
         working-directory: apps/docs
