@@ -1,15 +1,15 @@
 # v-mapkit.js
 
-> Vue 3 components for Apple MapKit JS - Monorepo for @geoql/v-mapkit.js and mapkit-cn
+> Vue 3 components for Apple MapKit JS - Monorepo for v-mapkit.js and mapkit-cn
 
-[![npm version](https://badge.fury.io/js/%40geoql%2Fv-mapkit.js.svg)](https://www.npmjs.com/package/@geoql/v-mapkit.js)
+[![npm version](https://badge.fury.io/js/v-mapkit.js.svg)](https://www.npmjs.com/package/v-mapkit.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Packages
 
 | Package | Description |
 | --- | --- |
-| [@geoql/v-mapkit.js](./packages/v-mapkit.js) | Vue 3 components for Apple MapKit JS |
+| [v-mapkit.js](./packages/v-mapkit.js) | Vue 3 components for Apple MapKit JS |
 
 ## Apps
 
@@ -22,13 +22,13 @@
 ### Install the library
 
 ```bash
-pnpm add @geoql/v-mapkit.js
+pnpm add v-mapkit.js
 ```
 
 ```vue
 <script setup>
-import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
-import '@geoql/v-mapkit.js/style.css';
+import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
+import 'v-mapkit.js/style.css';
 </script>
 
 <template>
@@ -77,7 +77,7 @@ pnpm run format
 ```
 v-mapkit.js/
 ├── packages/
-│   └── v-mapkit.js/         # Main library (npm: @geoql/v-mapkit.js)
+│   └── v-mapkit.js/         # Main library (npm: v-mapkit.js)
 ├── apps/
 │   └── mapkit-cn/           # Nuxt 4 showcase site
 ├── package.json             # pnpm workspaces root

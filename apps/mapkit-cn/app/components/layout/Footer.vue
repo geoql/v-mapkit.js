@@ -31,7 +31,7 @@
         },
         {
           label: 'npm',
-          href: 'https://www.npmjs.com/package/@geoql/v-mapkit.js',
+          href: 'https://www.npmjs.com/package/v-mapkit.js',
         },
       ],
     },
@@ -94,7 +94,7 @@
       <div
         class="mt-12 flex flex-col gap-3 border-t border-border/60 pt-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
       >
-        <p>© {{ year }} mapkit-cn. Built on @geoql/v-mapkit.js.</p>
+        <p>© {{ year }} mapkit-cn. Built on v-mapkit.js.</p>
         <p class="font-mono text-xs">
           v{{ version }}
         </p>

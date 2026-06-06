@@ -3,14 +3,14 @@
 ## Installation
 
 ```sh
-npm install @geoql/v-mapkit.js @vueuse/core vue
+npm install v-mapkit.js @vueuse/core vue
 ```
 
 ## Usage
 
 ```vue
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
 </script>
 
 <template>

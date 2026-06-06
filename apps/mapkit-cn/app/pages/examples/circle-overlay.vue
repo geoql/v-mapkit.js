@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VCircleOverlay, VMap } from '@geoql/v-mapkit.js';
+  import { VCircleOverlay, VMap } from 'v-mapkit.js';
   import { Button } from '@/components/ui/button';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -23,7 +23,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VCircleOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VCircleOverlay } from 'v-mapkit.js';
 <\x2Fscript>
 
 <template>

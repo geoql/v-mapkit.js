@@ -1,5 +1,5 @@
 {
-  "name": "@geoql/v-mapkit.js",
+  "name": "v-mapkit.js",
   "version": "0.3.0",
   "exports": "./dist/index.js",
   "publish": {

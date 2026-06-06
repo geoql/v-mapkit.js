@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -50,7 +50,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
 <\x2Fscript>
 
 <template>

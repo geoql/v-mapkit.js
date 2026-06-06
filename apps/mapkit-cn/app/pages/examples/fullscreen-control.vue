@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VControlFullscreen, VMap } from '@geoql/v-mapkit.js';
+  import { VControlFullscreen, VMap } from 'v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -12,7 +12,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VControlFullscreen } from '@geoql/v-mapkit.js';
+  import { VMap, VControlFullscreen } from 'v-mapkit.js';
 <\x2Fscript>
 
 <template>

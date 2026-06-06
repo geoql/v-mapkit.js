@@ -1,5 +1,5 @@
 {
-  "name": "@geoql/mapkit-cn-app",
+  "name": "mapkit-cn-app",
   "version": "0.0.1",
   "private": true,
   "description": "Beautiful Apple MapKit components for Vue. Documentation and examples for mapkit-cn.",
@@ -13,7 +13,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@geoql/v-mapkit.js": "workspace:*",
+    "v-mapkit.js": "workspace:*",
     "@vueuse/core": "^14.3.0",
     "@vueuse/nuxt": "^14.3.0",
     "class-variance-authority": "^0.7.1",

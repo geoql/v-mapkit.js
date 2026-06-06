@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap, VTileOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VTileOverlay } from 'v-mapkit.js';
   import { Button } from '@/components/ui/button';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -18,7 +18,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VTileOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VTileOverlay } from 'v-mapkit.js';
 
   const url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 <\x2Fscript>

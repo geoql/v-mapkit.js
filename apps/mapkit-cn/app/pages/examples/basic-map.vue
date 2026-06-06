@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from 'v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -16,7 +16,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from 'v-mapkit.js';
 
   const token = 'YOUR_MAPKIT_TOKEN';
 

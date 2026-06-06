@@ -34,7 +34,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Beautiful Apple MapKit components for Vue. Built on @geoql/v-mapkit.js, styled with Tailwind CSS, works with shadcn-vue.',
+            'Beautiful Apple MapKit components for Vue. Built on v-mapkit.js, styled with Tailwind CSS, works with shadcn-vue.',
         },
         { name: 'theme-color', content: '#000000' },
       ],
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@geoql/v-mapkit.js/style.css',
+    'v-mapkit.js/style.css',
     '~/assets/css/main.css',
   ],
 
@@ -66,7 +66,7 @@ export default defineNuxtConfig({
 
   vite: {
     optimizeDeps: {
-      exclude: ['@geoql/v-mapkit.js'],
+      exclude: ['v-mapkit.js'],
       include: [
         'class-variance-authority',
         'clsx',

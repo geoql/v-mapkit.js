@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap, VPolygonOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VPolygonOverlay } from 'v-mapkit.js';
   import { centerMap } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -30,7 +30,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VPolygonOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VPolygonOverlay } from 'v-mapkit.js';
 
   const region = [
     [37.8085, -122.4101],

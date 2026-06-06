@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from 'v-mapkit.js';
   import { Button } from '@/components/ui/button';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -32,7 +32,7 @@
 
   const code = `<script setup lang="ts">
   import { ref } from 'vue';
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from 'v-mapkit.js';
 
   const mapRef = ref();
   const active = ref('satellite');

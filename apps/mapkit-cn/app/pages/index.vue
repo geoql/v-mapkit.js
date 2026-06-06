@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
   import { Badge } from '@/components/ui/badge';
   import { Button } from '@/components/ui/button';
   import { allExamples } from '~/lib/examples';
@@ -43,7 +43,7 @@
   ];
 
   const quickStart = `<script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
 <\x2Fscript>
 
 <template>

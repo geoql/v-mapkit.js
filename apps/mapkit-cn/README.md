@@ -1,6 +1,6 @@
 # mapkit-cn
 
-Beautiful Apple MapKit components for Vue. Documentation and examples for [@geoql/v-mapkit.js](https://github.com/geoql/v-mapkit.js).
+Beautiful Apple MapKit components for Vue. Documentation and examples for [v-mapkit.js](https://github.com/geoql/v-mapkit.js).
 
 ## Features
 

@@ -4,7 +4,7 @@
     VLookAround,
     VMap,
     VMarkerAnnotation,
-  } from '@geoql/v-mapkit.js';
+  } from 'v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -28,7 +28,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VLookAround, useGeocoder } from '@geoql/v-mapkit.js';
+  import { VLookAround, useGeocoder } from 'v-mapkit.js';
 
   const { geocode } = useGeocoder();
   const place = shallowRef(null);

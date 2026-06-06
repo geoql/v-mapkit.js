@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VCustomAnnotation, VMap } from '@geoql/v-mapkit.js';
+  import { VCustomAnnotation, VMap } from 'v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -38,7 +38,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VCustomAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VCustomAnnotation } from 'v-mapkit.js';
 
   function buildPriceTag(price) {
     return () => {
