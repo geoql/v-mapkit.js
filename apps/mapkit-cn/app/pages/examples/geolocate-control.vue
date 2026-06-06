@@ -28,7 +28,7 @@
   function onLocate(position) {
     console.log(position.coords.latitude, position.coords.longitude);
   }
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">

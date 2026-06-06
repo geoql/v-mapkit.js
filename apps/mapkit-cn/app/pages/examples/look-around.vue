@@ -35,7 +35,7 @@
 
   const { results } = await geocode('Ferry Building, San Francisco');
   place.value = results[0];
-<\/script>
+<\x2Fscript>
 
 <template>
   <!-- VLookAround is standalone — not a child of VMap -->

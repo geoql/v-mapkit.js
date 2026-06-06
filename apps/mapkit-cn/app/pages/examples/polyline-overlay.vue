@@ -42,7 +42,7 @@
     [37.7955, -122.3937],
     [37.7857, -122.3908],
   ];
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">

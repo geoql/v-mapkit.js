@@ -25,7 +25,8 @@
     "test:coverage": "pnpm --filter @geoql/v-mapkit.js run test:coverage",
     "prepare": "is-ci || husky",
     "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules packages/*/dist apps/*/.nuxt apps/*/.output",
-    "update:deps": "pnpm dlx taze -I -r"
+    "update:deps": "pnpm dlx taze -I -r",
+    "doctor:check": "vue-doctor"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.1",

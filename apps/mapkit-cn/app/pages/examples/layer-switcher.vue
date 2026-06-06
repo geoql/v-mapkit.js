@@ -26,7 +26,7 @@
     { type: 'hybrid', label: 'Hybrid' },
     { type: 'satellite', label: 'Satellite' },
   ];
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">

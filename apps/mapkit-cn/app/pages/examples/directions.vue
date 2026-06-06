@@ -63,7 +63,7 @@ const code = `<script setup lang="ts">
   const path = routes[0].polyline.points.map(
     (p) => [p.latitude, p.longitude],
   );
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">

@@ -71,7 +71,7 @@
   const back = await reverseGeocode(
     new mapkit.Coordinate(51.5074, -0.1278),
   );
-<\/script>`;
+<\x2Fscript>`;
 </script>
 
 <template>

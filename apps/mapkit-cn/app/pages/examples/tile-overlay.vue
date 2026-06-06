@@ -21,7 +21,7 @@
   import { VMap, VTileOverlay } from '@geoql/v-mapkit.js';
 
   const url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">

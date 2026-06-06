@@ -40,7 +40,7 @@
   watch(active, () => {
     if (mapRef.value?.map) mapRef.value.map.mapType = active.value;
   });
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap ref="mapRef" :access-token="token" />

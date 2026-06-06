@@ -62,7 +62,7 @@
     const res = await search(value);
     results.value = res.places;
   }
-<\/script>`;
+<\x2Fscript>`;
 </script>
 
 <template>

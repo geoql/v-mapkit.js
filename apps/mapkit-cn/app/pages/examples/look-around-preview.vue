@@ -55,7 +55,7 @@
 
   const { results } = await geocode('Golden Gate Bridge');
   place.value = results[0];
-<\/script>
+<\x2Fscript>
 
 <template>
   <VLookAroundPreview v-if="place" :place="place" />

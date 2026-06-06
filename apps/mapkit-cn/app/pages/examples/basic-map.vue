@@ -29,7 +29,7 @@
       ),
     );
   }
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token" color-scheme="dark" @map="onMap" />

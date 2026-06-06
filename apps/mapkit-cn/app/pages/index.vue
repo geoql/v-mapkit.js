@@ -44,7 +44,7 @@
 
   const quickStart = `<script setup lang="ts">
   import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token" color-scheme="dark">

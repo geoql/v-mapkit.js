@@ -24,7 +24,7 @@
 
   const code = `<script setup lang="ts">
   import { VMap, VCircleOverlay } from '@geoql/v-mapkit.js';
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">

@@ -44,7 +44,7 @@
       glyphText: String(cluster.memberAnnotations.length),
     });
   }
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token" :cluster-annotation="clusterAnnotation">

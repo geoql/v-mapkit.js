@@ -39,7 +39,7 @@
     const response = await search('coffee');
     results.value = response.places;
   }
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">

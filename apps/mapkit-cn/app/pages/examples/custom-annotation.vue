@@ -48,7 +48,7 @@
       return el;
     };
   }
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">

@@ -37,7 +37,7 @@
 
   const code = `<script setup lang="ts">
   import { VMap, VControlLegend } from '@geoql/v-mapkit.js';
-<\/script>
+<\x2Fscript>
 
 <template>
   <VMap :access-token="token">
