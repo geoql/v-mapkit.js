@@ -14,6 +14,8 @@
     return { id: index, at: [lat, lng] as [number, number] };
   });
 
+  const CLUSTER_ANNOTATION = { color: '#5e5ce6' } as const;
+
   // Render clusters as a single blue marker showing the member count.
   function clusterAnnotation(cluster: unknown): unknown {
     const mk = (globalThis as unknown as { mapkit?: typeof mapkit }).mapkit;
@@ -73,7 +75,7 @@
           :key="marker.id"
           :coordinates="marker.at"
           clustering-identifier="places"
-          :annotation="{ color: '#5e5ce6' }"
+          :annotation="CLUSTER_ANNOTATION"
         />
       </VMap>
     </ExampleMapContainer>

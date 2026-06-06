@@ -72,7 +72,6 @@
     "@vue/tsconfig": "^0.7.0",
     "happy-dom": "^17.6.3",
     "postcss-html": "^1.8.1",
-    "sass": "^1.99.0",
     "stylelint": "^16.26.1",
     "stylelint-config-recommended-vue": "^1.6.1",
     "typescript": "^6.0.3",

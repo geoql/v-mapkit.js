@@ -7,5 +7,16 @@
     "**/.output/**",
     "**/coverage/**",
     "apps/*/app/components/ui/**"
-  ]
+  ],
+  "dependencies": {
+    "ignore": [
+      "@iconify-json/lucide",
+      "@iconify-json/simple-icons",
+      "@types/apple-mapkit-js-browser",
+      "vue-tsc",
+      "@tsdown/css",
+      "@vue/compiler-sfc",
+      "@vue/runtime-dom"
+    ]
+  }
 }
