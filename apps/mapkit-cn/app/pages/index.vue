@@ -22,22 +22,22 @@
   const highlights = [
     {
       icon: 'lucide:blocks',
-      value: `${componentCount} components`,
+      id: `${componentCount} components`,
       label: 'Maps, annotations, overlays, controls',
     },
     {
       icon: 'simple-icons:apple',
-      value: 'Apple MapKit JS',
+      id: 'Apple MapKit JS',
       label: 'The real Apple Maps engine',
     },
     {
       icon: 'simple-icons:vuedotjs',
-      value: 'Vue 3',
+      id: 'Vue 3',
       label: 'Composition API & <script setup>',
     },
     {
       icon: 'simple-icons:typescript',
-      value: 'TypeScript',
+      id: 'TypeScript',
       label: 'Fully typed props & composables',
     },
   ];
@@ -54,6 +54,10 @@
     />
   </VMap>
 </template>`;
+
+  function pinAnnotation(pin: { title: string }) {
+    return { title: pin.title, color: '#0a84ff' };
+  }
 
   function onHeroMap(map: unknown): void {
     centerMap(map as never, places.cupertino, 0.16);
@@ -134,7 +138,7 @@
                 v-for="pin in heroPins"
                 :key="pin.title"
                 :coordinates="pin.at"
-                :annotation="{ title: pin.title, color: '#0a84ff' }"
+                :annotation="pinAnnotation(pin)"
               />
             </VMap>
           </div>
@@ -181,7 +185,7 @@
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div
           v-for="item in highlights"
-          :key="item.value"
+          :key="item.id"
           class="flex flex-col gap-3"
         >
           <span
@@ -191,7 +195,7 @@
           </span>
           <div class="space-y-1">
             <p class="text-base font-semibold tracking-tight text-foreground">
-              {{ item.value }}
+              {{ item.id }}
             </p>
             <p class="text-sm leading-relaxed text-muted-foreground">
               {{ item.label }}
