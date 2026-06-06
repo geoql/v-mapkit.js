@@ -21,6 +21,8 @@
 
   const tints = ['#0a84ff', '#ff375f', '#30d158', '#ff9f0a', '#bf5af2'];
 
+  const colorStyle = (c: string) => ({ backgroundColor: c });
+
   function onMap(map: unknown): void {
     centerMap(map as never, places.goldenGate, 0.08);
   }
@@ -101,7 +103,7 @@
                 ? 'border-foreground'
                 : 'border-transparent'
             "
-            :style="{ backgroundColor: color }"
+            :style="colorStyle(color)"
             :aria-label="color"
             @click="tintColor = color"
           ></button>
