@@ -110,3 +110,5 @@ sw.*
 # OpenCode / OMO session metadata
 .omo/
 tmp/
+docs/superpowers/
+.opencode
