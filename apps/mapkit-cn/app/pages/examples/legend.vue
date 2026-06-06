@@ -23,6 +23,14 @@
     { at: [37.3239, -122.0322], color: '#ff375f' },
   ];
 
+  function annotationFor(pin: { color: string }) {
+    return { color: pin.color };
+  }
+
+  function colorStyle(color: string) {
+    return { backgroundColor: color };
+  }
+
   function onMap(map: unknown): void {
     centerMap(map as never, places.cupertino, 0.05);
   }
@@ -54,7 +62,7 @@
           v-for="pin in pins"
           :key="pin.color"
           :coordinates="pin.at"
-          :annotation="{ color: pin.color }"
+          :annotation="annotationFor(pin)"
         />
         <VControlLegend position="bottom-right">
           <div
@@ -70,7 +78,7 @@
             >
               <span
                 class="size-2.5 rounded-full"
-                :style="{ backgroundColor: item.color }"
+                :style="colorStyle(item.color)"
               ></span>
               {{ item.label }}
             </div>
