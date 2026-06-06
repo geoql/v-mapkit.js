@@ -30,7 +30,12 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'cloudflare-pages',
     cloudflare: {
+      deployConfig: true,
       nodeCompat: true,
+      wrangler: {
+        name: 'v-mapkit.js-docs',
+        compatibility_date: '2025-01-01',
+      },
     },
     rollupConfig: {
       output: {

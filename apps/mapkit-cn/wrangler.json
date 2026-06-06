@@ -1,8 +1,0 @@
-{
-  "name": "mapkit-cn",
-  "compatibilityDate": "2025-01-01",
-  "pages": {
-    "buildCommand": "pnpm build",
-    "outputDirectory": ".output/public"
-  }
-}

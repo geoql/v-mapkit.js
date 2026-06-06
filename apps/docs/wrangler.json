@@ -1,8 +1,0 @@
-{
-  "name": "v-mapkit.js-docs",
-  "compatibilityDate": "2025-01-01",
-  "pages": {
-    "buildCommand": "pnpm build",
-    "outputDirectory": ".output/public"
-  }
-}

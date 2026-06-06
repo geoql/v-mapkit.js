@@ -64,6 +64,18 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-06',
 
+  nitro: {
+    preset: 'cloudflare-pages',
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+      wrangler: {
+        name: 'mapkit-cn',
+        compatibility_date: '2025-01-01',
+      },
+    },
+  },
+
   vite: {
     optimizeDeps: {
       exclude: ['v-mapkit.js'],
