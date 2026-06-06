@@ -20,6 +20,10 @@
     results.value = (response?.places ?? []) as never;
   }
 
+  function placeAnnotation(place: { name?: string }) {
+    return { title: place.name };
+  }
+
   function onMap(map: unknown): void {
     centerMap(map as never, places.sanFrancisco, 0.1);
     void runSearch();
@@ -57,10 +61,10 @@
     <ExampleMapContainer>
       <VMap :access-token="token" color-scheme="light" @map="onMap">
         <VPlaceAnnotation
-          v-for="(place, index) in results"
-          :key="index"
+          v-for="place in results"
+          :key="place.name ?? ''"
           :place="place as never"
-          :annotation="{ title: place.name }"
+          :annotation="placeAnnotation(place)"
         />
       </VMap>
     </ExampleMapContainer>
