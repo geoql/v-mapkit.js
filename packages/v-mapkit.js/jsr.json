@@ -1,11 +1,21 @@
 {
   "name": "v-mapkit.js",
   "version": "0.3.0",
-  "exports": "./dist/index.js",
+  "description": "MapKit with the power of Vue 3 — Vue 3 components and composables for Apple MapKit JS.",
+  "license": "MIT",
+  "exports": {
+    ".": "./dist/index.js",
+    "./style.css": "./dist/style.css"
+  },
+  "imports": {
+    "vue": "npm:vue@^3.5.0",
+    "@vueuse/core": "npm:@vueuse/core@^14.0.0"
+  },
   "publish": {
     "exclude": [
-      "!dist"
+      "!dist",
+      "!README.md",
+      "!LICENSE"
     ]
-  },
-  "description": "MapKit with the power of Vue 3 — Vue 3 components and composables for Apple MapKit JS."
+  }
 }
