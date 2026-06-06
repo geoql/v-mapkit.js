@@ -32,7 +32,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Prepare Nuxt
-        run: pnpm --filter @geoql/mapkit-cn-app run postinstall
+        run: pnpm --filter mapkit-cn-app run postinstall
 
       - name: Audit with vue-doctor
         uses: geoql/doctor-action@v1
