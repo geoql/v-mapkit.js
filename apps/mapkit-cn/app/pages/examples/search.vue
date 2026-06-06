@@ -33,6 +33,14 @@
     results.value = (response?.places ?? []) as never;
   }
 
+  function placeCoordinates(place: { coordinate: { latitude: number; longitude: number } }) {
+    return [place.coordinate.latitude, place.coordinate.longitude] as [number, number];
+  }
+
+  function placeAnnotation(place: { name?: string }) {
+    return { title: place.name, color: '#0a84ff' };
+  }
+
   function onMap(map: unknown): void {
     centerMap(map as never, places.newYork, 0.3);
   }
@@ -67,8 +75,8 @@
         <VMarkerAnnotation
           v-for="(place, index) in results"
           :key="index"
-          :coordinates="[place.coordinate.latitude, place.coordinate.longitude]"
-          :annotation="{ title: place.name, color: '#0a84ff' }"
+          :coordinates="placeCoordinates(place)"
+          :annotation="placeAnnotation(place)"
         />
       </VMap>
     </ExampleMapContainer>
