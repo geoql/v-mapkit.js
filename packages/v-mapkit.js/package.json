@@ -67,6 +67,7 @@
     "@tsdown/css": "^0.22.2",
     "@types/apple-mapkit-js-browser": "^5.78.0",
     "@types/node": "^25.9.0",
+    "@vitest/coverage-v8": "^3.2.6",
     "@vue/compiler-sfc": "^3.5.0",
     "@vue/runtime-dom": "^3.5.0",
     "@vue/test-utils": "^2.4.10",
