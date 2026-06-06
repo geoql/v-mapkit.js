@@ -35,6 +35,16 @@
     },
   ];
 
+  function markerAnnotation(marker: (typeof markers)[number]) {
+    return {
+      title: marker.title,
+      subtitle: marker.subtitle,
+      color: marker.color,
+      glyphText: marker.glyphText,
+      selected: false,
+    };
+  }
+
   function onMap(map: unknown): void {
     centerMap(map as never, places.sanFrancisco, 0.14);
   }
@@ -69,13 +79,7 @@
           v-for="marker in markers"
           :key="marker.title"
           :coordinates="marker.at"
-          :annotation="{
-            title: marker.title,
-            subtitle: marker.subtitle,
-            color: marker.color,
-            glyphText: marker.glyphText,
-            selected: false,
-          }"
+          :annotation="markerAnnotation(marker)"
         />
       </VMap>
     </ExampleMapContainer>
