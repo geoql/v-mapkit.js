@@ -24,6 +24,15 @@
       { at: [40.7812, -73.9665], title: 'Central Park', color: '#30d158' },
     ];
 
+  function imageAnnotation(marker: (typeof markers)[number]) {
+    return {
+      title: marker.title,
+      url: { 1: pin(marker.color) },
+      size: { width: 40, height: 40 },
+      anchorOffset: new DOMPoint(0, 0),
+    };
+  }
+
   function onMap(map: unknown): void {
     centerMap(map as never, places.newYork, 0.12);
   }
@@ -57,12 +66,7 @@
           v-for="marker in markers"
           :key="marker.title"
           :coordinates="marker.at"
-          :annotation="{
-            title: marker.title,
-            url: { 1: pin(marker.color) },
-            size: { width: 40, height: 40 },
-            anchorOffset: new DOMPoint(0, 0),
-          }"
+          :annotation="imageAnnotation(marker)"
         />
       </VMap>
     </ExampleMapContainer>
