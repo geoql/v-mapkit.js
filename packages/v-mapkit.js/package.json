@@ -65,18 +65,18 @@
   },
   "devDependencies": {
     "@tsdown/css": "^0.22.2",
-    "@types/apple-mapkit-js-browser": "^5.78.0",
-    "@types/node": "^25.9.0",
-    "@vitest/coverage-v8": "^3.2.6",
-    "@vue/test-utils": "^2.4.10",
-    "@vue/tsconfig": "^0.7.0",
-    "happy-dom": "^17.6.3",
+    "@types/apple-mapkit-js-browser": "^5.78.1",
+    "@types/node": "^25.9.2",
+    "@vitest/coverage-v8": "^4.1.8",
+    "@vue/test-utils": "^2.4.11",
+    "@vue/tsconfig": "^0.9.1",
+    "happy-dom": "^20.10.2",
     "typescript": "^6.0.3",
     "unplugin-vue": "^7.2.0",
     "vite-plus": "^0.1.24",
-    "vitest": "^3.2.6",
-    "vue": "^3.5.34",
-    "vue-tsc": "^3.3.0"
+    "vitest": "^4.1.8",
+    "vue": "^3.5.35",
+    "vue-tsc": "^3.3.4"
   },
   "peerDependencies": {
     "@vueuse/core": "^14.0.0",
