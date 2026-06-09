@@ -2,11 +2,9 @@
   "preset": "recommended",
   "exclude": [
     "**/node_modules/**",
-    "**/dist/**",
     "**/.nuxt/**",
     "**/.output/**",
-    "**/coverage/**",
-    "apps/*/app/components/ui/**"
+    "app/components/ui/**"
   ],
   "rules": {
     "dead-code/unused-dependency": "off",
