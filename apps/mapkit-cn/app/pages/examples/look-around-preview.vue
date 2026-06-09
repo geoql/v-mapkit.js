@@ -10,7 +10,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Look Around Preview · mapkit-cn' });
+  useSeoMeta({
+    title: 'Look Around Preview · mapkit-cn',
+    description:
+      'Look Around Preview example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Look Around Preview',
+    ogDescription:
+      'Look Around Preview example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Look Around Preview',
+    description: 'Look Around Preview example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
   const { geocode } = useGeocoder();
@@ -65,7 +77,7 @@
 <template>
   <ExampleCard
     title="Look Around Preview"
-    description="VLookAroundPreview shows a static, tappable Look Around thumbnail — perfect for cards and list items. Search a landmark and the preview updates. Tapping it opens the full interactive view."
+    description="VLookAroundPreview shows a static, tappable Look Around thumbnail: perfect for cards and list items. Search a landmark and the preview updates. Tapping it opens the full interactive view."
   >
     <div class="grid gap-4 lg:grid-cols-2">
       <ExampleMapContainer height="h-[22rem]">

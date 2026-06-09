@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler<Promise<unknown>>(async (event) => {
   const name = getRouterParam(event, 'name');
 
   if (!name) {
@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
   try {
     const registry = await import(`~/registry/${name}.json`);
     return registry.default || registry;
-  } catch (error) {
+  } catch {
     throw createError({
       statusCode: 404,
       statusMessage: `Component "${name}" not found`,

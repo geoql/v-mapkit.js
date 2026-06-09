@@ -3,7 +3,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Clustering · mapkit-cn' });
+  useSeoMeta({
+    title: 'Clustering · mapkit-cn',
+    description:
+      'Clustering example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Clustering',
+    ogDescription:
+      'Clustering example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Clustering',
+    description: 'Clustering example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 

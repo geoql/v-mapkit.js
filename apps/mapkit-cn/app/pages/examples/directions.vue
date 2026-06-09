@@ -4,7 +4,19 @@ import { Button } from "@/components/ui/button";
 import { centerMap } from "~/composables/useMapDemo";
 
 definePageMeta({ layout: "example" });
-useHead({ title: "Directions · mapkit-cn" });
+useSeoMeta({
+  title: 'Directions · mapkit-cn',
+  description:
+    'Directions example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  ogTitle: 'Directions',
+  ogDescription:
+    'Directions example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  twitterCard: 'summary_large_image',
+});
+defineOgImageComponent('MapkitDoc', {
+  title: 'Directions',
+  description: 'Directions example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+});
 
 const { token } = useMapkitToken();
 const { route, isRouting, error } = useDirections();

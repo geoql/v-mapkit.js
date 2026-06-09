@@ -7,7 +7,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Annotation Callout · mapkit-cn' });
+  useSeoMeta({
+    title: 'Annotation Callout · mapkit-cn',
+    description:
+      'Annotation Callout example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Annotation Callout',
+    ogDescription:
+      'Annotation Callout example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Annotation Callout',
+    description: 'Annotation Callout example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 

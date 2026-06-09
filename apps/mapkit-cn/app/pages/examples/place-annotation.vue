@@ -5,13 +5,25 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Place Annotation · mapkit-cn' });
+  useSeoMeta({
+    title: 'Place Annotation · mapkit-cn',
+    description:
+      'Place Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Place Annotation',
+    ogDescription:
+      'Place Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Place Annotation',
+    description: 'Place Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
   const { search, isSearching, error } = useSearch();
 
   const query = ref('coffee');
-  // mapkit.Place[] — typed loosely to avoid pulling the ambient namespace here.
+  // mapkit.Place[]: typed loosely to avoid pulling the ambient namespace here.
   const results = shallowRef<Array<{ coordinate: unknown; name?: string }>>([]);
 
   async function runSearch(): Promise<void> {
@@ -56,7 +68,7 @@
 <template>
   <ExampleCard
     title="Place Annotation"
-    description="VPlaceAnnotation builds an annotation from a real MapKit Place — the rich result type returned by search, geocoding, and POI queries. Search below and the results drop onto the map as place pins."
+    description="VPlaceAnnotation builds an annotation from a real MapKit Place: the rich result type returned by search, geocoding, and POI queries. Search below and the results drop onto the map as place pins."
   >
     <ExampleMapContainer>
       <VMap :access-token="token" color-scheme="light" @map="onMap">

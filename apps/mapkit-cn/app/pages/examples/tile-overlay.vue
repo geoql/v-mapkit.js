@@ -4,7 +4,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Tile Overlay · mapkit-cn' });
+  useSeoMeta({
+    title: 'Tile Overlay · mapkit-cn',
+    description:
+      'Tile Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Tile Overlay',
+    ogDescription:
+      'Tile Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Tile Overlay',
+    description: 'Tile Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 
@@ -33,7 +45,7 @@
 <template>
   <ExampleCard
     title="Tile Overlay"
-    description="VTileOverlay layers custom raster tiles on top of the base map using a {z}/{x}/{y} URL template — weather, terrain, or third-party basemaps. Toggle the OpenStreetMap layer below."
+    description="VTileOverlay layers custom raster tiles on top of the base map using a {z}/{x}/{y} URL template: weather, terrain, or third-party basemaps. Toggle the OpenStreetMap layer below."
   >
     <ExampleMapContainer>
       <VMap :access-token="token" color-scheme="light" @map="onMap">

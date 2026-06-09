@@ -3,7 +3,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Layer Switcher · mapkit-cn' });
+  useSeoMeta({
+    title: 'Layer Switcher · mapkit-cn',
+    description:
+      'Layer Switcher example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Layer Switcher',
+    ogDescription:
+      'Layer Switcher example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Layer Switcher',
+    description: 'Layer Switcher example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 

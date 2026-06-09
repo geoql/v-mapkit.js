@@ -3,7 +3,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Image Annotation · mapkit-cn' });
+  useSeoMeta({
+    title: 'Image Annotation · mapkit-cn',
+    description:
+      'Image Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Image Annotation',
+    ogDescription:
+      'Image Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Image Annotation',
+    description: 'Image Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 

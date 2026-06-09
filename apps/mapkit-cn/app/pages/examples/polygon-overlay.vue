@@ -3,7 +3,19 @@
   import { centerMap } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Polygon Overlay · mapkit-cn' });
+  useSeoMeta({
+    title: 'Polygon Overlay · mapkit-cn',
+    description:
+      'Polygon Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Polygon Overlay',
+    ogDescription:
+      'Polygon Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Polygon Overlay',
+    description: 'Polygon Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 
@@ -53,7 +65,7 @@
 <template>
   <ExampleCard
     title="Polygon Overlay"
-    description="VPolygonOverlay fills a closed ring of coordinates — neighborhoods, delivery zones, coverage areas. Pass an array of [lat, lng] points and a style object."
+    description="VPolygonOverlay fills a closed ring of coordinates: neighborhoods, delivery zones, coverage areas. Pass an array of [lat, lng] points and a style object."
   >
     <ExampleMapContainer>
       <VMap :access-token="token" color-scheme="light" @map="onMap">

@@ -5,7 +5,19 @@
   import { centerMap, places, toCoordinate } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Geocoding · mapkit-cn' });
+  useSeoMeta({
+    title: 'Geocoding · mapkit-cn',
+    description:
+      'Geocoding example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Geocoding',
+    ogDescription:
+      'Geocoding example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Geocoding',
+    description: 'Geocoding example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
   const { geocode, reverseGeocode, isGeocoding, error } = useGeocoder();

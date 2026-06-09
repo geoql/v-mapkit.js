@@ -5,6 +5,20 @@
   import { allExamples } from '~/lib/examples';
   import { centerMap, places } from '~/composables/useMapDemo';
 
+  useSeoMeta({
+    title: 'mapkit-cn - Beautiful Apple Maps for Vue',
+    description:
+      'Beautiful Apple MapKit components for Vue. Built on v-mapkit.js, styled with Tailwind CSS, works with shadcn-vue.',
+    ogTitle: 'mapkit-cn - Beautiful Apple Maps for Vue',
+    ogDescription:
+      'Beautiful Apple MapKit components for Vue. Built on v-mapkit.js, styled with Tailwind CSS, works with shadcn-vue.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'mapkit-cn',
+    description: 'Beautiful Apple MapKit components for Vue.',
+  });
+
   const config = useRuntimeConfig();
   const version = config.public.library.version;
   const { token } = useMapkitToken();
@@ -120,7 +134,7 @@
       </div>
     </div>
 
-    <!-- Live map — the product showing itself -->
+    <!-- Live map: the product showing itself -->
     <div
       class="relative h-[24rem] w-full overflow-hidden rounded-2xl border border-border bg-card shadow-lg sm:h-[30rem] lg:h-[34rem]"
     >
@@ -224,7 +238,7 @@
           class="max-w-md text-[0.9375rem] leading-relaxed text-muted-foreground"
         >
           Import the components you need and pass your MapKit token. No
-          wrappers, no boilerplate — annotations and overlays are just child
+          wrappers, no boilerplate: annotations and overlays are just child
           components.
         </p>
         <div class="flex flex-wrap items-center gap-3 pt-1">

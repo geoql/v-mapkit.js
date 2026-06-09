@@ -3,7 +3,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Custom Annotation · mapkit-cn' });
+  useSeoMeta({
+    title: 'Custom Annotation · mapkit-cn',
+    description:
+      'Custom Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Custom Annotation',
+    ogDescription:
+      'Custom Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Custom Annotation',
+    description: 'Custom Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 
@@ -14,7 +26,7 @@
       { at: [51.5033, -0.1196], label: 'South Bank', price: '£380' },
     ];
 
-  // Factory returning a styled DOM node — VCustomAnnotation mounts whatever you build.
+  // Factory returning a styled DOM node: VCustomAnnotation mounts whatever you build.
   function buildPriceTag(price: string): () => HTMLElement {
     return () => {
       const el = document.createElement('div');

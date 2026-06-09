@@ -4,7 +4,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Map Configuration · mapkit-cn' });
+  useSeoMeta({
+    title: 'Map Configuration · mapkit-cn',
+    description:
+      'Map Configuration example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Map Configuration',
+    ogDescription:
+      'Map Configuration example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Map Configuration',
+    description: 'Map Configuration example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 

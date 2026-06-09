@@ -2,7 +2,19 @@
   import { Badge } from '@/components/ui/badge';
   import { allExamples, exampleGroups } from '~/lib/examples';
 
-  useHead({ title: 'Examples · mapkit-cn' });
+  useSeoMeta({
+    title: 'Examples · mapkit-cn',
+    description:
+      'Browse live, copy-paste examples for every v-mapkit.js component: annotations, overlays, controls, and Apple MapKit services.',
+    ogTitle: 'Examples',
+    ogDescription:
+      'Browse live, copy-paste examples for every v-mapkit.js component: annotations, overlays, controls, and Apple MapKit services.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Examples',
+    description: 'Browse live, copy-paste examples for every v-mapkit.js component: annotations, overlays, controls, and Apple MapKit services.',
+  });
 
   const total = allExamples.length;
 </script>

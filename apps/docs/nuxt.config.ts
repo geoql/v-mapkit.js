@@ -33,8 +33,16 @@ export default defineNuxtConfig({
       deployConfig: true,
       nodeCompat: true,
       wrangler: {
-        name: 'v-mapkit.js-docs',
-        compatibility_date: '2025-01-01',
+        name: 'v-mapkit-docs',
+        compatibility_date: '2025-12-01',
+        compatibility_flags: ['nodejs_compat'],
+        d1_databases: [
+          {
+            binding: 'DB',
+            database_name: 'v-mapkit-docs-db',
+            database_id: '91205837-d9d7-4c94-9076-d06a2651adb9',
+          },
+        ],
       },
     },
     rollupConfig: {

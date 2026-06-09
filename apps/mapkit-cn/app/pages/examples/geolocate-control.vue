@@ -3,7 +3,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Geolocate Control · mapkit-cn' });
+  useSeoMeta({
+    title: 'Geolocate Control · mapkit-cn',
+    description:
+      'Geolocate Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Geolocate Control',
+    ogDescription:
+      'Geolocate Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Geolocate Control',
+    description: 'Geolocate Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 

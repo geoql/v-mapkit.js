@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     'shadcn-nuxt',
     '@vueuse/nuxt',
+    'nuxt-og-image',
     '@nuxtjs/tailwindcss',
   ],
 
@@ -27,8 +28,15 @@ export default defineNuxtConfig({
     },
   },
 
+  site: {
+    name: 'mapkit-cn',
+    description: 'Beautiful Apple MapKit components for Vue',
+    url: 'https://v-mapkit.js.geoql.in',
+  },
+
   app: {
     head: {
+      htmlAttrs: { lang: 'en' },
       title: 'mapkit-cn - Beautiful Apple Maps for Vue',
       meta: [
         {
@@ -62,7 +70,7 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2025-01-06',
+  compatibilityDate: '2025-12-01',
 
   nitro: {
     preset: 'cloudflare-pages',
@@ -71,9 +79,16 @@ export default defineNuxtConfig({
       nodeCompat: true,
       wrangler: {
         name: 'mapkit-cn',
-        compatibility_date: '2025-01-01',
+        compatibility_date: '2025-12-01',
+        compatibility_flags: ['nodejs_compat'],
       },
     },
+  },
+
+  ogImage: {
+    // Generate all OG images at build time; skip per-request cache storage
+    // during prerender to reduce the Cloudflare Pages worker bundle.
+    runtimeCacheStorage: false,
   },
 
   vite: {

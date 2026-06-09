@@ -3,7 +3,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Basic Map · mapkit-cn' });
+  useSeoMeta({
+    title: 'Basic Map · mapkit-cn',
+    description:
+      'Basic Map example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Basic Map',
+    ogDescription:
+      'Basic Map example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Basic Map',
+    description: 'Basic Map example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
   const colorMode = useColorMode();
@@ -39,7 +51,7 @@
 <template>
   <ExampleCard
     title="Basic Map"
-    description="The smallest possible map: pass your MapKit token to VMap, then center it once the map is ready via the @map event. Coordinates and regions aren't props — they're applied through the live MapKit instance."
+    description="The smallest possible map: pass your MapKit token to VMap, then center it once the map is ready via the @map event. Coordinates and regions aren't props: they're applied through the live MapKit instance."
   >
     <ExampleMapContainer>
       <VMap

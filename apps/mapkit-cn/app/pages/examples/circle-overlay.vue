@@ -4,7 +4,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Circle Overlay · mapkit-cn' });
+  useSeoMeta({
+    title: 'Circle Overlay · mapkit-cn',
+    description:
+      'Circle Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Circle Overlay',
+    ogDescription:
+      'Circle Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Circle Overlay',
+    description: 'Circle Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 
@@ -45,7 +57,7 @@
 <template>
   <ExampleCard
     title="Circle Overlay"
-    description="VCircleOverlay draws a geographic circle from a center coordinate and a radius in meters — ideal for service ranges, geofences, and proximity bubbles. Adjust the radius below."
+    description="VCircleOverlay draws a geographic circle from a center coordinate and a radius in meters: ideal for service ranges, geofences, and proximity bubbles. Adjust the radius below."
   >
     <ExampleMapContainer>
       <VMap :access-token="token" color-scheme="light" @map="onMap">

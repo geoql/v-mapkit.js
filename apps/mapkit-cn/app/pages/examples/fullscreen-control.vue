@@ -3,7 +3,19 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Fullscreen Control · mapkit-cn' });
+  useSeoMeta({
+    title: 'Fullscreen Control · mapkit-cn',
+    description:
+      'Fullscreen Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Fullscreen Control',
+    ogDescription:
+      'Fullscreen Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Fullscreen Control',
+    description: 'Fullscreen Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 

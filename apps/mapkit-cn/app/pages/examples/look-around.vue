@@ -8,12 +8,24 @@
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Look Around · mapkit-cn' });
+  useSeoMeta({
+    title: 'Look Around · mapkit-cn',
+    description:
+      'Look Around example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Look Around',
+    ogDescription:
+      'Look Around example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Look Around',
+    description: 'Look Around example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
   const { geocode } = useGeocoder();
 
-  // VLookAround needs a mapkit.Place — fetch one once the runtime is loaded.
+  // VLookAround needs a mapkit.Place: fetch one once the runtime is loaded.
   const place = shallowRef<unknown>(null);
   const marker: [number, number] = [37.7956, -122.3934]; // Ferry Building, SF
 
@@ -38,7 +50,7 @@
 <\x2Fscript>
 
 <template>
-  <!-- VLookAround is standalone — not a child of VMap -->
+  <!-- VLookAround is standalone: not a child of VMap -->
   <VLookAround
     v-if="place"
     :place="place"
@@ -50,7 +62,7 @@
 <template>
   <ExampleCard
     title="Look Around"
-    description="VLookAround embeds Apple's interactive street-level imagery. It's a standalone component — pass it a MapKit Place (from search or geocoding) and users can pan and move through the scene."
+    description="VLookAround embeds Apple's interactive street-level imagery. It's a standalone component: pass it a MapKit Place (from search or geocoding) and users can pan and move through the scene."
   >
     <div class="grid gap-4 lg:grid-cols-2">
       <ExampleMapContainer height="h-[24rem]">

@@ -7,7 +7,19 @@
   import { centerMap } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
-  useHead({ title: 'Polyline Overlay · mapkit-cn' });
+  useSeoMeta({
+    title: 'Polyline Overlay · mapkit-cn',
+    description:
+      'Polyline Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    ogTitle: 'Polyline Overlay',
+    ogDescription:
+      'Polyline Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    twitterCard: 'summary_large_image',
+  });
+  defineOgImageComponent('MapkitDoc', {
+    title: 'Polyline Overlay',
+    description: 'Polyline Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  });
 
   const { token } = useMapkitToken();
 
@@ -57,7 +69,7 @@
 <template>
   <ExampleCard
     title="Polyline Overlay"
-    description="VPolylineOverlay connects coordinates into a line — routes, GPS traces, transit paths. Same coordinate-array API as polygons, but open-ended. Endpoints are marked here for clarity."
+    description="VPolylineOverlay connects coordinates into a line: routes, GPS traces, transit paths. Same coordinate-array API as polygons, but open-ended. Endpoints are marked here for clarity."
   >
     <ExampleMapContainer>
       <VMap :access-token="token" color-scheme="dark" @map="onMap">
