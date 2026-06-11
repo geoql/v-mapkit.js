@@ -31,7 +31,7 @@ export default defineNuxtConfig({
   site: {
     name: 'mapkit-cn',
     description: 'Beautiful Apple MapKit components for Vue',
-    url: 'https://v-mapkit.js.geoql.in',
+    url: 'https://mapkit-cn.geoql.in',
   },
 
   app: {
@@ -70,7 +70,7 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2025-12-01',
+  compatibilityDate: '2026-05-26',
 
   nitro: {
     preset: 'cloudflare-pages',
@@ -79,7 +79,7 @@ export default defineNuxtConfig({
       nodeCompat: true,
       wrangler: {
         name: 'mapkit-cn',
-        compatibility_date: '2025-12-01',
+        compatibility_date: '2026-05-26',
         compatibility_flags: ['nodejs_compat'],
       },
     },

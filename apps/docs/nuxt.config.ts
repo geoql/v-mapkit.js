@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/plausible',
       {
-        domain: 'v-mapkit.js.geoql.in',
+        domain: 'v-mapkit.geoql.in',
         apiHost: 'https://analytics.geoql.in',
         autoOutboundTracking: true,
       },
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   site: {
     name: 'v-mapkit.js',
     description: 'Vue 3 components for Apple MapKit JS',
-    url: 'https://v-mapkit.js.geoql.in',
+    url: 'https://v-mapkit.geoql.in',
   },
 
   content: {
@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2025-07-18',
+  compatibilityDate: '2026-05-26',
 
   nitro: {
     preset: 'cloudflare-pages',
@@ -34,7 +34,7 @@ export default defineNuxtConfig({
       nodeCompat: true,
       wrangler: {
         name: 'v-mapkit-docs',
-        compatibility_date: '2025-12-01',
+        compatibility_date: '2026-05-26',
         compatibility_flags: ['nodejs_compat'],
         d1_databases: [
           {
@@ -58,6 +58,6 @@ export default defineNuxtConfig({
   },
 
   llms: {
-    domain: 'v-mapkit.js.geoql.in',
+    domain: 'v-mapkit.geoql.in',
   },
 });

@@ -93,7 +93,7 @@
         mapkit-cn
       </div>
       <div :style="{ fontSize: '18px', color: '#6e6e73' }">
-        v-mapkit.js.geoql.in
+        mapkit-cn.geoql.in
       </div>
     </div>
   </div>
