@@ -182,7 +182,7 @@ export const exampleGroups: ExampleGroup[] = [
         slug: 'look-around-preview',
         title: 'Look Around Preview',
         description: 'A static Look Around thumbnail.',
-        icon: 'lucide:panorama',
+        icon: 'lucide:scan-eye',
       },
       {
         slug: 'property-toggles',
