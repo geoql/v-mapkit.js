@@ -9,6 +9,14 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-og-image',
     '@nuxtjs/tailwindcss',
+    [
+      '@nuxtjs/plausible',
+      {
+        domain: 'mapkit-cn.geoql.in',
+        apiHost: 'https://analytics.geoql.in',
+        autoOutboundTracking: true,
+      },
+    ],
   ],
 
   devtools: { enabled: true },
