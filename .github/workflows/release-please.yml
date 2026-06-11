@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag to publish (e.g., v1.2.2)'
+        description: "Tag to publish (e.g., v1.2.2)"
         required: true
 
 permissions:
@@ -18,9 +18,9 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
-      version: ${{ steps.release.outputs.version }}
+      release_created: ${{ steps.release.outputs['packages/v-mapkit.js--release_created'] }}
+      tag_name: ${{ steps.release.outputs['packages/v-mapkit.js--tag_name'] }}
+      version: ${{ steps.release.outputs['packages/v-mapkit.js--version'] }}
     steps:
       - name: Release Please
         id: release
@@ -49,15 +49,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version-file: '.nvmrc'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
+          node-version-file: ".nvmrc"
+          registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm run build
+        run: pnpm --filter @geoql/v-mapkit.js run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
 
       - name: Publish to npm with provenance
+        working-directory: packages/v-mapkit.js
         run: npm publish --provenance --access public --ignore-scripts
+
+      - name: Publish to JSR
+        working-directory: packages/v-mapkit.js
+        run: pnpm dlx jsr publish --allow-dirty --allow-slow-types

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDirections, VMap, VMarkerAnnotation, VPolylineOverlay } from "v-mapkit.js";
+import { useDirections, VMap, VMarkerAnnotation, VPolylineOverlay } from "@geoql/v-mapkit.js";
 import { Button } from "@/components/ui/button";
 import { centerMap } from "~/composables/useMapDemo";
 
@@ -63,7 +63,7 @@ const code = `<script setup lang="ts">
     VMap,
     VPolylineOverlay,
     useDirections,
-  } from 'v-mapkit.js';
+  } from '@geoql/v-mapkit.js';
 
   const { route } = useDirections();
 

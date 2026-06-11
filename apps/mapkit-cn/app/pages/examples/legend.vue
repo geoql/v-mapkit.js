@@ -3,7 +3,7 @@
     VControlLegend,
     VMap,
     VMarkerAnnotation,
-  } from 'v-mapkit.js';
+  } from '@geoql/v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -48,7 +48,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VControlLegend } from 'v-mapkit.js';
+  import { VMap, VControlLegend } from '@geoql/v-mapkit.js';
 <\x2Fscript>
 
 <template>

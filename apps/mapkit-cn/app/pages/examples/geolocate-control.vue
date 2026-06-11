@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VControlGeolocate, VMap } from 'v-mapkit.js';
+  import { VControlGeolocate, VMap } from '@geoql/v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -35,7 +35,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VControlGeolocate } from 'v-mapkit.js';
+  import { VMap, VControlGeolocate } from '@geoql/v-mapkit.js';
 
   function onLocate(position) {
     console.log(position.coords.latitude, position.coords.longitude);

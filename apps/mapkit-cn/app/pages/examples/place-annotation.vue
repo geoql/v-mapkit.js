@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useSearch, VMap, VPlaceAnnotation } from 'v-mapkit.js';
+  import { useSearch, VMap, VPlaceAnnotation } from '@geoql/v-mapkit.js';
   import { Button } from '@/components/ui/button';
   import { Input } from '@/components/ui/input';
   import { centerMap, places } from '~/composables/useMapDemo';
@@ -42,7 +42,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VPlaceAnnotation, useSearch } from 'v-mapkit.js';
+  import { VMap, VPlaceAnnotation, useSearch } from '@geoql/v-mapkit.js';
 
   const { search } = useSearch();
   const results = shallowRef([]);

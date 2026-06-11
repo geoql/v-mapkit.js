@@ -11,15 +11,15 @@ v-mapkit.js provides Vue 3 components for Apple MapKit JS, enabling declarative 
 
 ::code-group
 ```bash [pnpm]
-pnpm add v-mapkit.js
+pnpm add @geoql/v-mapkit.js
 ```
 
 ```bash [npm]
-npm install v-mapkit.js
+npm install @geoql/v-mapkit.js
 ```
 
 ```bash [yarn]
-yarn add v-mapkit.js
+yarn add @geoql/v-mapkit.js
 ```
 ::
 
@@ -29,8 +29,8 @@ Import the components and styles in your Vue application:
 
 ```vue
 <script setup>
-import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
-import 'v-mapkit.js/style.css';
+import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+import '@geoql/v-mapkit.js/style.css';
 </script>
 
 <template>
@@ -55,7 +55,7 @@ For Nuxt projects, you can auto-import the components:
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['v-mapkit.js/nuxt'],
+  modules: ['@geoql/v-mapkit.js/nuxt'],
 });
 ```
 

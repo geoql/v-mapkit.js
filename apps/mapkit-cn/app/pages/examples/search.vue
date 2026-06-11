@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useSearch, VMap, VMarkerAnnotation } from 'v-mapkit.js';
+  import { useSearch, VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
   import { Input } from '@/components/ui/input';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -58,7 +58,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VMarkerAnnotation, useSearch } from 'v-mapkit.js';
+  import { VMap, VMarkerAnnotation, useSearch } from '@geoql/v-mapkit.js';
 
   const { autocomplete, search } = useSearch();
   const suggestions = shallowRef([]);

@@ -2,19 +2,20 @@
 
 > Vue 3 components for Apple MapKit JS - Monorepo for v-mapkit.js and mapkit-cn
 
-[![npm version](https://badge.fury.io/js/v-mapkit.js.svg)](https://www.npmjs.com/package/v-mapkit.js)
+[![npm version](https://badge.fury.io/js/@geoql%2Fv-mapkit.js.svg)](https://www.npmjs.com/package/@geoql/v-mapkit.js)
+[![JSR](https://jsr.io/badges/@geoql/v-mapkit.js)](https://jsr.io/@geoql/v-mapkit.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Packages
 
-| Package | Description |
-| --- | --- |
+| Package                               | Description                          |
+| ------------------------------------- | ------------------------------------ |
 | [v-mapkit.js](./packages/v-mapkit.js) | Vue 3 components for Apple MapKit JS |
 
 ## Apps
 
-| App | Description |
-| --- | --- |
+| App                           | Description                             |
+| ----------------------------- | --------------------------------------- |
 | [mapkit-cn](./apps/mapkit-cn) | Showcase site with 24 examples (Nuxt 4) |
 
 ## Quick Start
@@ -22,21 +23,17 @@
 ### Install the library
 
 ```bash
-pnpm add v-mapkit.js
+pnpm add @geoql/v-mapkit.js
 ```
 
 ```vue
 <script setup>
-import { VMap, VMarkerAnnotation } from 'v-mapkit.js';
-import 'v-mapkit.js/style.css';
+import { VMap, VMarkerAnnotation } from "@geoql/v-mapkit.js";
+import "@geoql/v-mapkit.js/style.css";
 </script>
 
 <template>
-  <VMap
-    :options="{ token: 'YOUR_MAPKIT_TOKEN' }"
-    :center="[37.7749, -122.4194]"
-    :zoom="12"
-  >
+  <VMap :options="{ token: 'YOUR_MAPKIT_TOKEN' }" :center="[37.7749, -122.4194]" :zoom="12">
     <VMarkerAnnotation :coordinates="[37.7749, -122.4194]" />
   </VMap>
 </template>

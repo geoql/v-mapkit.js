@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       skip-build:
-        description: 'Download build artifact from CI instead of rebuilding'
+        description: "Download build artifact from CI instead of rebuilding"
         default: false
         required: false
         type: boolean
@@ -33,8 +33,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
 
       - name: Download build artifact
         if: inputs.skip-build == true
@@ -63,7 +63,7 @@ jobs:
 
       - name: Build library
         if: inputs.skip-build != true
-        run: pnpm --filter v-mapkit.js run build
+        run: pnpm --filter @geoql/v-mapkit.js run build
         env:
           NODE_OPTIONS: --max-old-space-size=8192
 

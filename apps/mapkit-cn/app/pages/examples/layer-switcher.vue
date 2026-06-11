@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VControlLayerSwitcher, VMap } from 'v-mapkit.js';
+  import { VControlLayerSwitcher, VMap } from '@geoql/v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -31,7 +31,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VControlLayerSwitcher } from 'v-mapkit.js';
+  import { VMap, VControlLayerSwitcher } from '@geoql/v-mapkit.js';
 
   const mapTypes = [
     { type: 'standard', label: 'Standard' },

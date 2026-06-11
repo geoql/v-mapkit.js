@@ -3,7 +3,7 @@
     VMap,
     VMarkerAnnotation,
     VPolylineOverlay,
-  } from 'v-mapkit.js';
+  } from '@geoql/v-mapkit.js';
   import { centerMap } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -46,7 +46,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VPolylineOverlay } from 'v-mapkit.js';
+  import { VMap, VPolylineOverlay } from '@geoql/v-mapkit.js';
 
   const path = [
     [37.8087, -122.4098],

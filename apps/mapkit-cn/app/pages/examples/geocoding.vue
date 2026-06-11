@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useGeocoder, VMap, VMarkerAnnotation } from 'v-mapkit.js';
+  import { useGeocoder, VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
   import { Button } from '@/components/ui/button';
   import { Input } from '@/components/ui/input';
   import { centerMap, places, toCoordinate } from '~/composables/useMapDemo';
@@ -72,7 +72,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, useGeocoder } from 'v-mapkit.js';
+  import { VMap, useGeocoder } from '@geoql/v-mapkit.js';
 
   const { geocode, reverseGeocode } = useGeocoder();
 

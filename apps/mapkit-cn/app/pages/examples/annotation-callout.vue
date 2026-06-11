@@ -3,7 +3,7 @@
     VAnnotationCallout,
     VMap,
     VMarkerAnnotation,
-  } from 'v-mapkit.js';
+  } from '@geoql/v-mapkit.js';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
@@ -32,7 +32,7 @@
     VMap,
     VMarkerAnnotation,
     VAnnotationCallout,
-  } from 'v-mapkit.js';
+  } from '@geoql/v-mapkit.js';
 <\x2Fscript>
 
 <template>

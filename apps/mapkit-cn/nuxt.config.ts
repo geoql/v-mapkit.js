@@ -59,7 +59,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    'v-mapkit.js/style.css',
+    '@geoql/v-mapkit.js/style.css',
     '~/assets/css/main.css',
   ],
 
@@ -101,7 +101,7 @@ export default defineNuxtConfig({
 
   vite: {
     optimizeDeps: {
-      exclude: ['v-mapkit.js'],
+      exclude: ['@geoql/v-mapkit.js'],
       include: [
         'class-variance-authority',
         'clsx',
