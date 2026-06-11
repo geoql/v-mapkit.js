@@ -31,18 +31,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install --filter mapkit-cn-app... --frozen-lockfile
 
+      - name: Build library
+        run: pnpm --filter @geoql/v-mapkit.js run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+
       - name: Prepare Nuxt
         run: pnpm --filter mapkit-cn-app run postinstall
-
-      - name: DEBUG dump unlisted-dep finding names
-        continue-on-error: true
-        working-directory: apps/mapkit-cn
-        run: |
-          npx -y @geoql/nuxt-doctor@1.1.2 --json > /tmp/dbg.json 2>/tmp/dbg.err || true
-          echo "=== exit-derived score/findings ==="
-          node -e 'const r=require("/tmp/dbg.json");const d=r.diagnostics||[];console.log("score",r.score?.value,"findings",d.length);d.forEach(x=>console.log(JSON.stringify({sev:x.severity,rule:x.ruleId,file:x.location?.file,line:x.location?.line,sym:x.symbol,data:x.data,msg:x.message})))' || (echo "JSON parse failed; raw:"; cat /tmp/dbg.json; echo "---err---"; cat /tmp/dbg.err)
-          echo "=== app node_modules: are nuxt.config modules linked? ==="
-          for d in @nuxtjs/plausible @geoql/v-mapkit.js nuxt-og-image @nuxtjs/color-mode @nuxt/icon @nuxt/fonts shadcn-nuxt @vueuse/nuxt @nuxtjs/tailwindcss; do if [ -e "node_modules/$d" ]; then echo "LINKED   $d"; else echo "MISSING  $d"; fi; done
 
       - name: Audit app with nuxt-doctor
         uses: geoql/doctor-action@v1
