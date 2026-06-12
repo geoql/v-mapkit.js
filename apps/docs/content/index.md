@@ -1,47 +1,109 @@
 ---
-title: v-mapkit.js
-description: Vue 3 components for Apple MapKit JS
-navigation: false
+seo:
+  title: Vue 3 Components for Apple MapKit JS
+  description: Build interactive map applications with Apple MapKit JS and Vue 3. Fully typed, composable, and compatible with Nuxt 4.
 ---
 
-::hero
----
-announcement:
-  title: 'v1.0.0 Released'
-  icon: 'noto:party-popper'
-  to: /guide/getting-started
-actions:
-  - label: Get Started
-    to: /guide/getting-started
-    variant: primary
-    size: medium
-    trailing: 'i-lucide-arrow-right'
-  - label: GitHub
-    to: https://github.com/geoql/v-mapkit.js
-    variant: secondary
-    size: medium
-    trailing: 'i-simple-icons-github'
----
+::u-page-hero
 #title
-Vue 3 components for Apple MapKit JS
+Vue 3 Components for Apple MapKit JS
+
 #description
-Build interactive maps with Apple MapKit JS using declarative Vue 3 components. Features annotations, overlays, clustering, Look Around, and more.
+Build interactive map applications with Apple MapKit JS and Vue 3. Declarative components for annotations, overlays, clustering, and Look Around. Fully typed, composable, and compatible with Nuxt 4.
+
+#links
+  :::u-button
+  ---
+  color: neutral
+  size: xl
+  to: /guide/getting-started
+  trailing-icon: i-lucide-arrow-right
+  ---
+  Get started
+  :::
+
+  :::u-button
+  ---
+  color: neutral
+  icon: simple-icons-github
+  size: xl
+  to: https://github.com/geoql/v-mapkit.js
+  variant: outline
+  ---
+  View on GitHub
+  :::
 ::
 
-::card-group
-::card{icon="i-lucide-map" title="Declarative Components"}
-Use Vue components like `<VMap>`, `<VMarkerAnnotation>`, and `<VCircleOverlay>` instead of imperative MapKit JS APIs.
-::
+::u-page-section
+#title
+What's included
 
-::card{icon="i-lucide-layers" title="Annotations & Overlays"}
-Support for markers, custom annotations, circles, polygons, polylines, and tile overlays with reactive props.
-::
+#features
+  :::u-page-feature
+  ---
+  icon: i-lucide-map
+  ---
+  #title
+  Declarative Components
 
-::card{icon="i-lucide-eye" title="Look Around"}
-Exclusive Apple Look Around integration with both interactive and preview components.
-::
+  #description
+  Use Vue components like VMap, VMarkerAnnotation, and VCircleOverlay instead of imperative MapKit JS APIs.
+  :::
 
-::card{icon="i-lucide-search" title="MapKit Services"}
-Built-in composables for search, geocoding, directions, and points of interest.
-::
+  :::u-page-feature
+  ---
+  icon: i-lucide-layers
+  ---
+  #title
+  Annotations & Overlays
+
+  #description
+  Markers, custom annotations, circles, polygons, polylines, and tile overlays with reactive props.
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-eye
+  ---
+  #title
+  Look Around
+
+  #description
+  Exclusive Apple Look Around integration with both interactive and preview components.
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-search
+  ---
+  #title
+  MapKit Services
+
+  #description
+  Built-in composables for search, geocoding, directions, and points of interest.
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-simple-icons-typescript
+  ---
+  #title
+  TypeScript
+
+  #description
+  Fully typed with excellent IDE support and complete MapKit JS type definitions.
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-simple-icons-nuxt
+  target: _blank
+  to: https://nuxt.com
+  ---
+  #title
+  Nuxt Ready
+
+  #description
+  Works seamlessly with Nuxt 4 and SSR.
+  :::
 ::

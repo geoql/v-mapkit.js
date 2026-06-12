@@ -61,5 +61,5 @@ export default defineNuxtConfig({
 
 ## Next Steps
 
-- Explore the [component documentation](/components/map)
-- Check out the [live examples](https://mapkit-cn.geoql.in)
+- Browse all 18 components and 4 composables in the [live examples](https://mapkit-cn.geoql.in)
+- Star the project on [GitHub](https://github.com/geoql/v-mapkit.js)

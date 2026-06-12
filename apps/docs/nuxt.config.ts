@@ -18,6 +18,19 @@ export default defineNuxtConfig({
     url: 'https://v-mapkit.geoql.in',
   },
 
+  app: {
+    head: {
+      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    },
+  },
+
+  fonts: {
+    families: [
+      { name: 'Geist', provider: 'google', weights: [300, 400, 500, 600, 700] },
+      { name: 'Geist Mono', provider: 'google', weights: [400, 500] },
+    ],
+  },
+
   content: {
     database: {
       type: 'd1',
