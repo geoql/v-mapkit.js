@@ -48,7 +48,7 @@ jobs:
 
       - name: Restore font cache
         if: inputs.skip-build != true
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: apps/mapkit-cn/node_modules/.cache/nuxt/fonts
           key: nuxt-fonts-${{ hashFiles('apps/mapkit-cn/nuxt.config.ts') }}
