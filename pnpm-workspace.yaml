@@ -15,7 +15,7 @@ allowBuilds:
 
 # Catalogs centralize dependency versions across the monorepo. Sub-packages
 # reference these with `catalog:` (default) or `catalog:<name>`. The published
-# library (packages/v-mapkit.js) does NOT use catalogs — npm/yarn/jsr consumers
+# library (packages/v-mapkit) does NOT use catalogs — npm/yarn/jsr consumers
 # don't understand the protocol, so its deps stay real semver. Only the root and
 # the apps reference catalogs. Requires pnpm v9.5+ (this repo pins pnpm v11).
 catalogs:

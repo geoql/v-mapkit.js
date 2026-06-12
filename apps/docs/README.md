@@ -1,6 +1,6 @@
-# v-mapkit.js Documentation
+# v-mapkit Documentation
 
-> Documentation site for v-mapkit.js — Vue 3 components for Apple MapKit JS
+> Documentation site for v-mapkit — Vue 3 components for Apple MapKit JS
 
 ## Development
 

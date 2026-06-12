@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VControlFullscreen, VMap } from '@geoql/v-mapkit.js';
+  import { VControlFullscreen, VMap } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Fullscreen Control · mapkit-cn',
     description:
-      'Fullscreen Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Fullscreen Control example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Fullscreen Control',
     ogDescription:
-      'Fullscreen Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Fullscreen Control example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Fullscreen Control',
-    description: 'Fullscreen Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Fullscreen Control example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -24,7 +24,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VControlFullscreen } from '@geoql/v-mapkit.js';
+  import { VMap, VControlFullscreen } from '@geoql/v-mapkit';
 <\x2Fscript>
 
 <template>

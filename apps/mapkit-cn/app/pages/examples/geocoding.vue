@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useGeocoder, VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { useGeocoder, VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
   import { Button } from '@/components/ui/button';
   import { Input } from '@/components/ui/input';
   import { centerMap, places, toCoordinate } from '~/composables/useMapDemo';
@@ -8,15 +8,15 @@
   useSeoMeta({
     title: 'Geocoding · mapkit-cn',
     description:
-      'Geocoding example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Geocoding example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Geocoding',
     ogDescription:
-      'Geocoding example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Geocoding example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Geocoding',
-    description: 'Geocoding example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Geocoding example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -72,7 +72,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, useGeocoder } from '@geoql/v-mapkit.js';
+  import { VMap, useGeocoder } from '@geoql/v-mapkit';
 
   const { geocode, reverseGeocode } = useGeocoder();
 

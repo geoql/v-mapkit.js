@@ -1,13 +1,13 @@
-# AGENTS.md - v-mapkit.js Documentation Guide
+# AGENTS.md - v-mapkit Documentation Guide
 
 > **For AI Coding Assistants (Claude Code, Cursor, Copilot, etc.)**
-> This file helps AI agents understand the codebase architecture, conventions, and best practices for the v-mapkit.js documentation site.
+> This file helps AI agents understand the codebase architecture, conventions, and best practices for the v-mapkit documentation site.
 
 ---
 
 ## Project Overview
 
-**v-mapkit.js docs** is the API documentation site for the `v-mapkit.js` library. Built with Docus (a Nuxt-based documentation theme), it provides comprehensive guides and API reference for Vue 3 Apple MapKit JS components.
+**v-mapkit docs** is the API documentation site for the `v-mapkit` library. Built with Docus (a Nuxt-based documentation theme), it provides comprehensive guides and API reference for Vue 3 Apple MapKit JS components.
 
 ### Key Capabilities
 
@@ -46,7 +46,7 @@ This app relies on the workspace-level Nuxt skills from [`.agents/skills/`](../.
 - **Framework**: Nuxt 4 + Docus theme (`extends: ['docus']`)
 - **Content**: `@nuxt/content` backed by Cloudflare D1 (binding `DB`, database `v-mapkit-docs-db`)
 - **Deployment**: Cloudflare Pages (project `v-mapkit-docs`), `cloudflare-pages` Nitro preset
-- **Analytics**: `@nuxtjs/plausible` (`v-mapkit.js.geoql.in`)
+- **Analytics**: `@nuxtjs/plausible` (`v-mapkit.geoql.in`)
 - **Lint/Format**: `oxlint` (run `pnpm lint`)
 
 ## Conventions

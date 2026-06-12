@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Property Toggles · mapkit-cn',
     description:
-      'Property Toggles example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Property Toggles example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Property Toggles',
     ogDescription:
-      'Property Toggles example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Property Toggles example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Property Toggles',
-    description: 'Property Toggles example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Property Toggles example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();

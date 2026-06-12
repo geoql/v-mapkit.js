@@ -2,19 +2,19 @@
 
 <!-- Badges -->
 
-[![Pipeline](https://img.shields.io/github/actions/workflow/status/geoql/v-mapkit.js/pipeline.yml?branch=main&logo=github-actions&label=pipeline)](https://github.com/geoql/v-mapkit.js/actions/workflows/pipeline.yml)
-[![GitHub release](https://img.shields.io/github/v/release/geoql/v-mapkit.js?sort=semver&logo=github&label=release)](https://github.com/geoql/v-mapkit.js/releases)
-[![npm](https://img.shields.io/npm/v/@geoql/v-mapkit.js?logo=npm&label=npm)](https://www.npmjs.com/package/@geoql/v-mapkit.js)
-[![JSR](https://img.shields.io/jsr/v/@geoql/v-mapkit.js?logo=jsr&label=jsr)](https://jsr.io/@geoql/v-mapkit.js)
-[![npm downloads](https://img.shields.io/npm/dm/@geoql/v-mapkit.js?logo=npm&label=downloads)](http://npm-stat.com/charts.html?package=@geoql/v-mapkit.js)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/@geoql/v-mapkit.js?label=size)](https://bundlephobia.com/package/@geoql/v-mapkit.js@latest)
-[![types](https://img.shields.io/npm/types/@geoql/v-mapkit.js?logo=typescript&label=types)](https://github.com/geoql/v-mapkit.js/blob/main/package.json)
-[![License](https://img.shields.io/github/license/geoql/v-mapkit.js?logo=github&label=license)](./LICENSE)
+[![Pipeline](https://img.shields.io/github/actions/workflow/status/geoql/v-mapkit/pipeline.yml?branch=main&logo=github-actions&label=pipeline)](https://github.com/geoql/v-mapkit/actions/workflows/pipeline.yml)
+[![GitHub release](https://img.shields.io/github/v/release/geoql/v-mapkit?sort=semver&logo=github&label=release)](https://github.com/geoql/v-mapkit/releases)
+[![npm](https://img.shields.io/npm/v/@geoql/v-mapkit?logo=npm&label=npm)](https://www.npmjs.com/package/@geoql/v-mapkit)
+[![JSR](https://img.shields.io/jsr/v/@geoql/v-mapkit?logo=jsr&label=jsr)](https://jsr.io/@geoql/v-mapkit)
+[![npm downloads](https://img.shields.io/npm/dm/@geoql/v-mapkit?logo=npm&label=downloads)](http://npm-stat.com/charts.html?package=@geoql/v-mapkit)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@geoql/v-mapkit?label=size)](https://bundlephobia.com/package/@geoql/v-mapkit@latest)
+[![types](https://img.shields.io/npm/types/@geoql/v-mapkit?logo=typescript&label=types)](https://github.com/geoql/v-mapkit/blob/main/package.json)
+[![License](https://img.shields.io/github/license/geoql/v-mapkit?logo=github&label=license)](./LICENSE)
 
-[![vite-plus](https://img.shields.io/github/package-json/dependency-version/geoql/v-mapkit.js/dev/vite-plus?logo=vite&label=vite-plus)](https://github.com/voidzero-dev/vite-plus)
-[![typescript](https://img.shields.io/github/package-json/dependency-version/geoql/v-mapkit.js/dev/typescript?logo=TypeScript&label=typescript)](https://www.typescriptlang.org/)
-[![pnpm](https://img.shields.io/github/package-json/packageManager/geoql/v-mapkit.js?label=pnpm&logo=pnpm)](https://pnpm.io/)
-[![node](https://img.shields.io/node/v/v-mapkit.js?logo=node.js&label=node)](https://nodejs.org/)
+[![vite-plus](https://img.shields.io/github/package-json/dependency-version/geoql/v-mapkit/dev/vite-plus?logo=vite&label=vite-plus)](https://github.com/voidzero-dev/vite-plus)
+[![typescript](https://img.shields.io/github/package-json/dependency-version/geoql/v-mapkit/dev/typescript?logo=TypeScript&label=typescript)](https://www.typescriptlang.org/)
+[![pnpm](https://img.shields.io/github/package-json/packageManager/geoql/v-mapkit?label=pnpm&logo=pnpm)](https://pnpm.io/)
+[![node](https://img.shields.io/node/v/v-mapkit?logo=node.js&label=node)](https://nodejs.org/)
 
 <!-- End Badges -->
 
@@ -46,7 +46,7 @@ Power of [Vue 3](https://v3.vuejs.org) with awesomeness of [Mapkit](https://deve
 ### Installation
 
 ```sh
-pnpm add @geoql/v-mapkit.js @vueuse/core vue
+pnpm add @geoql/v-mapkit @vueuse/core vue
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ generating one.
 
 ```vue
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
 </script>
 
 <template>
@@ -75,7 +75,7 @@ Prefer global registration? Install the default plugin:
 
 ```ts
 import { createApp } from 'vue';
-import VMapkit from '@geoql/v-mapkit.js';
+import VMapkit from '@geoql/v-mapkit';
 
 createApp(App).use(VMapkit).mount('#app');
 ```
@@ -121,11 +121,11 @@ $ pnpm run docs:dev
 
 ## Contributing
 
-1. Fork it ( [https://github.com/geoql/v-mapkit.js/fork](https://github.com/geoql/v-mapkit.js/fork) )
+1. Fork it ( [https://github.com/geoql/v-mapkit/fork](https://github.com/geoql/v-mapkit/fork) )
 2. Create your feature branch (`git checkout -b feat/new-feature`)
 3. Commit your changes (`git commit -Sam 'feat: add feature'`)
 4. Push to the branch (`git push origin feat/new-feature`)
-5. Create a new [Pull Request](https://github.com/geoql/v-mapkit.js/compare)
+5. Create a new [Pull Request](https://github.com/geoql/v-mapkit/compare)
 
 _Note_:
 

@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VMap, VPolygonOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VPolygonOverlay } from '@geoql/v-mapkit';
   import { centerMap } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Polygon Overlay · mapkit-cn',
     description:
-      'Polygon Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Polygon Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Polygon Overlay',
     ogDescription:
-      'Polygon Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Polygon Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Polygon Overlay',
-    description: 'Polygon Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Polygon Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -42,7 +42,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VPolygonOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VPolygonOverlay } from '@geoql/v-mapkit';
 
   const region = [
     [37.8085, -122.4101],

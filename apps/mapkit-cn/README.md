@@ -1,10 +1,10 @@
 # mapkit-cn
 
-Beautiful Apple MapKit components for Vue. Documentation and examples for [v-mapkit.js](https://github.com/geoql/v-mapkit.js).
+Beautiful Apple MapKit components for Vue. Documentation and examples for [v-mapkit](https://github.com/geoql/v-mapkit).
 
 ## Features
 
-- 🗺️ **24 Example Pages** - Comprehensive examples for all v-mapkit.js components
+- 🗺️ **24 Example Pages** - Comprehensive examples for all v-mapkit components
 - 🎨 **Apple-Inspired Design** - Clean, minimal UI matching Apple's design language
 - 🌓 **Dark Mode** - Full dark mode support
 - 📦 **shadcn-vue Registry** - Install components via CLI

@@ -24,14 +24,14 @@
     {
       title: 'Project',
       links: [
-        { label: 'GitHub', href: 'https://github.com/geoql/v-mapkit.js' },
+        { label: 'GitHub', href: 'https://github.com/geoql/v-mapkit' },
         {
           label: 'Issues',
-          href: 'https://github.com/geoql/v-mapkit.js/issues',
+          href: 'https://github.com/geoql/v-mapkit/issues',
         },
         {
           label: 'npm',
-          href: 'https://www.npmjs.com/package/v-mapkit.js',
+          href: 'https://www.npmjs.com/package/v-mapkit',
         },
       ],
     },
@@ -94,7 +94,7 @@
       <div
         class="mt-12 flex flex-col gap-3 border-t border-border/60 pt-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
       >
-        <p>© {{ year }} mapkit-cn. Built on v-mapkit.js.</p>
+        <p>© {{ year }} mapkit-cn. Built on v-mapkit.</p>
         <p class="font-mono text-xs">
           v{{ version }}
         </p>

@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Marker Annotation · mapkit-cn',
     description:
-      'Marker Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Marker Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Marker Annotation',
     ogDescription:
-      'Marker Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Marker Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Marker Annotation',
-    description: 'Marker Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Marker Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -62,7 +62,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
 <\x2Fscript>
 
 <template>

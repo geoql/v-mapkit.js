@@ -1,13 +1,13 @@
-# AGENTS.md - @geoql/v-mapkit.js Library Guide
+# AGENTS.md - @geoql/v-mapkit Library Guide
 
 > **For AI Coding Assistants (Claude Code, Cursor, Copilot, etc.)**
-> This file helps AI agents understand the library architecture, conventions, and best practices for @geoql/v-mapkit.js.
+> This file helps AI agents understand the library architecture, conventions, and best practices for @geoql/v-mapkit.
 
 ---
 
 ## Project Overview
 
-**@geoql/v-mapkit.js** is a Vue 3 component library for Apple MapKit JS. It provides reactive, composable map components with full TypeScript support — a declarative `<VMap>` container, annotation and overlay children, map controls, Look Around, and a set of service composables (search, geocoding, directions, POI, clustering) that wrap the MapKit runtime.
+**@geoql/v-mapkit** is a Vue 3 component library for Apple MapKit JS. It provides reactive, composable map components with full TypeScript support — a declarative `<VMap>` container, annotation and overlay children, map controls, Look Around, and a set of service composables (search, geocoding, directions, POI, clustering) that wrap the MapKit runtime.
 
 ### Key Capabilities
 
@@ -247,7 +247,7 @@ src/
 
 ### Rule #9: Published-Package Dependency Pinning (CRITICAL)
 
-This package is **published to npm and jsr** as `@geoql/v-mapkit.js` (`"private": false`). End users install it with `npm`, `yarn`, `pnpm`, `bun`, or via jsr — **none of which understand pnpm's `catalog:` protocol**.
+This package is **published to npm and jsr** as `@geoql/v-mapkit` (`"private": false`). End users install it with `npm`, `yarn`, `pnpm`, `bun`, or via jsr — **none of which understand pnpm's `catalog:` protocol**.
 
 The rest of the monorepo (root + both apps) centralizes versions in **pnpm catalogs** (`pnpm-workspace.yaml`), but **this package is the deliberate exception**: every entry in `dependencies`, `devDependencies`, and `peerDependencies` here MUST use real semver — never `catalog:` or `workspace:*`. Catalog/workspace refs would break `npm install` and `jsr add` for end users. Keep `package.json` and `jsr.json` in sync — both are public publish targets and both must resolve without pnpm.
 
@@ -264,7 +264,7 @@ The rest of the monorepo (root + both apps) centralizes versions in **pnpm catal
 }
 ```
 
-**When adding a dependency:** add it as real semver to this `package.json`; if it must be importable from jsr, mirror it under `imports` in `jsr.json` (e.g. `"vue": "npm:vue@^3.5.0"`). Dependabot (`.github/dependabot.yml`) watches `/packages/v-mapkit.js` — keep `package.json` and `jsr.json` pins aligned to avoid cross-target drift.
+**When adding a dependency:** add it as real semver to this `package.json`; if it must be importable from jsr, mirror it under `imports` in `jsr.json` (e.g. `"vue": "npm:vue@^3.5.0"`). Dependabot (`.github/dependabot.yml`) watches `/packages/v-mapkit` — keep `package.json` and `jsr.json` pins aligned to avoid cross-target drift.
 
 ---
 

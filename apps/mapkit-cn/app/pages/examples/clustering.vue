@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Clustering · mapkit-cn',
     description:
-      'Clustering example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Clustering example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Clustering',
     ogDescription:
-      'Clustering example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Clustering example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Clustering',
-    description: 'Clustering example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Clustering example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -48,7 +48,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
 
   function clusterAnnotation(cluster) {
     return new mapkit.MarkerAnnotation(cluster.coordinate, {

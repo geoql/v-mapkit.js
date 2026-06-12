@@ -25,7 +25,7 @@
       <div class="flex items-center gap-1">
         <Button
           as="a"
-          href="https://github.com/geoql/v-mapkit.js"
+          href="https://github.com/geoql/v-mapkit"
           target="_blank"
           rel="noopener noreferrer"
           variant="ghost"

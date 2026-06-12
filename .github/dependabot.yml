@@ -2,7 +2,7 @@ version: 2
 updates:
   # Library package (published to npm + jsr) — pinned real semver
   - package-ecosystem: npm
-    directory: "/packages/v-mapkit.js"
+    directory: "/packages/v-mapkit"
     versioning-strategy: increase
     schedule:
       interval: daily

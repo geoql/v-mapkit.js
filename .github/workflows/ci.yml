@@ -32,7 +32,7 @@ jobs:
           filters: |
             mapcn:
               - 'apps/mapkit-cn/**'
-              - 'packages/v-mapkit.js/**'
+              - 'packages/v-mapkit/**'
               - 'pnpm-lock.yaml'
               - 'pnpm-workspace.yaml'
             docs:
@@ -101,7 +101,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v7
         with:
-          files: ./packages/v-mapkit.js/coverage/lcov.info
+          files: ./packages/v-mapkit/coverage/lcov.info
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -132,7 +132,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build library
-        run: pnpm --filter @geoql/v-mapkit.js run build
+        run: pnpm --filter @geoql/v-mapkit run build
         env:
           NODE_OPTIONS: --max-old-space-size=8192
 
@@ -140,7 +140,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: lib-dist
-          path: packages/v-mapkit.js/dist/
+          path: packages/v-mapkit/dist/
           retention-days: 1
 
   build-mapcn:
@@ -174,7 +174,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: lib-dist
-          path: packages/v-mapkit.js/dist/
+          path: packages/v-mapkit/dist/
 
       - name: Build mapkit-cn
         run: pnpm --filter mapkit-cn-app run build
@@ -217,7 +217,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build documentation
-        run: pnpm --filter v-mapkit.js-docs run build
+        run: pnpm --filter v-mapkit-docs run build
         env:
           NODE_OPTIONS: --max-old-space-size=8192
           NITRO_PRESET: cloudflare-pages

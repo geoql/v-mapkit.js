@@ -1,25 +1,25 @@
 ---
 title: Getting Started
-description: Get started with v-mapkit.js in your Vue 3 or Nuxt project
+description: Get started with v-mapkit in your Vue 3 or Nuxt project
 ---
 
 # Getting Started
 
-v-mapkit.js provides Vue 3 components for Apple MapKit JS, enabling declarative map rendering with reactive annotations, overlays, and services.
+v-mapkit provides Vue 3 components for Apple MapKit JS, enabling declarative map rendering with reactive annotations, overlays, and services.
 
 ## Installation
 
 ::code-group
 ```bash [pnpm]
-pnpm add @geoql/v-mapkit.js
+pnpm add @geoql/v-mapkit
 ```
 
 ```bash [npm]
-npm install @geoql/v-mapkit.js
+npm install @geoql/v-mapkit
 ```
 
 ```bash [yarn]
-yarn add @geoql/v-mapkit.js
+yarn add @geoql/v-mapkit
 ```
 ::
 
@@ -29,8 +29,8 @@ Import the components and styles in your Vue application:
 
 ```vue
 <script setup>
-import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
-import '@geoql/v-mapkit.js/style.css';
+import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
+import '@geoql/v-mapkit/style.css';
 </script>
 
 <template>
@@ -55,11 +55,11 @@ For Nuxt projects, you can auto-import the components:
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@geoql/v-mapkit.js/nuxt'],
+  modules: ['@geoql/v-mapkit/nuxt'],
 });
 ```
 
 ## Next Steps
 
 - Browse all 18 components and 4 composables in the [live examples](https://mapkit-cn.geoql.in)
-- Star the project on [GitHub](https://github.com/geoql/v-mapkit.js)
+- Star the project on [GitHub](https://github.com/geoql/v-mapkit)

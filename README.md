@@ -1,16 +1,16 @@
-# v-mapkit.js
+# v-mapkit
 
-> Vue 3 components for Apple MapKit JS - Monorepo for v-mapkit.js and mapkit-cn
+> Vue 3 components for Apple MapKit JS - Monorepo for v-mapkit and mapkit-cn
 
-[![npm version](https://badge.fury.io/js/@geoql%2Fv-mapkit.js.svg)](https://www.npmjs.com/package/@geoql/v-mapkit.js)
-[![JSR](https://jsr.io/badges/@geoql/v-mapkit.js)](https://jsr.io/@geoql/v-mapkit.js)
+[![npm version](https://badge.fury.io/js/@geoql%2Fv-mapkit.svg)](https://www.npmjs.com/package/@geoql/v-mapkit)
+[![JSR](https://jsr.io/badges/@geoql/v-mapkit)](https://jsr.io/@geoql/v-mapkit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Packages
 
-| Package                               | Description                          |
-| ------------------------------------- | ------------------------------------ |
-| [v-mapkit.js](./packages/v-mapkit.js) | Vue 3 components for Apple MapKit JS |
+| Package                         | Description                          |
+| ------------------------------- | ------------------------------------ |
+| [v-mapkit](./packages/v-mapkit) | Vue 3 components for Apple MapKit JS |
 
 ## Apps
 
@@ -23,13 +23,13 @@
 ### Install the library
 
 ```bash
-pnpm add @geoql/v-mapkit.js
+pnpm add @geoql/v-mapkit
 ```
 
 ```vue
 <script setup>
-import { VMap, VMarkerAnnotation } from "@geoql/v-mapkit.js";
-import "@geoql/v-mapkit.js/style.css";
+import { VMap, VMarkerAnnotation } from "@geoql/v-mapkit";
+import "@geoql/v-mapkit/style.css";
 </script>
 
 <template>
@@ -72,9 +72,9 @@ pnpm run format
 ## Monorepo Structure
 
 ```
-v-mapkit.js/
+v-mapkit/
 ├── packages/
-│   └── v-mapkit.js/         # Main library (npm: v-mapkit.js)
+│   └── v-mapkit/         # Main library (npm: v-mapkit)
 ├── apps/
 │   └── mapkit-cn/           # Nuxt 4 showcase site
 ├── package.json             # pnpm workspaces root
@@ -84,7 +84,7 @@ v-mapkit.js/
 
 ## License
 
-MIT License - see [LICENSE](./packages/v-mapkit.js/LICENSE) for details
+MIT License - see [LICENSE](./packages/v-mapkit/LICENSE) for details
 
 ---
 

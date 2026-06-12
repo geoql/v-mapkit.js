@@ -206,4 +206,4 @@ export function findExample(slug: string): ExampleMeta | undefined {
 
 
 export const GITHUB_EXAMPLES_BASE =
-  'https://github.com/geoql/v-mapkit.js/blob/main/playground/mapkit-cn/app/pages/examples';
+  'https://github.com/geoql/v-mapkit/blob/main/playground/mapkit-cn/app/pages/examples';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VCircleOverlay, VMap } from '@geoql/v-mapkit.js';
+  import { VCircleOverlay, VMap } from '@geoql/v-mapkit';
   import { Button } from '@/components/ui/button';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -7,15 +7,15 @@
   useSeoMeta({
     title: 'Circle Overlay · mapkit-cn',
     description:
-      'Circle Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Circle Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Circle Overlay',
     ogDescription:
-      'Circle Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Circle Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Circle Overlay',
-    description: 'Circle Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Circle Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -35,7 +35,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VCircleOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VCircleOverlay } from '@geoql/v-mapkit';
 <\x2Fscript>
 
 <template>

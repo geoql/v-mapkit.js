@@ -1,4 +1,4 @@
-import libraryPkg from '../../packages/v-mapkit.js/package.json' with { type: 'json' };
+import libraryPkg from '../../packages/v-mapkit/package.json' with { type: 'json' };
 
 export default defineNuxtConfig({
   modules: [
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Beautiful Apple MapKit components for Vue. Built on v-mapkit.js, styled with Tailwind CSS, works with shadcn-vue.',
+            'Beautiful Apple MapKit components for Vue. Built on v-mapkit, styled with Tailwind CSS, works with shadcn-vue.',
         },
         { name: 'theme-color', content: '#000000' },
       ],
@@ -59,7 +59,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@geoql/v-mapkit.js/style.css',
+    '@geoql/v-mapkit/style.css',
     '~/assets/css/main.css',
   ],
 
@@ -101,7 +101,7 @@ export default defineNuxtConfig({
 
   vite: {
     optimizeDeps: {
-      exclude: ['@geoql/v-mapkit.js'],
+      exclude: ['@geoql/v-mapkit'],
       include: [
         'class-variance-authority',
         'clsx',

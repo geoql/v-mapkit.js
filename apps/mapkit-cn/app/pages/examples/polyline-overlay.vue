@@ -3,22 +3,22 @@
     VMap,
     VMarkerAnnotation,
     VPolylineOverlay,
-  } from '@geoql/v-mapkit.js';
+  } from '@geoql/v-mapkit';
   import { centerMap } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Polyline Overlay · mapkit-cn',
     description:
-      'Polyline Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Polyline Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Polyline Overlay',
     ogDescription:
-      'Polyline Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Polyline Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Polyline Overlay',
-    description: 'Polyline Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Polyline Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -46,7 +46,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VPolylineOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VPolylineOverlay } from '@geoql/v-mapkit';
 
   const path = [
     [37.8087, -122.4098],

@@ -14,7 +14,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@geoql/v-mapkit.js": "workspace:*",
+    "@geoql/v-mapkit": "workspace:*",
     "@vueuse/core": "catalog:app:mapkit-cn",
     "@vueuse/nuxt": "catalog:app:mapkit-cn",
     "class-variance-authority": "catalog:app:mapkit-cn",

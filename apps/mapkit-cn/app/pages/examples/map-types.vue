@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from '@geoql/v-mapkit';
   import { Button } from '@/components/ui/button';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -7,15 +7,15 @@
   useSeoMeta({
     title: 'Map Types · mapkit-cn',
     description:
-      'Map Types example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Map Types example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Map Types',
     ogDescription:
-      'Map Types example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Map Types example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Map Types',
-    description: 'Map Types example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Map Types example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -44,7 +44,7 @@
 
   const code = `<script setup lang="ts">
   import { ref } from 'vue';
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from '@geoql/v-mapkit';
 
   const mapRef = ref();
   const active = ref('satellite');

@@ -7,13 +7,13 @@ description: Project-level design skill for apps/mapkit-cn. Pins the Apple (Mode
 
 Pinned direction: **Apple / Modern Minimal** (apple.com / developer.apple.com reference set).
 
-This skill overrides `design-discipline`'s `references/directions.md` defaults for everything inside `apps/mapkit-cn/`. The library (`packages/v-mapkit.js`) and the docs site (`apps/docs`) are out of scope.
+This skill overrides `design-discipline`'s `references/directions.md` defaults for everything inside `apps/mapkit-cn/`. The library (`packages/v-mapkit`) and the docs site (`apps/docs`) are out of scope.
 
 ---
 
 ## Why Apple / Modern Minimal (and not the others)
 
-mapkit-cn is the showcase site for `v-mapkit.js` — Vue 3 components for **Apple MapKit JS**, installed via `npx shadcn-vue add ...`. The product wraps Apple's own mapping engine, so the site must feel like it belongs in Apple's ecosystem: clean white (and true-black dark) surfaces, generous whitespace, SF-Pro-flavored type (Geist), Apple's signature blue, soft-but-not-bubbly radii, and subtle layered shadows. The audience is Apple-platform and Vue developers who already recognize this visual language as "native". Editorial / brutalist / warm-soft / Tech-Utility (Linear-style sharp+borders-only) directions all read as _off-brand_ against an Apple Maps product — sharp 8px corners and shadow-less borders would actively fight the Apple association we're trading on.
+mapkit-cn is the showcase site for `v-mapkit` — Vue 3 components for **Apple MapKit JS**, installed via `npx shadcn-vue add ...`. The product wraps Apple's own mapping engine, so the site must feel like it belongs in Apple's ecosystem: clean white (and true-black dark) surfaces, generous whitespace, SF-Pro-flavored type (Geist), Apple's signature blue, soft-but-not-bubbly radii, and subtle layered shadows. The audience is Apple-platform and Vue developers who already recognize this visual language as "native". Editorial / brutalist / warm-soft / Tech-Utility (Linear-style sharp+borders-only) directions all read as _off-brand_ against an Apple Maps product — sharp 8px corners and shadow-less borders would actively fight the Apple association we're trading on.
 
 This is the key divergence from the sibling `mapcn-vue` (which pins **Tech Utility** because MapLibre is a neutral open-source engine). MapKit is Apple's, so we go Apple.
 

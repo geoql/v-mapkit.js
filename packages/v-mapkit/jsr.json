@@ -1,5 +1,5 @@
 {
-  "name": "@geoql/v-mapkit.js",
+  "name": "@geoql/v-mapkit",
   "version": "0.3.0",
   "description": "MapKit with the power of Vue 3 — Vue 3 components and composables for Apple MapKit JS.",
   "license": "MIT",

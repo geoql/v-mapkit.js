@@ -2,9 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "include-component-in-tag": false,
   "packages": {
-    "packages/v-mapkit.js": {
+    "packages/v-mapkit": {
       "release-type": "node",
-      "component": "v-mapkit.js",
+      "component": "v-mapkit",
       "changelog-path": "CHANGELOG.md",
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": true,
