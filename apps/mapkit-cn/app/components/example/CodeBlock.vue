@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { useHighlightedCode } from '~/composables/useHighlightedCode';
+
   const props = withDefaults(
     defineProps<{
       code: string;
@@ -11,21 +13,12 @@
     },
   );
 
-  const copied = ref(false);
-  let resetTimer: ReturnType<typeof setTimeout> | undefined;
+  const { trimmed, highlighted } = useHighlightedCode(
+    () => props.code,
+    () => props.language,
+  );
 
-  async function copy(): Promise<void> {
-    try {
-      await navigator.clipboard.writeText(props.code.trim());
-      copied.value = true;
-      clearTimeout(resetTimer);
-      resetTimer = setTimeout(() => (copied.value = false), 1600);
-    } catch {
-      copied.value = false;
-    }
-  }
-
-  onBeforeUnmount(() => clearTimeout(resetTimer));
+  const { copy, copied } = useClipboard({ copiedDuring: 1600 });
 </script>
 
 <template>
@@ -45,7 +38,7 @@
         type="button"
         class="flex items-center gap-1.5 rounded-md px-2 py-1 font-mono text-xs text-muted-foreground transition-colors duration-200 hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         :aria-label="copied ? 'Copied' : 'Copy code'"
-        @click="copy"
+        @click="copy(trimmed)"
       >
         <Icon
           :name="copied ? 'lucide:check' : 'lucide:copy'"
@@ -56,8 +49,34 @@
       </button>
     </figcaption>
 
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div
+      v-if="highlighted"
+      class="shiki-block overflow-x-auto px-4 py-4 text-[0.8125rem] leading-relaxed"
+      v-html="highlighted"
+    ></div>
     <pre
+      v-else
       class="overflow-x-auto px-4 py-4 text-[0.8125rem] leading-relaxed"
-    ><code class="font-mono text-foreground/90">{{ code.trim() }}</code></pre>
+    ><code class="font-mono text-foreground/90">{{ trimmed }}</code></pre>
   </figure>
 </template>
+
+<style scoped>
+  .shiki-block :deep(.shiki),
+  .shiki-block :deep(.shiki span) {
+    color: var(--shiki-light);
+    font-family: var(--font-mono);
+    background-color: transparent !important;
+  }
+
+  :global(.dark) .shiki-block :deep(.shiki),
+  :global(.dark) .shiki-block :deep(.shiki span) {
+    color: var(--shiki-dark);
+  }
+
+  .shiki-block :deep(pre.shiki) {
+    margin: 0;
+    background-color: transparent !important;
+  }
+</style>

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+  import {
+    PopoverContent,
+    PopoverPortal,
+    PopoverRoot,
+    PopoverTrigger,
+  } from 'reka-ui';
   import { Button } from '@/components/ui/button';
   import { Input } from '@/components/ui/input';
 
@@ -20,37 +26,25 @@
     clearToken();
     draft.value = '';
   }
-
-  function onKeydown(event: KeyboardEvent): void {
-    if (event.key === 'Escape') open.value = false;
-  }
 </script>
 
 <template>
-  <div class="relative" @keydown="onKeydown">
-    <Button
-      :variant="hasToken ? 'outline' : 'default'"
-      size="sm"
-      @click="open = !open"
-    >
-      <Icon
-        :name="hasToken ? 'lucide:key-round' : 'lucide:key'"
-        class="size-3.5"
-      />
-      {{ hasToken ? 'Token set' : 'Set MapKit token' }}
-    </Button>
+  <PopoverRoot v-model:open="open">
+    <PopoverTrigger as-child>
+      <Button :variant="hasToken ? 'outline' : 'default'" size="sm">
+        <Icon
+          :name="hasToken ? 'lucide:key-round' : 'lucide:key'"
+          class="size-3.5"
+        />
+        {{ hasToken ? 'Token set' : 'Set MapKit token' }}
+      </Button>
+    </PopoverTrigger>
 
-    <Transition
-      enter-active-class="transition duration-200 ease-[cubic-bezier(0.28,0.11,0.32,1)]"
-      enter-from-class="opacity-0 translate-y-1 scale-[0.98]"
-      enter-to-class="opacity-100 translate-y-0 scale-100"
-      leave-active-class="transition duration-150 ease-in"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0 translate-y-1 scale-[0.98]"
-    >
-      <div
-        v-if="open"
-        class="absolute left-1/2 top-[calc(100%+0.5rem)] z-50 w-80 -translate-x-1/2 rounded-xl border border-border bg-popover p-4 text-left shadow-lg"
+    <PopoverPortal>
+      <PopoverContent
+        :side-offset="8"
+        align="center"
+        class="z-[100] w-80 rounded-xl border border-border bg-popover p-4 text-left shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
       >
         <div class="mb-3 space-y-1">
           <h3 class="text-sm font-semibold text-foreground">
@@ -81,12 +75,7 @@
             How to get one
           </a>
           <div class="flex items-center gap-2">
-            <Button
-              v-if="hasToken"
-              variant="ghost"
-              size="sm"
-              @click="reset"
-            >
+            <Button v-if="hasToken" variant="ghost" size="sm" @click="reset">
               Clear
             </Button>
             <Button size="sm" :disabled="!draft.trim()" @click="save">
@@ -94,7 +83,7 @@
             </Button>
           </div>
         </div>
-      </div>
-    </Transition>
-  </div>
+      </PopoverContent>
+    </PopoverPortal>
+  </PopoverRoot>
 </template>
