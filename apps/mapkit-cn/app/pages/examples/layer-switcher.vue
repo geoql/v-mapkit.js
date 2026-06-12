@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VControlLayerSwitcher, VMap } from '@geoql/v-mapkit.js';
+  import { VControlLayerSwitcher, VMap } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Layer Switcher · mapkit-cn',
     description:
-      'Layer Switcher example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Layer Switcher example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Layer Switcher',
     ogDescription:
-      'Layer Switcher example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Layer Switcher example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Layer Switcher',
-    description: 'Layer Switcher example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Layer Switcher example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -31,7 +31,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VControlLayerSwitcher } from '@geoql/v-mapkit.js';
+  import { VMap, VControlLayerSwitcher } from '@geoql/v-mapkit';
 
   const mapTypes = [
     { type: 'standard', label: 'Standard' },

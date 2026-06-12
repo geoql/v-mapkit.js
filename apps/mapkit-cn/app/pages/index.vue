@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
   import { Badge } from '@/components/ui/badge';
   import { Button } from '@/components/ui/button';
   import { allExamples } from '~/lib/examples';
@@ -8,10 +8,10 @@
   useSeoMeta({
     title: 'mapkit-cn - Beautiful Apple Maps for Vue',
     description:
-      'Beautiful Apple MapKit components for Vue. Built on v-mapkit.js, styled with Tailwind CSS, works with shadcn-vue.',
+      'Beautiful Apple MapKit components for Vue. Built on v-mapkit, styled with Tailwind CSS, works with shadcn-vue.',
     ogTitle: 'mapkit-cn - Beautiful Apple Maps for Vue',
     ogDescription:
-      'Beautiful Apple MapKit components for Vue. Built on v-mapkit.js, styled with Tailwind CSS, works with shadcn-vue.',
+      'Beautiful Apple MapKit components for Vue. Built on v-mapkit, styled with Tailwind CSS, works with shadcn-vue.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
@@ -57,7 +57,7 @@
   ];
 
   const quickStart = `<script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
 <\x2Fscript>
 
 <template>
@@ -113,7 +113,7 @@
         </Button>
         <Button as-child variant="outline" size="lg">
           <a
-            href="https://github.com/geoql/v-mapkit.js"
+            href="https://github.com/geoql/v-mapkit"
             target="_blank"
             rel="noopener noreferrer"
           >

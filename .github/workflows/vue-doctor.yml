@@ -29,14 +29,14 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --filter @geoql/v-mapkit.js... --frozen-lockfile
+        run: pnpm install --filter @geoql/v-mapkit... --frozen-lockfile
 
       - name: Audit library with vue-doctor
         uses: geoql/doctor-action@v1
         with:
           framework: vue
-          working-directory: packages/v-mapkit.js
+          working-directory: packages/v-mapkit
           threshold: ${{ vars.DOCTOR_THRESHOLD || '70' }}
           fail-on: error
           api-key: ${{ secrets.DOCTOR_API_KEY }}
-          project: geoql/v-mapkit.js
+          project: geoql/v-mapkit

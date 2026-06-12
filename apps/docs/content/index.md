@@ -27,7 +27,7 @@ Build interactive map applications with Apple MapKit JS and Vue 3. Declarative c
   color: neutral
   icon: simple-icons-github
   size: xl
-  to: https://github.com/geoql/v-mapkit.js
+  to: https://github.com/geoql/v-mapkit
   variant: outline
   ---
   View on GitHub

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDirections, VMap, VMarkerAnnotation, VPolylineOverlay } from "@geoql/v-mapkit.js";
+import { useDirections, VMap, VMarkerAnnotation, VPolylineOverlay } from "@geoql/v-mapkit";
 import { Button } from "@/components/ui/button";
 import { centerMap } from "~/composables/useMapDemo";
 
@@ -7,15 +7,15 @@ definePageMeta({ layout: "example" });
 useSeoMeta({
   title: 'Directions · mapkit-cn',
   description:
-    'Directions example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    'Directions example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   ogTitle: 'Directions',
   ogDescription:
-    'Directions example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    'Directions example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   twitterCard: 'summary_large_image',
 });
 defineOgImageComponent('MapkitDoc', {
   title: 'Directions',
-  description: 'Directions example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+  description: 'Directions example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
 });
 
 const { token } = useMapkitToken();
@@ -63,7 +63,7 @@ const code = `<script setup lang="ts">
     VMap,
     VPolylineOverlay,
     useDirections,
-  } from '@geoql/v-mapkit.js';
+  } from '@geoql/v-mapkit';
 
   const { route } = useDirections();
 

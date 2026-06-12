@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   ],
 
   site: {
-    name: 'v-mapkit.js',
+    name: 'v-mapkit',
     description: 'Vue 3 components for Apple MapKit JS',
     url: 'https://v-mapkit.geoql.in',
   },

@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VCustomAnnotation, VMap } from '@geoql/v-mapkit.js';
+  import { VCustomAnnotation, VMap } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Custom Annotation · mapkit-cn',
     description:
-      'Custom Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Custom Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Custom Annotation',
     ogDescription:
-      'Custom Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Custom Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Custom Annotation',
-    description: 'Custom Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Custom Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -50,7 +50,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VCustomAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VCustomAnnotation } from '@geoql/v-mapkit';
 
   function buildPriceTag(price) {
     return () => {

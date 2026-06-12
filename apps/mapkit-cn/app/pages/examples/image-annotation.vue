@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VImageAnnotation, VMap } from '@geoql/v-mapkit.js';
+  import { VImageAnnotation, VMap } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Image Annotation · mapkit-cn',
     description:
-      'Image Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Image Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Image Annotation',
     ogDescription:
-      'Image Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Image Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Image Annotation',
-    description: 'Image Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Image Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -50,7 +50,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VImageAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VImageAnnotation } from '@geoql/v-mapkit';
 <\x2Fscript>
 
 <template>

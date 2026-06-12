@@ -4,7 +4,7 @@
     VLookAroundPreview,
     VMap,
     VMarkerAnnotation,
-  } from '@geoql/v-mapkit.js';
+  } from '@geoql/v-mapkit';
   import { Input } from '@/components/ui/input';
   import { Button } from '@/components/ui/button';
   import { centerMap, places } from '~/composables/useMapDemo';
@@ -13,15 +13,15 @@
   useSeoMeta({
     title: 'Look Around Preview · mapkit-cn',
     description:
-      'Look Around Preview example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Look Around Preview example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Look Around Preview',
     ogDescription:
-      'Look Around Preview example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Look Around Preview example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Look Around Preview',
-    description: 'Look Around Preview example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Look Around Preview example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -60,7 +60,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VLookAroundPreview, useGeocoder } from '@geoql/v-mapkit.js';
+  import { VLookAroundPreview, useGeocoder } from '@geoql/v-mapkit';
 
   const { geocode } = useGeocoder();
   const place = shallowRef(null);

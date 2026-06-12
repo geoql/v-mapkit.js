@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Basic Map · mapkit-cn',
     description:
-      'Basic Map example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Basic Map example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Basic Map',
     ogDescription:
-      'Basic Map example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Basic Map example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Basic Map',
-    description: 'Basic Map example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Basic Map example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -28,7 +28,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from '@geoql/v-mapkit';
 
   const token = 'YOUR_MAPKIT_TOKEN';
 

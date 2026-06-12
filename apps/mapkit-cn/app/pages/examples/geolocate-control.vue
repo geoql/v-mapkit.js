@@ -1,20 +1,20 @@
 <script setup lang="ts">
-  import { VControlGeolocate, VMap } from '@geoql/v-mapkit.js';
+  import { VControlGeolocate, VMap } from '@geoql/v-mapkit';
   import { centerMap, places } from '~/composables/useMapDemo';
 
   definePageMeta({ layout: 'example' });
   useSeoMeta({
     title: 'Geolocate Control · mapkit-cn',
     description:
-      'Geolocate Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Geolocate Control example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Geolocate Control',
     ogDescription:
-      'Geolocate Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Geolocate Control example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Geolocate Control',
-    description: 'Geolocate Control example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Geolocate Control example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -35,7 +35,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VControlGeolocate } from '@geoql/v-mapkit.js';
+  import { VMap, VControlGeolocate } from '@geoql/v-mapkit';
 
   function onLocate(position) {
     console.log(position.coords.latitude, position.coords.longitude);

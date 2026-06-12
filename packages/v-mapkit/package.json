@@ -1,5 +1,5 @@
 {
-  "name": "@geoql/v-mapkit.js",
+  "name": "@geoql/v-mapkit",
   "version": "0.3.0",
   "private": false,
   "description": "MapKit with the power of Vue 3",
@@ -9,12 +9,12 @@
     "MapKit",
     "Maps",
     "Vue MapKit",
-    "v-mapkit.js",
+    "v-mapkit",
     "vue-mapkit.js"
   ],
-  "homepage": "https://github.com/geoql/v-mapkit.js#readme",
+  "homepage": "https://github.com/geoql/v-mapkit#readme",
   "bugs": {
-    "url": "https://github.com/geoql/v-mapkit.js/issues"
+    "url": "https://github.com/geoql/v-mapkit/issues"
   },
   "license": "MIT",
   "author": {
@@ -24,8 +24,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/geoql/v-mapkit.js.git",
-    "directory": "packages/v-mapkit.js"
+    "url": "https://github.com/geoql/v-mapkit.git",
+    "directory": "packages/v-mapkit"
   },
   "files": [
     "dist"

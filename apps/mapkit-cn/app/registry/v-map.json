@@ -1,7 +1,7 @@
 {
   "name": "mapkit-cn",
   "type": "registry:style",
-  "dependencies": ["@geoql/v-mapkit.js"],
+  "dependencies": ["@geoql/v-mapkit"],
   "registryDependencies": [],
   "files": []
 }

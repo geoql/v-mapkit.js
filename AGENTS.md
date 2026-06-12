@@ -1,7 +1,7 @@
-# AGENTS.md - v-mapkit.js Monorepo Guide
+# AGENTS.md - v-mapkit Monorepo Guide
 
 > **For AI Coding Assistants (Claude Code, Cursor, Copilot, OpenCode, etc.)**
-> This is the canonical agent guide for the v-mapkit.js monorepo. `CLAUDE.md` is a symlink to this file so Claude Code finds it under its expected name — there is only one source of truth.
+> This is the canonical agent guide for the v-mapkit monorepo. `CLAUDE.md` is a symlink to this file so Claude Code finds it under its expected name — there is only one source of truth.
 >
 > Humans should start at [`README.md`](./README.md). Agents should read this first, then navigate to the appropriate sub-project guide.
 
@@ -9,13 +9,13 @@
 
 ## Monorepo Overview
 
-**v-mapkit.js** is a monorepo for Vue 3 components that wrap Apple MapKit JS — the core library plus a Nuxt 4 showcase site ("shadcn-vue for Apple Maps") and a Docus API docs site.
+**v-mapkit** is a monorepo for Vue 3 components that wrap Apple MapKit JS — the core library plus a Nuxt 4 showcase site ("shadcn-vue for Apple Maps") and a Docus API docs site.
 
-| Package/App            | Description                                         | Guide                                                                |
-| ---------------------- | --------------------------------------------------- | -------------------------------------------------------------------- |
-| `packages/v-mapkit.js` | Core Vue 3 component library (`@geoql/v-mapkit.js`) | [`packages/v-mapkit.js/AGENTS.md`](./packages/v-mapkit.js/AGENTS.md) |
-| `apps/mapkit-cn`       | Showcase site with live examples (Nuxt 4)           | [`apps/mapkit-cn/AGENTS.md`](./apps/mapkit-cn/AGENTS.md)             |
-| `apps/docs`            | API documentation (Docus)                           | [`apps/docs/AGENTS.md`](./apps/docs/AGENTS.md)                       |
+| Package/App         | Description                                      | Guide                                                          |
+| ------------------- | ------------------------------------------------ | -------------------------------------------------------------- |
+| `packages/v-mapkit` | Core Vue 3 component library (`@geoql/v-mapkit`) | [`packages/v-mapkit/AGENTS.md`](./packages/v-mapkit/AGENTS.md) |
+| `apps/mapkit-cn`    | Showcase site with live examples (Nuxt 4)        | [`apps/mapkit-cn/AGENTS.md`](./apps/mapkit-cn/AGENTS.md)       |
+| `apps/docs`         | API documentation (Docus)                        | [`apps/docs/AGENTS.md`](./apps/docs/AGENTS.md)                 |
 
 ---
 
@@ -23,11 +23,11 @@
 
 **What are you working on?**
 
-| Task                                | Read This Guide                  |
-| ----------------------------------- | -------------------------------- |
-| Adding/modifying Vue map components | `packages/v-mapkit.js/AGENTS.md` |
-| Adding examples or showcase pages   | `apps/mapkit-cn/AGENTS.md`       |
-| Writing API documentation           | `apps/docs/AGENTS.md`            |
+| Task                                | Read This Guide               |
+| ----------------------------------- | ----------------------------- |
+| Adding/modifying Vue map components | `packages/v-mapkit/AGENTS.md` |
+| Adding examples or showcase pages   | `apps/mapkit-cn/AGENTS.md`    |
+| Writing API documentation           | `apps/docs/AGENTS.md`         |
 
 ---
 
@@ -41,11 +41,11 @@ This monorepo ships a project-pinned design skill under [`.agents/skills/`](./.a
 
 Skills are GENERIC (they apply to many Vue/Nuxt projects). Per-package `AGENTS.md` files are PROJECT-SPECIFIC (they encode this codebase's actual conventions). Each `AGENTS.md` documents its **Known Conflicts** with the loaded skills as an explicit table — read that section first, before applying generic skill advice.
 
-| Package                | Conflicts Table                                                                                                                                            |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `packages/v-mapkit.js` | [Known Conflicts](./packages/v-mapkit.js/AGENTS.md#known-conflicts-agentsmd-wins) — inject over props / `useMapChild` lifecycle / `shallowRef` for the map |
-| `apps/mapkit-cn`       | [Known Conflicts](./apps/mapkit-cn/AGENTS.md#known-conflicts-agentsmd-wins) — Apple direction pinned, semantic tokens only, Geist only, shadcn-vue inputs  |
-| `apps/docs`            | [Known Conflicts](./apps/docs/AGENTS.md#known-conflicts-agentsmd-wins) — Docus owns the theme, content (Markdown) only                                     |
+| Package             | Conflicts Table                                                                                                                                           |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `packages/v-mapkit` | [Known Conflicts](./packages/v-mapkit/AGENTS.md#known-conflicts-agentsmd-wins) — inject over props / `useMapChild` lifecycle / `shallowRef` for the map   |
+| `apps/mapkit-cn`    | [Known Conflicts](./apps/mapkit-cn/AGENTS.md#known-conflicts-agentsmd-wins) — Apple direction pinned, semantic tokens only, Geist only, shadcn-vue inputs |
+| `apps/docs`         | [Known Conflicts](./apps/docs/AGENTS.md#known-conflicts-agentsmd-wins) — Docus owns the theme, content (Markdown) only                                    |
 
 | Skill                 | When to Load                                                                                                                                        |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,11 +55,11 @@ Skills are GENERIC (they apply to many Vue/Nuxt projects). Per-package `AGENTS.m
 
 ### Per-Package Skill Matrix
 
-| Package / App          | Skills to Load (in order)                                                                      |
-| ---------------------- | ---------------------------------------------------------------------------------------------- |
-| `packages/v-mapkit.js` | `vue-best-practices`                                                                           |
-| `apps/mapkit-cn`       | `mapkit-cn-design` (FIRST, for any visual work) → `nuxt-best-practices` → `vue-best-practices` |
-| `apps/docs`            | `nuxt-best-practices` (Markdown content needs no skill)                                        |
+| Package / App       | Skills to Load (in order)                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------- |
+| `packages/v-mapkit` | `vue-best-practices`                                                                           |
+| `apps/mapkit-cn`    | `mapkit-cn-design` (FIRST, for any visual work) → `nuxt-best-practices` → `vue-best-practices` |
+| `apps/docs`         | `nuxt-best-practices` (Markdown content needs no skill)                                        |
 
 ### Decision Tree
 
@@ -67,7 +67,7 @@ Skills are GENERIC (they apply to many Vue/Nuxt projects). Per-package `AGENTS.m
 You receive a task. Before writing code:
 
 1. Which directory does it touch?
-   ├── packages/v-mapkit.js       → load `vue-best-practices`
+   ├── packages/v-mapkit       → load `vue-best-practices`
    ├── apps/mapkit-cn
    │   ├── any visual work?       → load `mapkit-cn-design` FIRST (mandatory)
    │   ├── then Nuxt-specific?    → load `nuxt-best-practices`
@@ -86,9 +86,9 @@ You receive a task. Before writing code:
 ## Monorepo Structure
 
 ```
-v-mapkit.js/
+v-mapkit/
 ├── packages/
-│   └── v-mapkit.js/          # Core library (@geoql/v-mapkit.js on npm + jsr)
+│   └── v-mapkit/          # Core library (@geoql/v-mapkit on npm + jsr)
 │       ├── src/
 │       │   ├── components/   # One folder per component (VMap, VMarkerAnnotation, …)
 │       │   ├── composables/  # use-map-kit, use-map-child, use-search, …
@@ -134,7 +134,7 @@ Run from the repo root:
 
 ```bash
 # Development
-pnpm run dev:lib    # Watch/dev for @geoql/v-mapkit.js
+pnpm run dev:lib    # Watch/dev for @geoql/v-mapkit
 pnpm run dev:app    # Start the mapkit-cn showcase site
 pnpm run dev:docs   # Start the Docus docs site
 
@@ -160,13 +160,13 @@ pnpm run clean         # Remove node_modules + build artifacts
 ### Cross-Package Dependencies
 
 ```
-apps/mapkit-cn ──depends on──> packages/v-mapkit.js (workspace:*)
+apps/mapkit-cn ──depends on──> packages/v-mapkit (workspace:*)
 apps/docs ──────workspace member (own deps, no cross-package link)
 ```
 
 ### Dependency Versions
 
-The root and both apps centralize dependency versions in **pnpm catalogs** (defined in `pnpm-workspace.yaml`): `catalog:default` (root tooling + deps shared by both apps — `nuxt`, `wrangler`, `@nuxtjs/plausible`), `catalog:app:docs`, and `catalog:app:mapkit-cn`. Their `package.json` files reference versions via the `catalog:` protocol — bump a version once in `pnpm-workspace.yaml`, then `pnpm install`. Use `workspace:*` only for internal monorepo references (e.g. `apps/mapkit-cn` → `@geoql/v-mapkit.js`). The published library (`packages/v-mapkit.js`) is the **only** exception: it is consumed by `npm`/`yarn`/`jsr` users who do not understand pnpm protocols, so its dependency blocks MUST stay real semver (no `catalog:`, no `workspace:*`) — see the library guide.
+The root and both apps centralize dependency versions in **pnpm catalogs** (defined in `pnpm-workspace.yaml`): `catalog:default` (root tooling + deps shared by both apps — `nuxt`, `wrangler`, `@nuxtjs/plausible`), `catalog:app:docs`, and `catalog:app:mapkit-cn`. Their `package.json` files reference versions via the `catalog:` protocol — bump a version once in `pnpm-workspace.yaml`, then `pnpm install`. Use `workspace:*` only for internal monorepo references (e.g. `apps/mapkit-cn` → `@geoql/v-mapkit`). The published library (`packages/v-mapkit`) is the **only** exception: it is consumed by `npm`/`yarn`/`jsr` users who do not understand pnpm protocols, so its dependency blocks MUST stay real semver (no `catalog:`, no `workspace:*`) — see the library guide.
 
 ---
 
@@ -201,7 +201,7 @@ This is enforced in both the library and the showcase. The library already model
 
 ## Release Workflow
 
-Releases are automated with **release-please** (`release-please-config.json`, `.release-please-manifest.json`, `.github/workflows/release-please.yml`). Conventional-commit history drives version bumps and changelog generation; merging the release PR tags the version and the pipeline publishes `@geoql/v-mapkit.js` to **both npm and jsr**. Do not hand-edit version numbers or run a manual `npm publish`.
+Releases are automated with **release-please** (`release-please-config.json`, `.release-please-manifest.json`, `.github/workflows/release-please.yml`). Conventional-commit history drives version bumps and changelog generation; merging the release PR tags the version and the pipeline publishes `@geoql/v-mapkit` to **both npm and jsr**. Do not hand-edit version numbers or run a manual `npm publish`.
 
 ---
 
@@ -210,8 +210,8 @@ Releases are automated with **release-please** (`release-please-config.json`, `.
 1. **Clone and install:**
 
    ```bash
-   git clone https://github.com/geoql/v-mapkit.js.git
-   cd v-mapkit.js
+   git clone https://github.com/geoql/v-mapkit.git
+   cd v-mapkit
    pnpm install   # all three workspace projects in one shot
    ```
 

@@ -1,5 +1,5 @@
 {
-  "name": "v-mapkit.js-monorepo",
+  "name": "v-mapkit-monorepo",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -10,21 +10,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/geoql/v-mapkit.js.git"
+    "url": "https://github.com/geoql/v-mapkit.git"
   },
   "type": "module",
   "scripts": {
-    "build": "pnpm --filter @geoql/v-mapkit.js run build && pnpm --filter mapkit-cn-app run build && pnpm --filter v-mapkit.js-docs run build",
+    "build": "pnpm --filter @geoql/v-mapkit run build && pnpm --filter mapkit-cn-app run build && pnpm --filter v-mapkit-docs run build",
     "build:app": "pnpm --filter mapkit-cn-app run build",
-    "build:docs": "pnpm --filter v-mapkit.js-docs run build",
+    "build:docs": "pnpm --filter v-mapkit-docs run build",
     "dev:app": "pnpm --filter mapkit-cn-app run dev",
-    "dev:docs": "pnpm --filter v-mapkit.js-docs run dev",
-    "dev:lib": "pnpm --filter @geoql/v-mapkit.js run dev",
+    "dev:docs": "pnpm --filter v-mapkit-docs run dev",
+    "dev:lib": "pnpm --filter @geoql/v-mapkit run dev",
     "lint": "pnpm -r run lint",
     "format": "pnpm -r run format",
     "format:check": "pnpm -r run format:check",
-    "test": "pnpm --filter @geoql/v-mapkit.js run test",
-    "test:coverage": "pnpm --filter @geoql/v-mapkit.js run test:coverage",
+    "test": "pnpm --filter @geoql/v-mapkit run test",
+    "test:coverage": "pnpm --filter @geoql/v-mapkit run test:coverage",
     "prepare": "is-ci || husky",
     "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules packages/*/dist apps/*/.nuxt apps/*/.output",
     "update:deps": "pnpm dlx taze -I -r",

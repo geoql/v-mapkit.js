@@ -18,9 +18,9 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     outputs:
-      release_created: ${{ steps.release.outputs['packages/v-mapkit.js--release_created'] }}
-      tag_name: ${{ steps.release.outputs['packages/v-mapkit.js--tag_name'] }}
-      version: ${{ steps.release.outputs['packages/v-mapkit.js--version'] }}
+      release_created: ${{ steps.release.outputs['packages/v-mapkit--release_created'] }}
+      tag_name: ${{ steps.release.outputs['packages/v-mapkit--tag_name'] }}
+      version: ${{ steps.release.outputs['packages/v-mapkit--version'] }}
     steps:
       - name: Release Please
         id: release
@@ -57,14 +57,14 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm --filter @geoql/v-mapkit.js run build
+        run: pnpm --filter @geoql/v-mapkit run build
         env:
           NODE_OPTIONS: --max-old-space-size=8192
 
       - name: Publish to npm with provenance
-        working-directory: packages/v-mapkit.js
+        working-directory: packages/v-mapkit
         run: npm publish --provenance --access public --ignore-scripts
 
       - name: Publish to JSR
-        working-directory: packages/v-mapkit.js
+        working-directory: packages/v-mapkit
         run: pnpm dlx jsr publish --allow-dirty --allow-slow-types

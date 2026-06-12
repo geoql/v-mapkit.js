@@ -5,15 +5,15 @@
   useSeoMeta({
     title: 'Examples · mapkit-cn',
     description:
-      'Browse live, copy-paste examples for every v-mapkit.js component: annotations, overlays, controls, and Apple MapKit services.',
+      'Browse live, copy-paste examples for every v-mapkit component: annotations, overlays, controls, and Apple MapKit services.',
     ogTitle: 'Examples',
     ogDescription:
-      'Browse live, copy-paste examples for every v-mapkit.js component: annotations, overlays, controls, and Apple MapKit services.',
+      'Browse live, copy-paste examples for every v-mapkit component: annotations, overlays, controls, and Apple MapKit services.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Examples',
-    description: 'Browse live, copy-paste examples for every v-mapkit.js component: annotations, overlays, controls, and Apple MapKit services.',
+    description: 'Browse live, copy-paste examples for every v-mapkit component: annotations, overlays, controls, and Apple MapKit services.',
   });
 
   const total = allExamples.length;
@@ -35,7 +35,7 @@
       <p
         class="max-w-xl text-balance text-lg font-light leading-relaxed text-muted-foreground"
       >
-        Every v-mapkit.js component and composable, demonstrated with live maps
+        Every v-mapkit component and composable, demonstrated with live maps
         and copy-paste source. Set your MapKit token once and explore.
       </p>
     </header>

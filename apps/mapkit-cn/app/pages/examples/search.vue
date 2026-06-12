@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useSearch, VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { useSearch, VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
   import { Input } from '@/components/ui/input';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -7,15 +7,15 @@
   useSeoMeta({
     title: 'Search · mapkit-cn',
     description:
-      'Search example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Search example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Search',
     ogDescription:
-      'Search example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Search example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Search',
-    description: 'Search example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Search example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -58,7 +58,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VMarkerAnnotation, useSearch } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation, useSearch } from '@geoql/v-mapkit';
 
   const { autocomplete, search } = useSearch();
   const suggestions = shallowRef([]);

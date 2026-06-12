@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap, VTileOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VTileOverlay } from '@geoql/v-mapkit';
   import { Button } from '@/components/ui/button';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -7,15 +7,15 @@
   useSeoMeta({
     title: 'Tile Overlay · mapkit-cn',
     description:
-      'Tile Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Tile Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Tile Overlay',
     ogDescription:
-      'Tile Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Tile Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Tile Overlay',
-    description: 'Tile Overlay example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Tile Overlay example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -30,7 +30,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VTileOverlay } from '@geoql/v-mapkit.js';
+  import { VMap, VTileOverlay } from '@geoql/v-mapkit';
 
   const url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 <\x2Fscript>

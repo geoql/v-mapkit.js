@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VMap } from '@geoql/v-mapkit.js';
+  import { VMap } from '@geoql/v-mapkit';
   import { Button } from '@/components/ui/button';
   import { centerMap, places } from '~/composables/useMapDemo';
 
@@ -7,15 +7,15 @@
   useSeoMeta({
     title: 'Map Configuration · mapkit-cn',
     description:
-      'Map Configuration example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Map Configuration example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Map Configuration',
     ogDescription:
-      'Map Configuration example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Map Configuration example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Map Configuration',
-    description: 'Map Configuration example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Map Configuration example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();

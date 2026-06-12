@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useSearch, VMap, VPlaceAnnotation } from '@geoql/v-mapkit.js';
+  import { useSearch, VMap, VPlaceAnnotation } from '@geoql/v-mapkit';
   import { Button } from '@/components/ui/button';
   import { Input } from '@/components/ui/input';
   import { centerMap, places } from '~/composables/useMapDemo';
@@ -8,15 +8,15 @@
   useSeoMeta({
     title: 'Place Annotation · mapkit-cn',
     description:
-      'Place Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Place Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     ogTitle: 'Place Annotation',
     ogDescription:
-      'Place Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+      'Place Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
     twitterCard: 'summary_large_image',
   });
   defineOgImageComponent('MapkitDoc', {
     title: 'Place Annotation',
-    description: 'Place Annotation example for v-mapkit.js: a live, copy-paste Vue 3 Apple MapKit demo.',
+    description: 'Place Annotation example for v-mapkit: a live, copy-paste Vue 3 Apple MapKit demo.',
   });
 
   const { token } = useMapkitToken();
@@ -42,7 +42,7 @@
   }
 
   const code = `<script setup lang="ts">
-  import { VMap, VPlaceAnnotation, useSearch } from '@geoql/v-mapkit.js';
+  import { VMap, VPlaceAnnotation, useSearch } from '@geoql/v-mapkit';
 
   const { search } = useSearch();
   const results = shallowRef([]);

@@ -63,7 +63,7 @@ jobs:
 
       - name: Build library
         if: inputs.skip-build != true
-        run: pnpm --filter @geoql/v-mapkit.js run build
+        run: pnpm --filter @geoql/v-mapkit run build
         env:
           NODE_OPTIONS: --max-old-space-size=8192
 

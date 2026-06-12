@@ -7,7 +7,7 @@
 
 ## Project Overview
 
-**mapkit-cn** is the showcase and documentation site for `v-mapkit.js` — "shadcn-vue for Apple Maps". It demonstrates beautiful, theme-aware Apple MapKit components for Vue, built on `@geoql/v-mapkit.js` and styled with Tailwind CSS v4. The site doubles as a shadcn-vue compatible component registry.
+**mapkit-cn** is the showcase and documentation site for `v-mapkit` — "shadcn-vue for Apple Maps". It demonstrates beautiful, theme-aware Apple MapKit components for Vue, built on `@geoql/v-mapkit` and styled with Tailwind CSS v4. The site doubles as a shadcn-vue compatible component registry.
 
 ### Key Capabilities
 
@@ -42,7 +42,7 @@ This app uses **three** skills — one in-repo design skill plus two host-provid
 | Pure `#000` / `#fff` in dark mode                                              | **Forbidden.** Dark background is `oklch(0.15 ...)`, never `#000`. (Light-mode white canvas is the intentional Apple exception.)                                   |
 | Gradient-text headlines (`bg-clip-text` + `bg-gradient-to-*`)                  | **Forbidden.** Solid `text-foreground` / `text-primary` + dramatic weight contrast only.                                                                           |
 | Standard `<input type="number">` / `<input type="range">` in example UIs       | Use **shadcn-vue `<Input>`** (in `app/components/ui/`) — consistent with the rest of the app.                                                                      |
-| Use raw `maplibregl` / raw `mapkit.Map` setup in examples                      | Use the **`@geoql/v-mapkit.js` Vue wrappers** (`VMap`, `VMarkerAnnotation`, …) — never instantiate MapKit imperatively in a page.                                  |
+| Use raw `maplibregl` / raw `mapkit.Map` setup in examples                      | Use the **`@geoql/v-mapkit` Vue wrappers** (`VMap`, `VMarkerAnnotation`, …) — never instantiate MapKit imperatively in a page.                                  |
 
 ### What Skills Add (Not in AGENTS.md)
 
@@ -65,7 +65,7 @@ Hard bans specific to this app (from the pinned Apple direction):
 - NO raw Tailwind color utilities (`bg-blue-*`, `text-emerald-*`, `bg-red-*`). Use semantic tokens (`bg-primary`, `text-success`, `text-warning`, `text-destructive`).
 - NO pure `#000` / `#fff` in dark mode.
 - NO banned fonts: Inter, Plus Jakarta, Space Grotesk, Roboto, Poppins, Outfit.
-- NO raw MapKit instantiation in example pages — always the `@geoql/v-mapkit.js` wrappers.
+- NO raw MapKit instantiation in example pages — always the `@geoql/v-mapkit` wrappers.
 
 ### Rule #1: NEVER Define Types/Interfaces Inline
 
@@ -83,7 +83,7 @@ export interface MapState {
 // then: import type { MapState } from '~/types/map';
 ```
 
-### Rule #2: Use @geoql/v-mapkit.js Components - Not Raw MapKit
+### Rule #2: Use @geoql/v-mapkit Components - Not Raw MapKit
 
 ```vue
 <!-- WRONG - raw MapKit -->
@@ -95,7 +95,7 @@ export interface MapState {
 
 <!-- CORRECT - the Vue wrappers -->
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation } from '@geoql/v-mapkit';
 </script>
 
 <template>
@@ -185,7 +185,7 @@ const state = computed(() => (isOpen.value ? 'expanded' : 'collapsed'));
 
 App composables are **camelCase filenames** (matching the existing `app/composables/` — `useMapDemo.ts`, `useMapkitToken.ts`, `useShiki.ts`, `useHighlightedCode.ts`), with camelCase exports.
 
-> Note: this is the **opposite** of the library (`packages/v-mapkit.js`), whose composable files are kebab-case (`use-map-child.ts`). Match the app's existing convention here — camelCase file + camelCase export.
+> Note: this is the **opposite** of the library (`packages/v-mapkit`), whose composable files are kebab-case (`use-map-child.ts`). Match the app's existing convention here — camelCase file + camelCase export.
 
 | File Name           | Export Name      |
 | ------------------- | ---------------- |
@@ -246,7 +246,7 @@ App dependency versions are centralized in **pnpm catalogs** (`pnpm-workspace.ya
 ```jsonc
 // CORRECT — workspace ref + catalog refs
 "dependencies": {
-  "@geoql/v-mapkit.js": "workspace:*",
+  "@geoql/v-mapkit": "workspace:*",
   "nuxt": "catalog:default",
   "@vueuse/core": "catalog:app:mapkit-cn",
   "reka-ui": "catalog:app:mapkit-cn"
@@ -258,7 +258,7 @@ App dependency versions are centralized in **pnpm catalogs** (`pnpm-workspace.ya
 }
 ```
 
-To bump a version, edit the entry in `pnpm-workspace.yaml` (one source of truth for the whole monorepo), then `pnpm install`. The published library (`packages/v-mapkit.js`) is the **only** exception — it stays on real semver because npm/jsr consumers can't resolve the `catalog:` protocol.
+To bump a version, edit the entry in `pnpm-workspace.yaml` (one source of truth for the whole monorepo), then `pnpm install`. The published library (`packages/v-mapkit`) is the **only** exception — it stays on real semver because npm/jsr consumers can't resolve the `catalog:` protocol.
 
 ---
 
@@ -267,7 +267,7 @@ To bump a version, edit the entry in `pnpm-workspace.yaml` (one source of truth 
 | Concern        | Technology                                              |
 | -------------- | ------------------------------------------------------- |
 | **Framework**  | Nuxt 4 + Vue 3.5 (Composition API)                      |
-| **Maps**       | `@geoql/v-mapkit.js` (workspace) + Apple MapKit JS      |
+| **Maps**       | `@geoql/v-mapkit` (workspace) + Apple MapKit JS      |
 | **UI**         | shadcn-nuxt (reka-ui primitives) + Tailwind CSS v4      |
 | **Tailwind**   | `@nuxtjs/tailwindcss` v4 + `@tailwindcss/typography`    |
 | **Icons**      | `@nuxt/icon` (lucide + simple-icons via Iconify)        |
@@ -337,7 +337,7 @@ Add new registry entries by dropping a JSON file in `app/registry/` and listing 
 
 ```vue
 <script setup lang="ts">
-  import { VMap, VMarkerAnnotation, VControlGeolocate } from '@geoql/v-mapkit.js';
+  import { VMap, VMarkerAnnotation, VControlGeolocate } from '@geoql/v-mapkit';
 
   const { token } = useMapkitToken();
   const colorMode = useColorMode();
@@ -411,17 +411,17 @@ Before every code change:
 
 1. **Visual work?** — loaded `mapkit-cn-design`? Apple direction, semantic tokens, Geist only?
 2. **Type/interface?** — placed in `app/types/`, imported via `~/types/...`?
-3. **Map component?** — `@geoql/v-mapkit.js` wrappers, not raw MapKit? Color-mode aware? Wrapped in `<ClientOnly>`?
+3. **Map component?** — `@geoql/v-mapkit` wrappers, not raw MapKit? Color-mode aware? Wrapped in `<ClientOnly>`?
 4. **Imports?** — `~/` alias, not `../../../`?
 5. **Icon?** — `<Icon name="lucide:..." />`, not inline SVG? `size-*` for squares?
 6. **Component?** — shadcn-vue folder structure, under ~100 lines, no template multi-arg arrows?
 7. **Composable?** — camelCase file + export (app convention)?
-8. **Deps?** — `catalog:` refs (versions in `pnpm-workspace.yaml`), `workspace:*` only for `@geoql/v-mapkit.js`?
+8. **Deps?** — `catalog:` refs (versions in `pnpm-workspace.yaml`), `workspace:*` only for `@geoql/v-mapkit`?
 
 ### Preferred Patterns
 
 1. **Load `mapkit-cn-design` first** for any visual change
-2. **Use `@geoql/v-mapkit.js` wrappers** for all map functionality
+2. **Use `@geoql/v-mapkit` wrappers** for all map functionality
 3. **Support dark/light** via `useColorMode()` + `:color-scheme`
 4. **Use VueUse** instead of manual implementations
 5. **Keep components small** — extract to composables
