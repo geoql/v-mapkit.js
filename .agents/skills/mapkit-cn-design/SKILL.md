@@ -13,7 +13,7 @@ This skill overrides `design-discipline`'s `references/directions.md` defaults f
 
 ## Why Apple / Modern Minimal (and not the others)
 
-mapkit-cn is the showcase site for `v-mapkit.js` — Vue 3 components for **Apple MapKit JS**, installed via `npx shadcn-vue add ...`. The product wraps Apple's own mapping engine, so the site must feel like it belongs in Apple's ecosystem: clean white (and true-black dark) surfaces, generous whitespace, SF-Pro-flavored type (Geist), Apple's signature blue, soft-but-not-bubbly radii, and subtle layered shadows. The audience is Apple-platform and Vue developers who already recognize this visual language as "native". Editorial / brutalist / warm-soft / Tech-Utility (Linear-style sharp+borders-only) directions all read as *off-brand* against an Apple Maps product — sharp 8px corners and shadow-less borders would actively fight the Apple association we're trading on.
+mapkit-cn is the showcase site for `v-mapkit.js` — Vue 3 components for **Apple MapKit JS**, installed via `npx shadcn-vue add ...`. The product wraps Apple's own mapping engine, so the site must feel like it belongs in Apple's ecosystem: clean white (and true-black dark) surfaces, generous whitespace, SF-Pro-flavored type (Geist), Apple's signature blue, soft-but-not-bubbly radii, and subtle layered shadows. The audience is Apple-platform and Vue developers who already recognize this visual language as "native". Editorial / brutalist / warm-soft / Tech-Utility (Linear-style sharp+borders-only) directions all read as _off-brand_ against an Apple Maps product — sharp 8px corners and shadow-less borders would actively fight the Apple association we're trading on.
 
 This is the key divergence from the sibling `mapcn-vue` (which pins **Tech Utility** because MapLibre is a neutral open-source engine). MapKit is Apple's, so we go Apple.
 
@@ -28,10 +28,10 @@ Tokens live in `app/assets/css/main.css`. Light mode is the `@theme` block; dark
 ### Light mode (default surface)
 
 ```css
---color-background: oklch(1 0 0);          /* pure white, Apple's canvas */
+--color-background: oklch(1 0 0); /* pure white, Apple's canvas */
 --color-foreground: oklch(0.21 0.004 286); /* #1d1d1f near-black text */
 --color-card: oklch(0.985 0.001 286);
---color-primary: oklch(0.585 0.185 252);   /* Apple blue #0071e3 */
+--color-primary: oklch(0.585 0.185 252); /* Apple blue #0071e3 */
 --color-primary-foreground: oklch(1 0 0);
 --color-muted-foreground: oklch(0.52 0.006 286);
 --color-border: oklch(0.92 0.002 286);
@@ -48,7 +48,7 @@ Tokens live in `app/assets/css/main.css`. Light mode is the `@theme` block; dark
   --color-background: oklch(0.15 0.003 286); /* near-black, not pure #000 */
   --color-foreground: oklch(0.97 0.002 286);
   --color-card: oklch(0.19 0.004 286);
-  --color-primary: oklch(0.64 0.19 252);     /* brighter blue for dark */
+  --color-primary: oklch(0.64 0.19 252); /* brighter blue for dark */
   --color-border: oklch(0.27 0.004 286);
 }
 ```
@@ -62,8 +62,8 @@ Neutral grays are pinned at **hue 286** (cool, Apple-like). The single accent is
 ONE family. No serif. Mono for code/IDs/keyboard hints only.
 
 ```css
---font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
---font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+--font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+--font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
 --font-display: var(--font-sans);
 ```
 
@@ -146,18 +146,18 @@ If a future request asks for any of:
 
 ## File Inventory (where the design lives)
 
-| File                                       | Owns                                                  |
-| ------------------------------------------ | ----------------------------------------------------- |
-| `app/assets/css/main.css`                  | All tokens, weight rules, base typography, shadows    |
-| `app/pages/index.vue`                      | Homepage hero — the canonical surface                 |
-| `app/components/layout/Header.vue`         | Floating glass header (blur + hairline border)        |
-| `app/components/layout/Footer.vue`         | Footer                                                |
-| `app/components/example/ExampleCard.vue`   | Example gallery card primitive                        |
-| `app/components/example/GalleryCard.vue`   | Gallery card                                          |
-| `app/components/example/MapContainer.vue`  | Per-example live map frame                            |
-| `app/components/example/CodeBlock.vue`     | Mono code sample block                                |
-| `app/components/ui/*`                       | shadcn-vue primitives (Button, Card, Badge, Input)    |
-| `nuxt.config.ts`                           | `@nuxt/fonts` config (Geist + Geist Mono)             |
+| File                                      | Owns                                               |
+| ----------------------------------------- | -------------------------------------------------- |
+| `app/assets/css/main.css`                 | All tokens, weight rules, base typography, shadows |
+| `app/pages/index.vue`                     | Homepage hero — the canonical surface              |
+| `app/components/layout/Header.vue`        | Floating glass header (blur + hairline border)     |
+| `app/components/layout/Footer.vue`        | Footer                                             |
+| `app/components/example/ExampleCard.vue`  | Example gallery card primitive                     |
+| `app/components/example/GalleryCard.vue`  | Gallery card                                       |
+| `app/components/example/MapContainer.vue` | Per-example live map frame                         |
+| `app/components/example/CodeBlock.vue`    | Mono code sample block                             |
+| `app/components/ui/*`                     | shadcn-vue primitives (Button, Card, Badge, Input) |
+| `nuxt.config.ts`                          | `@nuxt/fonts` config (Geist + Geist Mono)          |
 
 ---
 

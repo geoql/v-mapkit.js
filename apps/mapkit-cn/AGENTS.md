@@ -25,7 +25,7 @@ This app uses **three** skills — one in-repo design skill plus two host-provid
 
 | Skill                | When to Load                                                                       |
 | -------------------- | ---------------------------------------------------------------------------------- |
-| `mapkit-cn-design`   | **Any visual work** — CSS, components, layouts, marketing surfaces, design assets. Lives in-repo at [`.agents/skills/mapkit-cn-design/SKILL.md`](./.agents/skills/mapkit-cn-design/SKILL.md). |
+| `mapkit-cn-design`   | **Any visual work** — CSS, components, layouts, marketing surfaces, design assets. Lives at the repo root: [`.agents/skills/mapkit-cn-design/SKILL.md`](../../.agents/skills/mapkit-cn-design/SKILL.md). |
 | `nuxt-best-practices`| Nuxt patterns — data fetching, server routes, auto-imports, rendering modes        |
 | `vue-best-practices` | Vue components / reactivity / Composition API                                      |
 
@@ -35,7 +35,7 @@ This app uses **three** skills — one in-repo design skill plus two host-provid
 
 | Skill Says                                                                     | AGENTS.md Says (Use This)                                                                                                                                          |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Use generic `design-discipline` directions catalog                             | **Apple / Modern-Minimal direction is pinned** — see [`mapkit-cn-design`](./.agents/skills/mapkit-cn-design/SKILL.md). No deviation without explicit user override. |
+| Use generic `design-discipline` directions catalog                             | **Apple / Modern-Minimal direction is pinned** — see [`mapkit-cn-design`](../../.agents/skills/mapkit-cn-design/SKILL.md). No deviation without explicit user override. |
 | Use the Tech Utility (Linear-style, sharp 8px, borders-only) direction         | **No.** MapKit is Apple's engine — soft radii (`rounded-lg`/`xl`), layered shadows, and backdrop-blur chrome are required. Sharp/borders-only fights the brand.    |
 | Generic Tailwind color utilities (`bg-blue-500`, `text-emerald-500`)           | **Forbidden.** Only semantic tokens (`bg-primary`, `text-success`, `text-warning`, `text-destructive`) defined in `app/assets/css/main.css`.                       |
 | `font-display`, `font-serif`, or any Inter / Space Grotesk / Plus Jakarta Sans | **Forbidden.** ONE family only — `Geist` (sans) + `Geist Mono` (mono), loaded via `@nuxt/fonts`.                                                                   |
@@ -298,7 +298,6 @@ apps/mapkit-cn/
 │   ├── registry/                  # Registry JSON sources (index, v-map, …)
 │   ├── server/api/r/[name].ts     # shadcn-vue registry endpoint
 │   └── app.vue
-├── .agents/skills/mapkit-cn-design/  # In-repo design skill (Apple direction)
 ├── nuxt.config.ts                 # Nuxt + Nitro/Cloudflare + fonts + plausible
 └── package.json
 ```

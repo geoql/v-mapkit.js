@@ -33,7 +33,7 @@
 
 ## Skills (Project-Pinned AI Guidance)
 
-This monorepo leans on a mix of in-repo and workspace-level skills. The only **in-repo** skill is [`apps/mapkit-cn/.agents/skills/mapkit-cn-design`](./apps/mapkit-cn/.agents/skills/mapkit-cn-design/SKILL.md) (pins the Apple / Modern-Minimal direction for the showcase). The generic `vue-best-practices` and `nuxt-best-practices` skills are provided by the agent host and apply per the matrix below. Load the relevant skill **before** writing code. Loading an irrelevant skill costs nothing; missing the relevant one produces measurably worse output.
+This monorepo ships a project-pinned design skill under [`.agents/skills/`](./.agents/skills/): [`mapkit-cn-design`](./.agents/skills/mapkit-cn-design/SKILL.md) pins the Apple / Modern-Minimal direction for the showcase. The generic `vue-best-practices` and `nuxt-best-practices` skills are provided by the agent host and apply per the matrix below. Load the relevant skill **before** writing code. Loading an irrelevant skill costs nothing; missing the relevant one produces measurably worse output.
 
 ### Priority Rule (NON-NEGOTIABLE)
 
