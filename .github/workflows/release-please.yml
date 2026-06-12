@@ -64,6 +64,13 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=8192
 
+      # actions/setup-node writes `//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}`
+      # to .npmrc. With no NODE_AUTH_TOKEN, npm sees a placeholder auth line, assumes
+      # token auth, and never runs the OIDC token exchange -> E404. Strip it so the
+      # Trusted Publisher (OIDC) flow engages. See actions/setup-node#1551.
+      - name: Strip _authToken line for OIDC trusted publishing
+        run: sed -i '/_authToken/d' "${NPM_CONFIG_USERCONFIG:-$HOME/.npmrc}"
+
       - name: Publish to npm with provenance
         working-directory: packages/v-mapkit
         run: npm publish --provenance --access public --ignore-scripts
