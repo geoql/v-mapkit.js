@@ -18,6 +18,62 @@
 - add support for `nvm` ([55dfe11](https://github.com/geoql/v-mapkit.js/commit/55dfe1142f02ae684b0cc70f1f0f6113268abb89))
 - update `.vscode` setting(s) ([d318b05](https://github.com/geoql/v-mapkit.js/commit/d318b0582e3bcd020d8025e58aa48f6eebf1bbee))
 
+## [1.0.0](https://github.com/geoql/v-mapkit.js/compare/v0.3.0...v1.0.0) (2026-06-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* package renamed from v-mapkit.js to @geoql/v-mapkit.js
+* package no longer ships a CommonJS build. Consumers must use ESM (import) or a bundler that handles ESM.
+
+### Features
+
+* convert to pnpm monorepo with v-mapkit.js library and mapkit-cn app ([c84d9fa](https://github.com/geoql/v-mapkit.js/commit/c84d9fae3ca384b039c379e240a0811191e370d3))
+* v1 revival — monorepo restructure + 18 components + mapkit-cn app ([3676fad](https://github.com/geoql/v-mapkit.js/commit/3676fad968554748438a60b9a6501e3207100851))
+
+
+### Bug Fixes
+
+* address review findings, doctor issues, and add design system ([4a2bf1f](https://github.com/geoql/v-mapkit.js/commit/4a2bf1fc0936b826817c45c7c2089a887e5f800f))
+* **build:** restore @tsdown/css required by vp pack ([51ce292](https://github.com/geoql/v-mapkit.js/commit/51ce29281d10c4f4a309b2a896aba4a023368ab0))
+* **ci:** add test:coverage script, build tools, remove unused deps ([924caf9](https://github.com/geoql/v-mapkit.js/commit/924caf905dc6455a3471f74c1571d514fb740bb4))
+* **ci:** add wrangler devDependency to mapkit-cn for deploy ([e8cf3bf](https://github.com/geoql/v-mapkit.js/commit/e8cf3bf0a5913bef6c226c255f5f5aa37a0d7177))
+* **deps:** add @vitest/coverage-v8@3 for test:coverage ([6a03951](https://github.com/geoql/v-mapkit.js/commit/6a039516ad9d18766fa8239f118da52128e7a5f0))
+* docs prose styles, missing routes, prepare script, dead code ([345de39](https://github.com/geoql/v-mapkit.js/commit/345de39d146bd019eb61a7cfb937cc5aad0de924))
+* **jsr:** align jsr.json with project conventions ([d889fe1](https://github.com/geoql/v-mapkit.js/commit/d889fe16990e45889b567b2a55321f5ab09cf797))
+* **jsr:** drop style.css export — JSR cannot import CSS modules ([bba587d](https://github.com/geoql/v-mapkit.js/commit/bba587d0ad9c393b5211f5cd3c6985a7a35e3243))
+* **mapkit-cn:** hoist inline annotation object in clustering.vue ([25ff87a](https://github.com/geoql/v-mapkit.js/commit/25ff87a074e2c09191e504b8cc048a704b32e47f))
+* remove last [@geoql](https://github.com/geoql) references in .npmrc and doctor.yml ([f953973](https://github.com/geoql/v-mapkit.js/commit/f953973d60f46a51b3f0b44d781a3706784f9fb9))
+
+
+### Documentation
+
+* add AGENTS.md guides + CLAUDE.md symlink ([66c7bf4](https://github.com/geoql/v-mapkit.js/commit/66c7bf4aa27a83d7f9614065a2b3cf35a82d7942))
+
+
+### Miscellaneous
+
+* delete vscode settings ([952b5ba](https://github.com/geoql/v-mapkit.js/commit/952b5ba287c3ad2768244da52f0d27d11f2da3a0))
+* **deps:** update all dependencies to latest (incl. majors) ([c118e06](https://github.com/geoql/v-mapkit.js/commit/c118e0664ee40278d8c0ffa65a197ba2654ecfae))
+* **deps:** upgrade all dependencies + bump pnpm to 11.6.0 ([d0b6402](https://github.com/geoql/v-mapkit.js/commit/d0b64023514ad0e6064f4c63daf4c30fb36f4cf6))
+* inline wrangler config into nuxt.config.ts, remove stylelint ([991638a](https://github.com/geoql/v-mapkit.js/commit/991638a28cb02079a452098d29f2812482f99c55))
+* release 1.0.0 ([a8dbff1](https://github.com/geoql/v-mapkit.js/commit/a8dbff1ae1b8aa696c6154f3d95954fb81030525))
+
+
+### Code Refactoring
+
+* **deps:** centralize versions in pnpm catalogs ([cb0baed](https://github.com/geoql/v-mapkit.js/commit/cb0baedecedd0d1d94409178319f18c93538cb0d))
+* drop [@geoql](https://github.com/geoql) scope from workspace package names ([0b53166](https://github.com/geoql/v-mapkit.js/commit/0b53166f1b70dfd369bab6df624f83049b2c19af))
+* publish as scoped @geoql/v-mapkit.js + fix release pipeline ([2fb6a8b](https://github.com/geoql/v-mapkit.js/commit/2fb6a8bd431f429c95cf0c5d4e9189878f2bc683))
+* **tests:** rename composable spec files to kebab-case ([31184be](https://github.com/geoql/v-mapkit.js/commit/31184beddb91e37bdd42989a822b39090b5430c3))
+* **v-mapkit.js:** centralize composable types in types/index.ts ([734f4dc](https://github.com/geoql/v-mapkit.js/commit/734f4dce864c5b19069ce0b4afa8288676768d41))
+* **v-mapkit.js:** rename composable files to kebab-case ([12b1415](https://github.com/geoql/v-mapkit.js/commit/12b14151e329639c7ae9446858bc47687f4f834e))
+
+
+### Build System
+
+* drop CJS output, ship ESM-only ([1da868e](https://github.com/geoql/v-mapkit.js/commit/1da868e6c439633b066031b237c16507b6a70936))
+
 ## [0.2.3](https://github.com/geoql/v-mapkit.js/compare/v0.2.2...v0.2.3) (2021-10-22)
 
 ### Bug Fixes

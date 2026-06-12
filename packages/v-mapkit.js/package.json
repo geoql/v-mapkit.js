@@ -1,6 +1,6 @@
 {
   "name": "@geoql/v-mapkit.js",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "private": false,
   "description": "MapKit with the power of Vue 3",
   "keywords": [
