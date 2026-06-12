@@ -171,8 +171,26 @@ html.dark {
   color-scheme: dark;
 }
 
-html.dark {
-  color-scheme: dark;
+/*
+ * Shiki dual-theme switching — kept global, not scoped to CodeBlock.vue:
+ * Vue's :global() + :deep() combination did not out-specify the light
+ * default, so dark mode rendered the light palette.
+ */
+.shiki-block .shiki,
+.shiki-block .shiki span {
+  color: var(--shiki-light);
+  background-color: transparent !important;
+  font-family: var(--font-mono);
+}
+
+html.dark .shiki-block .shiki,
+html.dark .shiki-block .shiki span {
+  color: var(--shiki-dark);
+}
+
+.shiki-block pre.shiki {
+  margin: 0;
+  background-color: transparent !important;
 }
 
 @layer base {

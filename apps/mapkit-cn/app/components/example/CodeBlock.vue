@@ -61,22 +61,3 @@
     ><code class="font-mono text-foreground/90">{{ trimmed }}</code></pre>
   </figure>
 </template>
-
-<style scoped>
-  .shiki-block :deep(.shiki),
-  .shiki-block :deep(.shiki span) {
-    color: var(--shiki-light);
-    font-family: var(--font-mono);
-    background-color: transparent !important;
-  }
-
-  :global(.dark) .shiki-block :deep(.shiki),
-  :global(.dark) .shiki-block :deep(.shiki span) {
-    color: var(--shiki-dark);
-  }
-
-  .shiki-block :deep(pre.shiki) {
-    margin: 0;
-    background-color: transparent !important;
-  }
-</style>
