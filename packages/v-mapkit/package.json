@@ -1,6 +1,6 @@
 {
   "name": "@geoql/v-mapkit",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "private": false,
   "description": "Vue 3 components for Apple MapKit JS - annotations, overlays, Look Around, search & geocoding, with full TypeScript support",
   "keywords": [

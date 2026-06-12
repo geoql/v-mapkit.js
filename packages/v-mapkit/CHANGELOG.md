@@ -18,6 +18,24 @@
 - add support for `nvm` ([55dfe11](https://github.com/geoql/v-mapkit/commit/55dfe1142f02ae684b0cc70f1f0f6113268abb89))
 - update `.vscode` setting(s) ([d318b05](https://github.com/geoql/v-mapkit/commit/d318b0582e3bcd020d8025e58aa48f6eebf1bbee))
 
+## [1.0.0](https://github.com/geoql/v-mapkit/compare/v0.3.0...v1.0.0) (2026-06-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* package renamed from @geoql/v-mapkit.js to @geoql/v-mapkit.
+
+### Miscellaneous
+
+* align package description + README title to @geoql/v-mapkit ([d9091a6](https://github.com/geoql/v-mapkit/commit/d9091a69d52c6332ac77f0505cd35346fe7b9e51))
+* align package description + README title to @geoql/v-mapkit ([711f73b](https://github.com/geoql/v-mapkit/commit/711f73be8b52a1dad8c31756f187fb7d80eaf60d))
+* release 1.0.0 ([a8dbff1](https://github.com/geoql/v-mapkit/commit/a8dbff1ae1b8aa696c6154f3d95954fb81030525))
+
+
+### Code Refactoring
+
+* rename package to @geoql/v-mapkit (drop .js) ([7a80891](https://github.com/geoql/v-mapkit/commit/7a80891de9416223920b00bca0c3af22a789be6f))
+
 ## [0.2.3](https://github.com/geoql/v-mapkit/compare/v0.2.2...v0.2.3) (2021-10-22)
 
 ### Bug Fixes
