@@ -249,7 +249,7 @@ src/
 
 This package is **published to npm and jsr** as `@geoql/v-mapkit.js` (`"private": false`). End users install it with `npm`, `yarn`, `pnpm`, `bun`, or via jsr — **none of which understand pnpm's `catalog:` protocol**.
 
-There are **no pnpm catalogs in this repo** (the root `pnpm-workspace.yaml` only declares `packages:` globs and an `allowBuilds:` list). So this is simple: every entry in `dependencies`, `devDependencies`, and `peerDependencies` here uses real semver. Keep `package.json` and `jsr.json` in sync — both are public publish targets and both must resolve without pnpm.
+The rest of the monorepo (root + both apps) centralizes versions in **pnpm catalogs** (`pnpm-workspace.yaml`), but **this package is the deliberate exception**: every entry in `dependencies`, `devDependencies`, and `peerDependencies` here MUST use real semver — never `catalog:` or `workspace:*`. Catalog/workspace refs would break `npm install` and `jsr add` for end users. Keep `package.json` and `jsr.json` in sync — both are public publish targets and both must resolve without pnpm.
 
 ```jsonc
 // CORRECT - real semver in every dep block
@@ -264,7 +264,7 @@ There are **no pnpm catalogs in this repo** (the root `pnpm-workspace.yaml` only
 }
 ```
 
-**When adding a dependency:** add it as real semver to this `package.json`; if it must be importable from jsr, mirror it under `imports` in `jsr.json` (e.g. `"vue": "npm:vue@^3.5.0"`). Renovate scans both files — keep their pins aligned to avoid cross-target drift PRs.
+**When adding a dependency:** add it as real semver to this `package.json`; if it must be importable from jsr, mirror it under `imports` in `jsr.json` (e.g. `"vue": "npm:vue@^3.5.0"`). Dependabot (`.github/dependabot.yml`) watches `/packages/v-mapkit.js` — keep `package.json` and `jsr.json` pins aligned to avoid cross-target drift.
 
 ---
 
@@ -488,7 +488,7 @@ Before every code change:
 4. **Types?** — props/emits typed, no `any`, `withDefaults` for optional props.
 5. **File structure?** — folder + SFC + `index.ts`; exported from `src/index.ts` AND registered in `src/install.ts`.
 6. **Under 100 lines?** — if not, extract a composable or split.
-7. **Deps?** — real semver in `package.json` (no `catalog:`); jsr `imports` kept in sync.
+7. **Deps?** — real semver in `package.json` (NEVER `catalog:`/`workspace:*` — this is the catalog exception); jsr `imports` kept in sync.
 8. **Toolchain?** — verify with `vp lint` / `vp fmt` / `vitest`, not standalone tools.
 
 ### Preferred Patterns

@@ -11,17 +11,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@comark/nuxt": "^0.4.0",
-    "better-sqlite3": "^12.10.0",
-    "docus": "^5.12.1",
-    "nuxt": "^4.4.8",
-    "zod": "^4.4.3",
-    "zod-to-json-schema": "^3.25.2"
+    "@comark/nuxt": "catalog:app:docs",
+    "better-sqlite3": "catalog:app:docs",
+    "docus": "catalog:app:docs",
+    "nuxt": "catalog:default",
+    "zod": "catalog:app:docs",
+    "zod-to-json-schema": "catalog:app:docs"
   },
   "devDependencies": {
-    "@nuxtjs/plausible": "^3.0.2",
-    "agents": "^0.15.0",
-    "oxlint": "^1.69.0",
-    "wrangler": "^4.99.0"
+    "@nuxtjs/plausible": "catalog:default",
+    "agents": "catalog:app:docs",
+    "oxlint": "catalog:app:docs",
+    "wrangler": "catalog:default"
   }
 }

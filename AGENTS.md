@@ -166,7 +166,7 @@ apps/docs ──────workspace member (own deps, no cross-package link)
 
 ### Dependency Versions
 
-There are **no pnpm catalogs** in this repo. Each `package.json` pins its own real semver. Use `workspace:*` only for internal monorepo references (e.g. `apps/mapkit-cn` → `@geoql/v-mapkit.js`). The published library (`packages/v-mapkit.js`) is consumed by `npm`/`yarn`/`jsr` users who do not understand pnpm protocols, so its dependency blocks MUST stay real semver — see the library guide.
+The root and both apps centralize dependency versions in **pnpm catalogs** (defined in `pnpm-workspace.yaml`): `catalog:default` (root tooling + deps shared by both apps — `nuxt`, `wrangler`, `@nuxtjs/plausible`), `catalog:app:docs`, and `catalog:app:mapkit-cn`. Their `package.json` files reference versions via the `catalog:` protocol — bump a version once in `pnpm-workspace.yaml`, then `pnpm install`. Use `workspace:*` only for internal monorepo references (e.g. `apps/mapkit-cn` → `@geoql/v-mapkit.js`). The published library (`packages/v-mapkit.js`) is the **only** exception: it is consumed by `npm`/`yarn`/`jsr` users who do not understand pnpm protocols, so its dependency blocks MUST stay real semver (no `catalog:`, no `workspace:*`) — see the library guide.
 
 ---
 
@@ -174,16 +174,16 @@ There are **no pnpm catalogs** in this repo. Each `package.json` pins its own re
 
 These override per-package rules. Violating any of these = wasted work.
 
-| #   | Constraint                                                                                                                                             | Why                                                              |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| 1   | **TypeScript only.** No `.js` files except configs.                                                                                                    | Type safety, autocompletion                                      |
-| 2   | **No `any` type.** Use `unknown` + narrowing, or precise MapKit types.                                                                                 | Prevents silent failures                                         |
-| 3   | **Vue 3 Composition API only** (`<script setup lang="ts">`). No Options API.                                                                           | Tree-shaking, type inference                                     |
-| 4   | **pnpm v11 only.** No Bun, no npm, no yarn for development.                                                                                            | Reliable CI/CD                                                   |
-| 5   | **100-line maximum per component/file.** Extract logic into composables to stay under it. Hard rule, every package.                                    | Readability, single responsibility, testability                  |
-| 6   | **`workspace:*`** only for internal package refs; real semver everywhere else (no catalogs exist).                                                     | Avoid version mismatch + keep the published library installable  |
-| 7   | **NEVER** introduce Inter, Plus Jakarta Sans, Space Grotesk, gradient-text, or raw Tailwind color utilities (`bg-blue-500`, etc.) in `apps/mapkit-cn`. | The pinned Apple / Modern-Minimal design discipline forbids them |
-| 8   | **Use the MapKit toolchain truthfully.** Lint/format/pack via `vite-plus` (`vp lint`, `vp fmt`, `vp pack`) — not standalone eslint/prettier/vite.      | The library build pipeline is owned by vite-plus                 |
+| #   | Constraint                                                                                                                                                         | Why                                                              |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| 1   | **TypeScript only.** No `.js` files except configs.                                                                                                                | Type safety, autocompletion                                      |
+| 2   | **No `any` type.** Use `unknown` + narrowing, or precise MapKit types.                                                                                             | Prevents silent failures                                         |
+| 3   | **Vue 3 Composition API only** (`<script setup lang="ts">`). No Options API.                                                                                       | Tree-shaking, type inference                                     |
+| 4   | **pnpm v11 only.** No Bun, no npm, no yarn for development.                                                                                                        | Reliable CI/CD                                                   |
+| 5   | **100-line maximum per component/file.** Extract logic into composables to stay under it. Hard rule, every package.                                                | Readability, single responsibility, testability                  |
+| 6   | **`workspace:*`** only for internal package refs; **`catalog:`** for app/root deps (versions in `pnpm-workspace.yaml`); real semver ONLY in the published library. | Avoid version mismatch + keep the published library installable  |
+| 7   | **NEVER** introduce Inter, Plus Jakarta Sans, Space Grotesk, gradient-text, or raw Tailwind color utilities (`bg-blue-500`, etc.) in `apps/mapkit-cn`.             | The pinned Apple / Modern-Minimal design discipline forbids them |
+| 8   | **Use the MapKit toolchain truthfully.** Lint/format/pack via `vite-plus` (`vp lint`, `vp fmt`, `vp pack`) — not standalone eslint/prettier/vite.                  | The library build pipeline is owned by vite-plus                 |
 
 ---
 
