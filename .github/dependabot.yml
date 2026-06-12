@@ -1,43 +1,39 @@
 version: 2
 updates:
-  # Fetch and update latest `npm` packages
+  # Library package (published to npm + jsr) — pinned real semver
   - package-ecosystem: npm
+    directory: "/packages/v-mapkit.js"
     versioning-strategy: increase
-    directory: '/'
     schedule:
       interval: daily
-      time: '00:00'
-    reviewers:
-      - vinayakkulkarni
+      time: "00:00"
     assignees:
       - vinayakkulkarni
     commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
-  # Fetch and update latest `npm` packages
+
+  # Root workspace + apps (catalogs live in pnpm-workspace.yaml)
   - package-ecosystem: npm
+    directory: "/"
     versioning-strategy: increase
-    directory: '/example'
     schedule:
       interval: daily
-      time: '00:00'
-    reviewers:
-      - vinayakkulkarni
+      time: "00:00"
     assignees:
       - vinayakkulkarni
     commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
-  # Fetch and update latest `github-actions` pkgs
+
+  # GitHub Actions workflows
   - package-ecosystem: github-actions
-    directory: '/'
+    directory: "/"
     schedule:
       interval: daily
-      time: '00:00'
-    reviewers:
-      - vinayakkulkarni
+      time: "00:00"
     assignees:
       - vinayakkulkarni
     commit-message:

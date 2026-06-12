@@ -239,18 +239,26 @@ const scheme = computed(() => (colorMode.value === 'dark' ? 'dark' : 'light'));
 // <VMap :access-token="token" :color-scheme="scheme" />
 ```
 
-### Rule #16: Dependency Versions — Real Semver, No Catalogs
+### Rule #16: Dependency Versions — Use Catalogs
 
-There are **no pnpm catalogs in this repo**. Pin real semver in this `package.json`. Use `workspace:*` only for the internal library reference:
+App dependency versions are centralized in **pnpm catalogs** (`pnpm-workspace.yaml`). This `package.json` references them via the `catalog:` protocol — never hard-code a version here. Use `workspace:*` only for the internal library reference. Versions live in two catalogs: `catalog:default` (deps shared with the docs app and root tooling: `nuxt`, `wrangler`, `@nuxtjs/plausible`) and `catalog:app:mapkit-cn` (everything else for this app).
 
 ```jsonc
-// CORRECT
+// CORRECT — workspace ref + catalog refs
 "dependencies": {
   "@geoql/v-mapkit.js": "workspace:*",
-  "@vueuse/core": "^14.3.0",
-  "reka-ui": "^2.9.7"
+  "nuxt": "catalog:default",
+  "@vueuse/core": "catalog:app:mapkit-cn",
+  "reka-ui": "catalog:app:mapkit-cn"
+}
+
+// WRONG — hard-coded version (belongs in the catalog)
+"dependencies": {
+  "reka-ui": "^2.9.10"
 }
 ```
+
+To bump a version, edit the entry in `pnpm-workspace.yaml` (one source of truth for the whole monorepo), then `pnpm install`. The published library (`packages/v-mapkit.js`) is the **only** exception — it stays on real semver because npm/jsr consumers can't resolve the `catalog:` protocol.
 
 ---
 
@@ -408,7 +416,7 @@ Before every code change:
 5. **Icon?** — `<Icon name="lucide:..." />`, not inline SVG? `size-*` for squares?
 6. **Component?** — shadcn-vue folder structure, under ~100 lines, no template multi-arg arrows?
 7. **Composable?** — camelCase file + export (app convention)?
-8. **Deps?** — real semver, `workspace:*` only for `@geoql/v-mapkit.js`?
+8. **Deps?** — `catalog:` refs (versions in `pnpm-workspace.yaml`), `workspace:*` only for `@geoql/v-mapkit.js`?
 
 ### Preferred Patterns
 

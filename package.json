@@ -31,11 +31,11 @@
     "doctor:check": "vue-doctor"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.0.2",
-    "@commitlint/config-conventional": "^21.0.2",
-    "husky": "^9.1.7",
-    "is-ci": "^4.1.0",
-    "lint-staged": "^17.0.7"
+    "@commitlint/cli": "catalog:default",
+    "@commitlint/config-conventional": "catalog:default",
+    "husky": "catalog:default",
+    "is-ci": "catalog:default",
+    "lint-staged": "catalog:default"
   },
   "engines": {
     "node": ">=24",
