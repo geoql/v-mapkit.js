@@ -1,9 +1,9 @@
-import { createHighlighter, type Highlighter } from 'shiki';
+import {
+  createHighlighter,
+  createJavaScriptRegexEngine,
+  type Highlighter,
+} from 'shiki';
 
-/**
- * Languages and themes the example code blocks actually use.
- * Kept deliberately small so the Shiki bundle stays lean.
- */
 const LANGS = ['vue', 'typescript', 'bash', 'json'] as const;
 export const SHIKI_THEME_LIGHT = 'github-light-default';
 export const SHIKI_THEME_DARK = 'github-dark-default';
@@ -11,15 +11,19 @@ export const SHIKI_THEME_DARK = 'github-dark-default';
 let highlighterPromise: Promise<Highlighter> | null = null;
 
 /**
- * Lazily create a single shared Shiki highlighter.
- * Highlighting runs at build / SSR time and the resulting HTML is
- * serialized into the payload, so the client never re-runs Shiki.
+ * Lazily create one shared Shiki highlighter using the JavaScript regex
+ * engine. The default oniguruma engine needs WASM, which fails to load in
+ * the Cloudflare Workers runtime where these pages are SSR'd — the JS
+ * engine has no WASM dependency and runs at the edge. Highlighting happens
+ * at SSR time and the HTML is serialized into the payload, so the browser
+ * never runs Shiki.
  */
 export function getHighlighter(): Promise<Highlighter> {
   if (!highlighterPromise) {
     highlighterPromise = createHighlighter({
       themes: [SHIKI_THEME_LIGHT, SHIKI_THEME_DARK],
       langs: [...LANGS],
+      engine: createJavaScriptRegexEngine(),
     });
   }
   return highlighterPromise;
