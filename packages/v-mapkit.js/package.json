@@ -66,7 +66,7 @@
   "devDependencies": {
     "@tsdown/css": "^0.22.2",
     "@types/apple-mapkit-js-browser": "^5.78.1",
-    "@types/node": "^25.9.2",
+    "@types/node": "^25.9.3",
     "@vitest/coverage-v8": "^4.1.8",
     "@vue/test-utils": "^2.4.11",
     "@vue/tsconfig": "^0.9.1",
@@ -75,7 +75,7 @@
     "unplugin-vue": "^7.2.0",
     "vite-plus": "^0.1.24",
     "vitest": "^4.1.8",
-    "vue": "^3.5.35",
+    "vue": "^3.5.38",
     "vue-tsc": "^3.3.4"
   },
   "peerDependencies": {
