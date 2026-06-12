@@ -4,8 +4,7 @@
   "description": "MapKit with the power of Vue 3 — Vue 3 components and composables for Apple MapKit JS.",
   "license": "MIT",
   "exports": {
-    ".": "./dist/index.js",
-    "./style.css": "./dist/style.css"
+    ".": "./dist/index.js"
   },
   "imports": {
     "vue": "npm:vue@^3.5.0",
