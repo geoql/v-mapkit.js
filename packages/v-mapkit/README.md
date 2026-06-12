@@ -1,4 +1,4 @@
-# V-Mapkit.js 🌎
+# @geoql/v-mapkit 🌎
 
 <!-- Badges -->
 
@@ -32,7 +32,7 @@ Power of [Vue 3](https://v3.vuejs.org) with awesomeness of [Mapkit](https://deve
 
 ## Table of Contents
 
-- [V-Mapkit.js 🌎](#v-mapkitjs-)
+- [@geoql/v-mapkit 🌎](#geoqlv-mapkit-)
   - [Features](#features)
   - [Table of Contents](#table-of-contents)
     - [Installation](#installation)
