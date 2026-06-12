@@ -1,0 +1,13 @@
+{
+  "preset": "recommended",
+  "exclude": [
+    "**/node_modules/**",
+    "**/.nuxt/**",
+    "**/.output/**",
+    "app/components/ui/**"
+  ],
+  "rules": {
+    "dead-code/unused-dependency": "off",
+    "eslint/no-useless-escape": "off"
+  }
+}

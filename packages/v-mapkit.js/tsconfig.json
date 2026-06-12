@@ -1,0 +1,23 @@
+{
+  "extends": ["@vue/tsconfig/tsconfig.dom.json"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
+    "noEmit": false,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "types": ["apple-mapkit-js-browser"],
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": { "~/*": ["./*"], "@/*": ["src/*"] },
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo"
+  },
+  "include": ["src/**/*", "src/**/*.vue", "types/**/*"],
+  "exclude": ["node_modules", "dist", "playground", "docs", "test"]
+}

@@ -1,0 +1,7 @@
+{
+  "preset": "recommended",
+  "exclude": ["**/node_modules/**", "**/dist/**", "**/coverage/**"],
+  "rules": {
+    "dead-code/unused-dependency": "off"
+  }
+}

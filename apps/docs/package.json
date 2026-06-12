@@ -1,0 +1,27 @@
+{
+  "name": "v-mapkit.js-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --extends docus",
+    "build": "nuxt build --extends docus",
+    "preview": "nuxt preview",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@comark/nuxt": "^0.4.0",
+    "better-sqlite3": "^12.10.0",
+    "docus": "^5.12.1",
+    "nuxt": "^4.4.8",
+    "zod": "^4.4.3",
+    "zod-to-json-schema": "^3.25.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/plausible": "^3.0.2",
+    "agents": "^0.15.0",
+    "oxlint": "^1.69.0",
+    "wrangler": "^4.99.0"
+  }
+}

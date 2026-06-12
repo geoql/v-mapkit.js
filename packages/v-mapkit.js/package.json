@@ -1,0 +1,85 @@
+{
+  "name": "@geoql/v-mapkit.js",
+  "version": "0.3.0",
+  "private": false,
+  "description": "MapKit with the power of Vue 3",
+  "keywords": [
+    "Apple MapKit",
+    "Map Library",
+    "MapKit",
+    "Maps",
+    "Vue MapKit",
+    "v-mapkit.js",
+    "vue-mapkit.js"
+  ],
+  "homepage": "https://github.com/geoql/v-mapkit.js#readme",
+  "bugs": {
+    "url": "https://github.com/geoql/v-mapkit.js/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Vinayak Kulkarni",
+    "email": "inbox.vinayak@gmail.com",
+    "url": "https://vinayakkulkarni.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geoql/v-mapkit.js.git",
+    "directory": "packages/v-mapkit.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "type-check": "vue-tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check",
+    "lint:css": "stylelint \"src/**/*.{css,scss,vue}\"",
+    "lint:css:fix": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "bump-version": "node scripts/bump-jsr-version.mjs"
+  },
+  "devDependencies": {
+    "@tsdown/css": "^0.22.2",
+    "@types/apple-mapkit-js-browser": "^5.78.1",
+    "@types/node": "^25.9.2",
+    "@vitest/coverage-v8": "^4.1.8",
+    "@vue/test-utils": "^2.4.11",
+    "@vue/tsconfig": "^0.9.1",
+    "happy-dom": "^20.10.2",
+    "typescript": "^6.0.3",
+    "unplugin-vue": "^7.2.0",
+    "vite-plus": "^0.1.24",
+    "vitest": "^4.1.8",
+    "vue": "^3.5.35",
+    "vue-tsc": "^3.3.4"
+  },
+  "peerDependencies": {
+    "@vueuse/core": "^14.0.0",
+    "vue": "^3.5.0"
+  }
+}

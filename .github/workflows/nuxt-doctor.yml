@@ -1,0 +1,50 @@
+name: "Nuxt Doctor"
+
+on:
+  workflow_call:
+    secrets:
+      DOCTOR_API_KEY_MAPKIT_CN:
+        description: "API key for pushing the mapkit-cn app score to app.the-doctor.report"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  nuxt-doctor:
+    name: "Nuxt Doctor"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --filter mapkit-cn-app... --frozen-lockfile
+
+      - name: Build library
+        run: pnpm --filter @geoql/v-mapkit.js run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+
+      - name: Prepare Nuxt
+        run: pnpm --filter mapkit-cn-app run postinstall
+
+      - name: Audit app with nuxt-doctor
+        uses: geoql/doctor-action@v1
+        with:
+          framework: nuxt
+          working-directory: apps/mapkit-cn
+          threshold: ${{ vars.DOCTOR_THRESHOLD || '70' }}
+          fail-on: error
+          api-key: ${{ secrets.DOCTOR_API_KEY_MAPKIT_CN }}
+          project: geoql/mapkit-cn
