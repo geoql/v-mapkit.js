@@ -3,25 +3,39 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxt dev --extends docus",
-    "build": "nuxt build --extends docus",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
     "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@comark/nuxt": "catalog:app:docs",
+    "@nuxt/content": "catalog:app:docs",
+    "@nuxtjs/color-mode": "catalog:app:docs",
+    "@vueuse/core": "catalog:app:docs",
+    "@vueuse/nuxt": "catalog:app:docs",
     "better-sqlite3": "catalog:app:docs",
-    "docus": "catalog:app:docs",
+    "class-variance-authority": "catalog:app:docs",
+    "clsx": "catalog:app:docs",
+    "lucide-vue-next": "catalog:app:docs",
     "nuxt": "catalog:default",
-    "zod": "catalog:app:docs",
-    "zod-to-json-schema": "catalog:app:docs"
+    "reka-ui": "catalog:app:docs",
+    "tailwind-merge": "catalog:app:docs",
+    "tailwindcss-animate": "catalog:app:docs",
+    "tw-animate-css": "catalog:app:docs"
   },
   "devDependencies": {
+    "@nuxt/fonts": "catalog:app:docs",
     "@nuxtjs/plausible": "catalog:default",
-    "agents": "catalog:app:docs",
+    "@nuxtjs/tailwindcss": "catalog:app:docs",
     "oxlint": "catalog:app:docs",
+    "shadcn-nuxt": "catalog:app:docs",
+    "tailwindcss": "catalog:app:docs",
+    "typescript": "catalog:app:docs",
+    "vue": "catalog:app:docs",
+    "vue-tsc": "catalog:app:docs",
     "wrangler": "catalog:default"
   }
 }
