@@ -14,9 +14,10 @@
 
 ## Apps
 
-| App                           | Description                             |
-| ----------------------------- | --------------------------------------- |
-| [mapkit-cn](./apps/mapkit-cn) | Showcase site with 24 examples (Nuxt 4) |
+| App                           | Description                                   |
+| ----------------------------- | --------------------------------------------- |
+| [mapkit-cn](./apps/mapkit-cn) | Showcase site with 23 live examples (Nuxt 4)  |
+| [docs](./apps/docs)           | Documentation site (Nuxt 4 + `@nuxt/content`) |
 
 ## Quick Start
 
@@ -27,13 +28,26 @@ pnpm add @geoql/v-mapkit
 ```
 
 ```vue
-<script setup>
+<script setup lang="ts">
 import { VMap, VMarkerAnnotation } from "@geoql/v-mapkit";
 import "@geoql/v-mapkit/style.css";
+
+const token = "YOUR_MAPKIT_TOKEN";
+
+// Coordinates aren't props — MapKit owns the live map, so set the
+// initial region once the instance is ready via the @map event.
+function onMap(map: mapkit.Map) {
+  map.setRegionAnimated(
+    new mapkit.CoordinateRegion(
+      new mapkit.Coordinate(37.7749, -122.4194),
+      new mapkit.CoordinateSpan(0.1, 0.1),
+    ),
+  );
+}
 </script>
 
 <template>
-  <VMap :options="{ token: 'YOUR_MAPKIT_TOKEN' }" :center="[37.7749, -122.4194]" :zoom="12">
+  <VMap :access-token="token" @map="onMap">
     <VMarkerAnnotation :coordinates="[37.7749, -122.4194]" />
   </VMap>
 </template>
@@ -74,9 +88,10 @@ pnpm run format
 ```
 v-mapkit/
 ├── packages/
-│   └── v-mapkit/         # Main library (npm: v-mapkit)
+│   └── v-mapkit/            # Core library (npm + jsr: @geoql/v-mapkit)
 ├── apps/
-│   └── mapkit-cn/           # Nuxt 4 showcase site
+│   ├── mapkit-cn/           # Nuxt 4 showcase site (23 live examples + registry)
+│   └── docs/                # Nuxt 4 documentation site (@nuxt/content)
 ├── package.json             # pnpm workspaces root
 ├── pnpm-workspace.yaml      # Workspace config
 └── pnpm-lock.yaml
