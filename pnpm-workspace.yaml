@@ -42,7 +42,7 @@ catalogs:
     better-sqlite3: ^12.10.0
     class-variance-authority: ^0.7.1
     clsx: ^2.1.1
-    lucide-vue-next: ^0.469.0
+    lucide-vue-next: ^1.0.0
     nuxt-og-image: ^6.6.0
     oxlint: ^1.69.0
     reka-ui: ^2.9.10
@@ -70,7 +70,7 @@ catalogs:
     "@vueuse/nuxt": ^14.3.0
     class-variance-authority: ^0.7.1
     clsx: ^2.1.1
-    lucide-vue-next: ^0.469.0
+    lucide-vue-next: ^1.0.0
     nuxt-og-image: ^6.6.0
     reka-ui: ^2.9.10
     satori: ^0.26.0
