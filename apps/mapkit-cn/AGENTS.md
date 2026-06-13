@@ -295,8 +295,7 @@ apps/mapkit-cn/
 │   │   ├── layout/                # Header (glass), Footer
 │   │   ├── OgImage/               # OG image templates (Satori)
 │   │   └── ui/                    # shadcn-vue primitives (badge, button, card, input)
-│   ├── composables/               # useMapDemo, useMapkitToken, useShiki,
-│   │                              #   useHighlightedCode (camelCase files!)
+│   ├── composables/               # useHighlightedCode, useMapDemo, useMapkitToken, useShiki (camelCase files)
 │   ├── layouts/                   # default layout
 │   ├── lib/utils.ts               # cn() helper
 │   ├── pages/

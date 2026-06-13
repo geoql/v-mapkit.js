@@ -225,14 +225,7 @@ src/
 │   │   ├── VMarkerAnnotation.vue
 │   │   └── index.ts
 │   └── …                     # one folder per public component
-├── composables/
-│   ├── use-map-kit.ts         # loadMapKit / initMapKit
-│   ├── use-map-child.ts       # shared child lifecycle
-│   ├── use-search.ts
-│   ├── use-geocoder.ts
-│   ├── use-directions.ts
-│   ├── use-points-of-interest-search.ts
-│   └── use-cluster.ts
+├── composables/               # use-map-kit, use-map-child, use-search, use-geocoder, use-directions, use-points-of-interest-search, use-cluster (kebab-case files)
 ├── constants/
 │   └── events/                # MapKit event-name groups (display, interaction, …)
 ├── types/

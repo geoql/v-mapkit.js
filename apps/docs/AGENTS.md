@@ -64,7 +64,7 @@ apps/docs/
 │   │   ├── docs/PageFooter.vue    # prev/next + edit/report
 │   │   ├── layout/                # Header (glass), Sidebar, Footer
 │   │   └── ui/button/             # shadcn-vue Button
-│   ├── composables/               # useDocsNavigation, usePageSeo, useThemeToggle
+│   ├── composables/               # use-docs-navigation, use-page-seo, use-theme-toggle
 │   ├── layouts/default.vue        # Header + Sidebar + Footer shell
 │   ├── lib/utils.ts               # cn() helper
 │   ├── pages/
@@ -81,13 +81,14 @@ apps/docs/
 ## Conventions
 
 1. **Markdown for docs content; Vue for chrome.** Author docs as Markdown under `content/` (rendered by `[...slug].vue` via `<ContentRenderer>`). The theme (layout, hero, prose) is custom Vue — edit it directly.
-2. **Sidebar nav is manual.** Add new doc pages to the `sections` array in `app/composables/useDocsNavigation.ts`.
+2. **Sidebar nav is manual.** Add new doc pages to the `sections` array in `app/composables/use-docs-navigation.ts`.
 3. **Semantic tokens only.** All colors via `bg-*`/`text-*` semantic tokens in `app/assets/css/main.css`. Never raw Tailwind colors or hardcoded `oklch()`.
 4. **100-line rule.** `.vue` files stay under ~100 lines — extract sub-components (the layout is split into Header/Sidebar/Footer for this reason).
 5. **D1 binding is required.** The `DB` binding feeds the content database in production; do not remove it from `nuxt.config.ts` wrangler config.
 6. **No standalone wrangler.json.** Cloudflare config is inlined in `nuxt.config.ts` under `nitro.cloudflare.wrangler` (matches the `apps/mapkit-cn` convention).
 7. **Dependency versions via catalog.** `package.json` references `catalog:app:docs` / `catalog:default` — versions live in `pnpm-workspace.yaml`. Never hard-code.
 8. **postinstall runs `nuxt prepare`.** Requires `enable-pre-post-scripts=true` in `.npmrc`.
+9. **Composables are kebab-case files.** Name composable files `use-x.ts` (e.g. `use-docs-navigation.ts`), exports stay camelCase (`useDocsNavigation`). This matches the reference docs apps (tileserver-rs/geolith) and the library — and is the **opposite** of the sibling `apps/mapkit-cn`, whose composables are camelCase files. Do not drift back to camelCase here.
 
 ## Commands
 
