@@ -10,6 +10,11 @@
     path: '/',
   });
 
+  defineOgImageComponent('MapkitDocs', {
+    title: 'Apple Maps, the Vue way.',
+    description: 'Declarative Vue 3 components for Apple MapKit JS.',
+  });
+
   const features = [
     { icon: Map, title: 'Declarative components', description: 'Use VMap, VMarkerAnnotation, and VCircleOverlay instead of imperative MapKit JS calls.' },
     { icon: Layers, title: 'Annotations & overlays', description: 'Markers, custom DOM annotations, circles, polygons, polylines, and tile overlays — all reactive.' },

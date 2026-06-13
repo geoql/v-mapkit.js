@@ -36,14 +36,17 @@ catalogs:
     "@nuxt/fonts": ^0.14.0
     "@nuxtjs/color-mode": ^4.0.1
     "@nuxtjs/tailwindcss": 7.0.0-beta.1
+    "@resvg/resvg-wasm": ^2.6.2
     "@vueuse/core": ^14.3.0
     "@vueuse/nuxt": ^14.3.0
     better-sqlite3: ^12.10.0
     class-variance-authority: ^0.7.1
     clsx: ^2.1.1
     lucide-vue-next: ^0.469.0
+    nuxt-og-image: ^6.6.0
     oxlint: ^1.69.0
     reka-ui: ^2.9.10
+    satori: ^0.26.0
     shadcn-nuxt: ^2.7.4
     tailwind-merge: ^3.6.0
     tailwindcss: ^4.3.0

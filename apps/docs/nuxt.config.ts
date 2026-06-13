@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
+    'nuxt-og-image',
     [
       '@nuxtjs/plausible',
       {
@@ -50,6 +51,17 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     },
+  },
+
+  site: {
+    url: 'https://v-mapkit.geoql.in',
+    name: 'v-mapkit',
+  },
+
+  ogImage: {
+    // Generate OG images at build time; skip per-request cache storage
+    // during prerender to keep the Cloudflare Pages worker bundle small.
+    runtimeCacheStorage: false,
   },
 
   runtimeConfig: {

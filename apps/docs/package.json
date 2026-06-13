@@ -14,6 +14,7 @@
   "dependencies": {
     "@nuxt/content": "catalog:app:docs",
     "@nuxtjs/color-mode": "catalog:app:docs",
+    "@resvg/resvg-js": "^2.6.2",
     "@vueuse/core": "catalog:app:docs",
     "@vueuse/nuxt": "catalog:app:docs",
     "better-sqlite3": "catalog:app:docs",
@@ -30,7 +31,10 @@
     "@nuxt/fonts": "catalog:app:docs",
     "@nuxtjs/plausible": "catalog:default",
     "@nuxtjs/tailwindcss": "catalog:app:docs",
+    "@resvg/resvg-wasm": "catalog:app:docs",
+    "nuxt-og-image": "catalog:app:docs",
     "oxlint": "catalog:app:docs",
+    "satori": "catalog:app:docs",
     "shadcn-nuxt": "catalog:app:docs",
     "tailwindcss": "catalog:app:docs",
     "typescript": "catalog:app:docs",

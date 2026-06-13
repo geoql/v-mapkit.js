@@ -51,6 +51,17 @@
     description: page.value?.description ?? 'v-mapkit documentation',
     path: path.value,
   });
+
+  const ogCategory = computed(() => {
+    const segment = path.value.split('/')[1] ?? '';
+    return segment ? segment.replace(/-/g, ' ') : 'Docs';
+  });
+
+  defineOgImageComponent('MapkitDocs', {
+    title: page.value?.title ?? 'v-mapkit',
+    description: page.value?.description ?? 'Vue 3 components for Apple MapKit JS.',
+    category: ogCategory.value,
+  });
 </script>
 
 <template>
