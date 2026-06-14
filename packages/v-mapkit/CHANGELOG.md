@@ -18,6 +18,13 @@
 - add support for `nvm` ([55dfe11](https://github.com/geoql/v-mapkit/commit/55dfe1142f02ae684b0cc70f1f0f6113268abb89))
 - update `.vscode` setting(s) ([d318b05](https://github.com/geoql/v-mapkit/commit/d318b0582e3bcd020d8025e58aa48f6eebf1bbee))
 
+## [1.0.1](https://github.com/geoql/v-mapkit/compare/v1.0.0...v1.0.1) (2026-06-14)
+
+
+### Code Refactoring
+
+* **docs:** kebab-case composable filenames + align AGENTS.md ([d473faf](https://github.com/geoql/v-mapkit/commit/d473fafbce5bd4ac145ad3e3ca5951a726aa7ecb))
+
 ## [1.0.0](https://github.com/geoql/v-mapkit/compare/v0.3.0...v1.0.0) (2026-06-12)
 
 
