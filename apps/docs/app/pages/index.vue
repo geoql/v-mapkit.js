@@ -30,44 +30,51 @@
     <LayoutHeader />
 
     <section
-      class="relative flex min-h-dvh flex-col justify-center px-6 pt-14 pb-16 md:px-12 lg:px-20"
+      class="relative flex min-h-dvh flex-col justify-center px-6 py-20 md:px-12 lg:px-20"
     >
-      <p class="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-        Apple MapKit JS · Vue 3
-      </p>
-      <h1
-        class="mb-6 max-w-4xl text-5xl font-bold tracking-tighter md:text-6xl lg:text-7xl"
-        style="line-height: 1.05"
-      >
-        Apple Maps, the Vue way.
-      </h1>
-      <p class="mb-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-        Declarative components and composables for Apple MapKit JS — annotations,
-        overlays, clustering, Look Around, and services. Fully typed and Nuxt-ready.
-      </p>
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="flex flex-col">
+          <p class="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Apple MapKit JS · Vue 3
+          </p>
+          <h1
+            class="mb-6 text-5xl font-bold tracking-tighter md:text-6xl"
+            style="line-height: 1.05"
+          >
+            Apple Maps, the Vue way.
+          </h1>
+          <p class="mb-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            Declarative components and composables for Apple MapKit JS —
+            annotations, overlays, clustering, Look Around, and services. Fully
+            typed and Nuxt-ready.
+          </p>
 
-      <div class="mb-10 inline-flex w-fit items-center gap-3 rounded-xl border border-border bg-card px-5 py-3 font-mono text-base shadow-sm md:text-lg">
-        <span class="select-none text-muted-foreground">$</span>
-        <span class="text-foreground">npm i @geoql/v-mapkit</span>
-      </div>
+          <div class="mb-10 inline-flex w-fit items-center gap-3 rounded-xl border border-border bg-card px-5 py-3 font-mono text-base shadow-sm md:text-lg">
+            <span class="select-none text-muted-foreground">$</span>
+            <span class="text-foreground">npm i @geoql/v-mapkit</span>
+          </div>
 
-      <div class="flex flex-wrap gap-3">
-        <NuxtLink
-          to="/guide/getting-started"
-          class="group inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90"
-        >
-          Get started
-          <ArrowRight class="size-4 transition-transform group-hover:translate-x-0.5" />
-        </NuxtLink>
-        <a
-          href="https://mapkit-cn.geoql.in"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-medium text-foreground shadow-2xs transition-colors hover:bg-accent"
-        >
-          <Github class="size-4" />
-          Live examples
-        </a>
+          <div class="flex flex-wrap gap-3">
+            <NuxtLink
+              to="/guide/getting-started"
+              class="group inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90"
+            >
+              Get started
+              <ArrowRight class="size-4 transition-transform group-hover:translate-x-0.5" />
+            </NuxtLink>
+            <a
+              href="https://mapkit-cn.geoql.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-medium text-foreground shadow-2xs transition-colors hover:bg-accent"
+            >
+              <Github class="size-4" />
+              Live examples
+            </a>
+          </div>
+        </div>
+
+        <HeroPreview class="hidden lg:block" />
       </div>
     </section>
 
